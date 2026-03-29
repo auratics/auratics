@@ -1,9 +1,10 @@
 # Privacy Policy
 
-This app does not collect, store, or share any personal user data.
+This app uses third-party advertising services (Google AdMob) which may collect and use data such as device information and advertising identifiers to provide personalized ads.
 
-All data entered in the app (such as fasting schedules or preferences) is stored locally on the user's device and is not transmitted to any external servers.
+We do not collect or store personal data directly. All data is handled by third-party services in accordance with their own privacy policies.
 
-We do not use third-party analytics, tracking tools, or advertising services.
+For more information, please review Google's Privacy Policy:
+https://policies.google.com/privacy
 
-If you have any questions, feel free to contact us.
+If you have any questions, you can contact us.
