@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Deletion Request</title>
+<style>
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 0 20px;
+    color: #222;
+    line-height: 1.6;
+  }
+  h1 { font-size: 24px; }
+  .box {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 24px 0;
+  }
+  label { font-weight: 600; display: block; margin-top: 14px; }
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+  button {
+    margin-top: 18px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  button:hover { background: #1d4ed8; }
+  .note { font-size: 14px; color: #555; margin-top: 30px; }
+</style>
+</head>
+<body>
+
+<h1>Account & Data Deletion Request</h1>
+
+<p>
+To delete your account and all associated data from our app, you can use
+either of the methods below.
+</p>
+
+<div class="box">
+  <strong>Method 1 — From within the app</strong>
+  <p>Open the app → go to <em>Settings</em> → tap <em>Delete Account</em>.
+  Your account and data will be deleted immediately.</p>
+</div>
+
+<div class="box">
+  <strong>Method 2 — From this page (if you no longer have the app)</strong>
+  <p>Fill out the form below and submit it. Your request will be processed
+  within 30 days and all data associated with your account will be
+  permanently deleted.</p>
+
+  <form action="mailto:YOUR_EMAIL_HERE@example.com" method="post" enctype="text/plain">
+    <label for="email">Email address associated with your account</label>
+    <input type="email" id="email" name="email" required placeholder="you@example.com">
+
+    <label for="msg">Additional notes (optional)</label>
+    <textarea id="msg" name="msg" rows="3" placeholder="Any extra details you'd like to share"></textarea>
+
+    <button type="submit">Submit Deletion Request</button>
+  </form>
+</div>
+
+<p class="note">
+When your account is deleted, your profile information, in-app data, and
+all personal data associated with your account will be permanently removed.
+Certain data may be retained for a limited period where required for legal,
+security, or fraud-prevention purposes, in accordance with applicable law.
+</p>
+
+<p class="note">
+Questions? Contact us at: <a href="mailto:auratics.studio@gmail.com">auratics.studio@gmail.com</a>
+</p>
+
+</body>
+</html>
