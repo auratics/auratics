@@ -1,10 +1,45 @@
 # Privacy Policy
 
-This app uses third-party advertising services (Google AdMob) which may collect and use data such as device information and advertising identifiers to provide personalized ads.
+Last updated: 11 August 2026
 
-We do not collect or store personal data directly. All data is handled by third-party services in accordance with their own privacy policies.
+## Data we collect
 
-For more information, please review Google's Privacy Policy:
-https://policies.google.com/privacy
+**Account data.** If you create an account, we store your email address
+to authenticate you. You can also use the app as a guest, in which case
+an anonymous identifier is created instead — no email is stored.
 
-If you have any questions, you can contact us.
+**Content you create.** The data you enter in the app (habits, records,
+entries) is stored so it can sync to your devices. In Maaş Metre this
+includes salary figures you enter. This content is linked to your
+account identifier and is not visible to other users.
+
+**Advertising data.** We use Google AdMob. AdMob may collect device
+information and advertising identifiers to serve ads. On iOS, we ask
+for your permission before any tracking takes place; if you decline,
+you will see non-personalized ads.
+
+## How data is stored
+
+Account and content data is stored on Supabase. Access is restricted by
+row-level security, so only your account can read your own records.
+
+## Deleting your data
+
+You can delete your account from within the app at any time
+(Profile → Delete Account). This permanently removes your account and
+all associated content from our servers.
+
+## Third parties
+
+- Google AdMob — https://policies.google.com/privacy
+- Supabase — https://supabase.com/privacy
+
+We do not sell your data.
+
+## Children
+
+Our apps are not directed at children under 13.
+
+## Contact
+
+Questions: auratics.studio@gmail.com
