@@ -4,7 +4,9 @@ title: auratics
 
 # auratics
 
-Apps by auratics.
+Mobile apps by auratics.
+
+## Pages
 
 - [Privacy Policy](privacy-policy)
 - [Support](support)
