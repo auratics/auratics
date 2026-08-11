@@ -13,10 +13,10 @@ entries) is stored so it can sync to your devices. In Maaş Metre this
 includes salary figures you enter. This content is linked to your
 account identifier and is not visible to other users.
 
-**Advertising data.** We use Google AdMob. AdMob may collect device
-information and advertising identifiers to serve ads. On iOS, we ask
-for your permission before any tracking takes place; if you decline,
-you will see non-personalized ads.
+**Advertising data.** We use Google AdMob to show ads. AdMob may collect
+device information and advertising identifiers to serve ads. We do not
+track you across other companies' apps or websites, and we show
+non-personalized ads on iOS.
 
 ## How data is stored
 
