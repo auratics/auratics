@@ -1,5 +1,7 @@
 # KortPro Kullanım Koşulları
 
+[English](terms-en)
+
 Son güncelleme: 04 Ekim 2026
 
 KortPro'yu kullanarak bu koşulları kabul etmiş olursun.

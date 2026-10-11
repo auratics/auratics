@@ -1,9 +1,12 @@
 # KortPro Gizlilik Politikası ve Aydınlatma Metni
 
-Son güncelleme: 04 Ekim 2026
+[English](privacy-policy-en)
+
+Son güncelleme: 11 Ekim 2026
 
 Bu metin **KortPro** uygulaması için geçerlidir.
 
+**Veri sorumlusu:** Feyza Can
 **İletişim:** auratics.studio@gmail.com
 
 Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında
@@ -23,6 +26,8 @@ aydınlatma metni olarak da hazırlanmıştır.
 - Seçtiğin figür (kadın/erkek) — karma turnuvalarda eşleşmeleri göstermek için.
 - Sana özel 6 haneli oyuncu kodun — rakiplerinin seni bulabilmesi için.
 - Profil fotoğrafın — **isteğe bağlı** (ayrıntı: 4. bölüm).
+- Dil tercihin (Türkçe ya da İngilizce) — bildirimleri ve e-postaları senin
+  dilinde gönderebilmek için.
 
 **Girdiğin içerik**
 - Maç kayıtların: rakip adları, set skorları, tarih, saat, kort adı ve maç notların.
@@ -98,9 +103,19 @@ Verilerin reklam, profilleme ya da yüz tanıma için kullanılmaz.
 OpenAI, API üzerinden gönderilen verileri model eğitiminde kullanmaz;
 kötüye kullanımı izlemek için en fazla 30 gün saklayabilir.
 
-Bu sağlayıcılar Türkiye dışında bulunduğundan verilerin KVKK md. 9 kapsamında
-yurt dışına aktarılır. [Avukatına danışarak aktarım dayanağını buraya yaz —
-örneğin Kurul'un yayımladığı standart sözleşme ve Kurum'a bildirimi.]
+Bu sağlayıcıların sunucuları Türkiye dışında olduğundan, KortPro'yu
+kullandığında verilerin KVKK md. 9 kapsamında yurt dışına aktarılır.
+
+Aktarımları şu şekilde sınırlı tutuyoruz:
+
+- **Yalnızca gereken veri gider.** Her sağlayıcı yalnızca tabloda yazan iş
+  için gerekeni alır. OpenAI'a yalnızca yüklediğin fotoğraf gönderilir;
+  adın, e-postan ya da maçların gönderilmez.
+- **Veritabanın Avrupa Birliği'ndedir** (Almanya), AB veri koruma
+  kurallarına tabi bir veri merkezinde tutulur.
+
+Yurt dışına aktarımla ilgili soruların ve taleplerin için
+auratics.studio@gmail.com adresine yazabilirsin.
 
 ## 6. Ne kadar saklıyoruz?
 
