@@ -2,7 +2,7 @@
 
 [Türkçe](privacy-policy)
 
-Last updated: 12 October 2026
+Last updated: 13 October 2026
 
 *This is a translation of the Turkish original. If the two differ, the
 Turkish version prevails.*
@@ -81,6 +81,12 @@ There are no public profiles and no search. Visibility works like this:
 
 People you block cannot see your profile photo, and cannot send you link
 requests or match proposals.
+
+**Share cards:** You can share a match, your stats or your score against a
+rival as a picture. The card shows your name and photo, your rival's name and
+the scores. Your rival's photo appears only if they allowed it (Settings → My
+photo on share cards; off by default). A picture you share can be seen by
+others wherever you share it.
 
 ## 3. Why do we process it? (Legal grounds)
 

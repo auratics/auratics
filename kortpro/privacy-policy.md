@@ -2,7 +2,7 @@
 
 [English](privacy-policy-en)
 
-Son güncelleme: 12 Ekim 2026
+Son güncelleme: 13 Ekim 2026
 
 Bu metin **KortPro** uygulaması için geçerlidir.
 
@@ -70,6 +70,12 @@ Herkese açık bir profil ya da arama yoktur. Görünürlük şöyledir:
 
 Engellediğin kişiler profil fotoğrafını göremez, sana bağlantı isteği ve maç
 teklifi gönderemez.
+
+**Paylaşım kartları:** Bir maçını, istatistiğini ya da bir rakiple aranızdaki
+skoru görsel olarak paylaşabilirsin. Kartta senin adın ve fotoğrafın, rakibinin
+adı ve skorlar yer alır. Rakibinin fotoğrafı yalnızca kendisi izin verdiyse
+görünür (Ayarlar → Paylaşım kartlarında fotoğrafım; varsayılan olarak kapalı).
+Paylaştığın görsel, paylaştığın yerde başkalarınca görülebilir.
 
 ## 3. Neden işliyoruz? (Hukuki sebepler)
 
