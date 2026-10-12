@@ -83,4 +83,4 @@ These terms are governed by the laws of the Republic of Türkiye.
 
 ## 12. Contact
 
-For complaints, reports and questions: **auratics.studio@gmail.com**
+For complaints, reports and questions: **support@kortpro.app**

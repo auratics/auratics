@@ -82,4 +82,4 @@ Bu koşullara Türkiye Cumhuriyeti hukuku uygulanır.
 
 ## 12. İletişim
 
-Şikâyet, bildirim ve sorular için: **auratics.studio@gmail.com**
+Şikâyet, bildirim ve sorular için: **support@kortpro.app**

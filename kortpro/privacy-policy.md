@@ -2,12 +2,12 @@
 
 [English](privacy-policy-en)
 
-Son güncelleme: 11 Ekim 2026
+Son güncelleme: 12 Ekim 2026
 
 Bu metin **KortPro** uygulaması için geçerlidir.
 
 **Veri sorumlusu:** Feyza Can
-**İletişim:** auratics.studio@gmail.com
+**İletişim:** support@kortpro.app
 
 Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında
 aydınlatma metni olarak da hazırlanmıştır.
@@ -23,7 +23,8 @@ aydınlatma metni olarak da hazırlanmıştır.
 
 **Profil bilgileri**
 - Görünen adın.
-- Seçtiğin figür (kadın/erkek) — karma turnuvalarda eşleşmeleri göstermek için.
+- Cinsiyetin (kadın, erkek ya da "belirtmek istemiyorum") — oyuncu kartında
+  göstermek için. "Belirtmek istemiyorum" seçersen hiçbir yerde görünmez.
 - Sana özel 6 haneli oyuncu kodun — rakiplerinin seni bulabilmesi için.
 - Profil fotoğrafın — **isteğe bağlı** (ayrıntı: 4. bölüm).
 - Dil tercihin (Türkçe ya da İngilizce) — bildirimleri ve e-postaları senin
@@ -37,12 +38,20 @@ aydınlatma metni olarak da hazırlanmıştır.
 **Bildirimler**
 - Bildirimlere izin verirsen cihazının bildirim adresi (push token) ve bildirim tercihin.
 
+**Kullanım verileri** (Ayarlar → Kullanım verileri'nden kapatabilirsin)
+- Uygulamada hangi ekranları açtığın ve hangi işlemleri yaptığın (ör. maç
+  kaydetmek, turnuva başlatmak, davet paylaşmak); uygulama sürümü, cihaz
+  modeli ve işletim sistemi.
+- Bunlar yalnızca hesabının rastgele kimlik numarasıyla eşleştirilir. Adın,
+  e-postan, rakiplerin ve skorların gönderilmez.
+
 **Güvenlik kayıtları**
 - Yaptığın ve hakkında yapılan fotoğraf bildirimleri, engellediğin kişiler.
 - Fotoğraf denetim sonuçları (kabul/ret ve puanlar — fotoğrafın kendisi değil).
 
 **Toplamadıklarımız:** konumun, rehberin, galerinin tamamı, reklam kimliğin.
-KortPro'da reklam, analiz ya da takip aracı yoktur ve verilerin satılmaz.
+KortPro'da reklam yoktur, seni başka uygulama ve sitelerde izlemeyiz ve
+verilerin satılmaz.
 
 ## 2. Bilgilerini kim görür?
 
@@ -53,7 +62,8 @@ Herkese açık bir profil ya da arama yoktur. Görünürlük şöyledir:
 | E-posta adresin | ✓ | | |
 | Maç notların | ✓ | | |
 | Elle yazdığın rakip adları, kişisel maçların | ✓ | | |
-| Görünen adın, figürün, profil fotoğrafın | ✓ | ✓ | ✓ |
+| Görünen adın, profil fotoğrafın, cinsiyetin (belirttiysen) | ✓ | ✓ | ✓ |
+| Maç sayın ve kazanma oranın — yalnızca bağlı rakiplerle ve turnuvalarda oynanan maçlardan | ✓ | ✓ | ✓ |
 | Bağlı bir rakiple kaydettiğin maç (skor, tarih, saat, kort — not hariç) | ✓ | ✓ (yalnızca o rakip) | |
 | Maç teklifleri | ✓ | ✓ (yalnızca teklifin tarafı) | |
 | Turnuva sonuçların, maç saatlerin, turnuva fotoğrafı | ✓ | | ✓ |
@@ -68,6 +78,9 @@ teklifi gönderemez.
   (sözleşmenin kurulması ve ifası).
 - **Güvenlik ve kötüye kullanımı önlemek** — fotoğrafların otomatik denetimi,
   bildirimler, engellemeler. KVKK md. 5/2-f (meşru menfaat).
+- **Uygulamayı geliştirmek** — hangi özelliklerin kullanıldığını görmek
+  (kullanım verileri). KVKK md. 5/2-f (meşru menfaat). Ayarlardan
+  kapatabilirsin.
 - **Yasal yükümlülükler** — hukuka aykırı içeriğin kaldırılması ve resmi
   makamların talepleri. KVKK md. 5/2-ç.
 
@@ -99,6 +112,7 @@ Verilerin reklam, profilleme ya da yüz tanıma için kullanılmaz.
 | Expo (650 Industries, Inc.) | Bildirimlerin iletilmesi | ABD |
 | Apple (APNs), Google (FCM) | Bildirimlerin cihazına teslimi | ABD |
 | OpenAI, L.L.C. | Yalnızca yüklenen fotoğrafların otomatik denetimi | ABD |
+| PostHog, Inc. | Kullanım verileri (kapatılabilir) | Almanya (Frankfurt) |
 
 OpenAI, API üzerinden gönderilen verileri model eğitiminde kullanmaz;
 kötüye kullanımı izlemek için en fazla 30 gün saklayabilir.
@@ -110,12 +124,13 @@ Aktarımları şu şekilde sınırlı tutuyoruz:
 
 - **Yalnızca gereken veri gider.** Her sağlayıcı yalnızca tabloda yazan iş
   için gerekeni alır. OpenAI'a yalnızca yüklediğin fotoğraf gönderilir;
-  adın, e-postan ya da maçların gönderilmez.
+  adın, e-postan ya da maçların gönderilmez. PostHog'a da yalnızca 1.
+  bölümde yazan kullanım verileri gider.
 - **Veritabanın Avrupa Birliği'ndedir** (Almanya), AB veri koruma
   kurallarına tabi bir veri merkezinde tutulur.
 
 Yurt dışına aktarımla ilgili soruların ve taleplerin için
-auratics.studio@gmail.com adresine yazabilirsin.
+support@kortpro.app adresine yazabilirsin.
 
 ## 6. Ne kadar saklıyoruz?
 
@@ -138,7 +153,7 @@ rakiplerin, bağlantıların ve tekliflerin kalıcı olarak silinir.
 KVKK md. 11 uyarınca; verilerinin işlenip işlenmediğini öğrenme, bilgi
 isteme, düzeltilmesini ya da silinmesini isteme, aktarıldığı kişileri öğrenme,
 itiraz etme ve zararının giderilmesini talep etme hakların vardır.
-Taleplerin için **auratics.studio@gmail.com** adresine yaz; en geç 30 gün
+Taleplerin için **support@kortpro.app** adresine yaz; en geç 30 gün
 içinde cevap veririz.
 
 ## 9. Güvenlik
@@ -158,4 +173,4 @@ Bu metni güncelleyebiliriz. Önemli değişiklikleri uygulama içinden duyururu
 
 ## 12. İletişim
 
-auratics.studio@gmail.com
+support@kortpro.app

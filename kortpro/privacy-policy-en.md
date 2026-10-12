@@ -2,7 +2,7 @@
 
 [Türkçe](privacy-policy)
 
-Last updated: 11 October 2026
+Last updated: 12 October 2026
 
 *This is a translation of the Turkish original. If the two differ, the
 Turkish version prevails.*
@@ -10,7 +10,7 @@ Turkish version prevails.*
 This policy applies to the **KortPro** app.
 
 **Data controller:** Feyza Can
-**Contact:** auratics.studio@gmail.com
+**Contact:** support@kortpro.app
 
 This policy also serves as the privacy notice required by the Turkish
 Personal Data Protection Law No. 6698 (KVKK).
@@ -29,7 +29,8 @@ Personal Data Protection Law No. 6698 (KVKK).
 
 **Profile details**
 - Your display name.
-- The figure you choose (female/male) — to show pairings in mixed tournaments.
+- Your gender (female, male or "prefer not to say") — to show it on your
+  player card. If you choose "prefer not to say", it is shown nowhere.
 - Your personal 6-character player code — so your rivals can find you.
 - Your profile photo — **optional** (details in section 4).
 - Your language (Turkish or English) — so notifications and emails reach you
@@ -46,6 +47,13 @@ Personal Data Protection Law No. 6698 (KVKK).
 - If you allow notifications, your device's notification address (push
   token) and your notification preference.
 
+**Usage data** (you can turn it off in Settings → Usage data)
+- Which screens you open and what you do in the app (for example logging a
+  match, starting a tournament, sharing an invite); the app version, device
+  model and operating system.
+- It is linked only to your account's random ID. Your name, email, rivals and
+  scores are never sent.
+
 **Safety records**
 - Photo reports you make and that are made about you, and the people you
   block.
@@ -53,8 +61,8 @@ Personal Data Protection Law No. 6698 (KVKK).
   itself).
 
 **What we don't collect:** your location, your contacts, your photo library
-as a whole, your advertising ID. KortPro has no advertising, analytics or
-tracking tools, and your data is not sold.
+as a whole, your advertising ID. KortPro has no advertising, we don't track
+you across other apps and websites, and your data is not sold.
 
 ## 2. Who can see your information?
 
@@ -65,7 +73,8 @@ There are no public profiles and no search. Visibility works like this:
 | Your email address | ✓ | | |
 | Your match notes | ✓ | | |
 | Rival names you typed, your personal matches | ✓ | | |
-| Your display name, figure, profile photo | ✓ | ✓ | ✓ |
+| Your display name, profile photo, gender (if you stated it) | ✓ | ✓ | ✓ |
+| Your match count and win rate — only from matches against linked rivals and in tournaments | ✓ | ✓ | ✓ |
 | A match you recorded with a linked rival (score, date, time, court — not the note) | ✓ | ✓ (that rival only) | |
 | Match proposals | ✓ | ✓ (only the other side of the proposal) | |
 | Your tournament results, match times, tournament photo | ✓ | | ✓ |
@@ -80,6 +89,8 @@ requests or match proposals.
   KVKK Art. 5/2-c (establishing and performing a contract).
 - **Safety and preventing abuse** — automatic photo moderation, reports,
   blocking. KVKK Art. 5/2-f (legitimate interest).
+- **Improving the app** — seeing which features are used (usage data). KVKK
+  Art. 5/2-f (legitimate interest). You can turn it off in Settings.
 - **Legal obligations** — removing unlawful content and requests from public
   authorities. KVKK Art. 5/2-ç.
 
@@ -111,6 +122,7 @@ Your data is not used for advertising, profiling or facial recognition.
 | Expo (650 Industries, Inc.) | Relaying notifications | USA |
 | Apple (APNs), Google (FCM) | Delivering notifications to your device | USA |
 | OpenAI, L.L.C. | Only the automatic moderation of uploaded photos | USA |
+| PostHog, Inc. | Usage data (can be turned off) | Germany (Frankfurt) |
 
 OpenAI does not use data sent through its API to train its models; it may
 keep it for up to 30 days to monitor abuse.
@@ -122,12 +134,13 @@ We keep these transfers limited:
 
 - **Only the data that is needed is sent.** Each provider receives only what
   it needs for the job listed in the table. OpenAI receives only the photo
-  you upload — not your name, your email or your matches.
+  you upload — not your name, your email or your matches. PostHog receives
+  only the usage data described in section 1.
 - **Your database is in the European Union** (Germany), in a data centre
   subject to EU data protection rules.
 
 For questions and requests about transfers abroad, write to
-auratics.studio@gmail.com.
+support@kortpro.app.
 
 ## 6. How long do we keep it?
 
@@ -151,7 +164,7 @@ rivals, links and proposals are deleted permanently.
 Under KVKK Art. 11 you have the right to learn whether your data is
 processed, to request information, to ask for it to be corrected or deleted,
 to learn who it has been transferred to, to object, and to claim
-compensation for damages. Write to **auratics.studio@gmail.com** with your
+compensation for damages. Write to **support@kortpro.app** with your
 requests; we reply within 30 days at the latest.
 
 ## 9. Security
@@ -171,4 +184,4 @@ We may update this policy. We announce important changes in the app.
 
 ## 12. Contact
 
-auratics.studio@gmail.com
+support@kortpro.app
