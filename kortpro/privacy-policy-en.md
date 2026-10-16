@@ -2,7 +2,7 @@
 
 [Türkçe](privacy-policy)
 
-Last updated: 13 October 2026
+Last updated: 16 October 2026
 
 *This is a translation of the Turkish original. If the two differ, the
 Turkish version prevails.*
@@ -32,6 +32,8 @@ Personal Data Protection Law No. 6698 (KVKK).
 - Your gender (female, male or "prefer not to say") — to show it on your
   player card. If you choose "prefer not to say", it is shown nowhere.
 - Your personal 6-character player code — so your rivals can find you.
+- Your username (e.g. @makikali) — so your rivals can find you. It is made
+  from your display name; you can change it in Settings.
 - Your profile photo — **optional** (details in section 4).
 - Your language (Turkish or English) — so notifications and emails reach you
   in your language.
@@ -66,7 +68,15 @@ you across other apps and websites, and your data is not sold.
 
 ## 2. Who can see your information?
 
-There are no public profiles and no search. Visibility works like this:
+There are no public profiles and nobody is listed. Someone who types your
+whole username can find you: they see only your display name and username,
+and can send you a link request. Your photo and stats are shown only if you
+accept. You can turn this off in Settings → Privacy → "Others can find me by
+my username"; rivals can then add you only with your player code or an invite
+link. People you have blocked, or who have blocked you, cannot find you by
+your username.
+
+Visibility works like this:
 
 | Information | Only you | Your linked rivals | Players in the same tournament |
 |---|---|---|---|
@@ -74,6 +84,7 @@ There are no public profiles and no search. Visibility works like this:
 | Your match notes | ✓ | | |
 | Rival names you typed, your personal matches | ✓ | | |
 | Your display name, profile photo, gender (if you stated it) | ✓ | ✓ | ✓ |
+| Your username | ✓ | ✓ | ✓ |
 | Your match count and win rate — only from matches against linked rivals and in tournaments | ✓ | ✓ | ✓ |
 | A match you recorded with a linked rival (score, date, time, court — not the note) | ✓ | ✓ (that rival only) | |
 | Match proposals | ✓ | ✓ (only the other side of the proposal) | |

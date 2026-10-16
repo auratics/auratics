@@ -2,7 +2,7 @@
 
 [English](privacy-policy-en)
 
-Son güncelleme: 13 Ekim 2026
+Son güncelleme: 16 Ekim 2026
 
 Bu metin **KortPro** uygulaması için geçerlidir.
 
@@ -26,6 +26,8 @@ aydınlatma metni olarak da hazırlanmıştır.
 - Cinsiyetin (kadın, erkek ya da "belirtmek istemiyorum") — oyuncu kartında
   göstermek için. "Belirtmek istemiyorum" seçersen hiçbir yerde görünmez.
 - Sana özel 6 haneli oyuncu kodun — rakiplerinin seni bulabilmesi için.
+- Kullanıcı adın (ör. @makikali) — rakiplerinin seni bulabilmesi için. Görünen
+  adından otomatik oluşturulur; Ayarlar'dan değiştirebilirsin.
 - Profil fotoğrafın — **isteğe bağlı** (ayrıntı: 4. bölüm).
 - Dil tercihin (Türkçe ya da İngilizce) — bildirimleri ve e-postaları senin
   dilinde gönderebilmek için.
@@ -55,7 +57,15 @@ verilerin satılmaz.
 
 ## 2. Bilgilerini kim görür?
 
-Herkese açık bir profil ya da arama yoktur. Görünürlük şöyledir:
+Herkese açık bir profil yoktur ve kişiler listelenmez. Kullanıcı adını tam
+olarak yazan biri seni bulabilir: yalnızca görünen adını ve kullanıcı adını
+görür ve sana bağlantı isteği gönderebilir. Fotoğrafın ve istatistiklerin
+yalnızca isteği kabul edersen görünür. Ayarlar → Gizlilik → "Kullanıcı adımla
+bulunabilirim" ile bunu kapatabilirsin; o zaman seni yalnızca oyuncu kodunla
+ya da davet linkinle ekleyebilirler. Seni engellediğin ya da seni engelleyen
+biri seni kullanıcı adınla bulamaz.
+
+Görünürlük şöyledir:
 
 | Bilgi | Yalnızca sen | Bağlantılı rakiplerin | Aynı turnuvadaki oyuncular |
 |---|---|---|---|
@@ -63,6 +73,7 @@ Herkese açık bir profil ya da arama yoktur. Görünürlük şöyledir:
 | Maç notların | ✓ | | |
 | Elle yazdığın rakip adları, kişisel maçların | ✓ | | |
 | Görünen adın, profil fotoğrafın, cinsiyetin (belirttiysen) | ✓ | ✓ | ✓ |
+| Kullanıcı adın | ✓ | ✓ | ✓ |
 | Maç sayın ve kazanma oranın — yalnızca bağlı rakiplerle ve turnuvalarda oynanan maçlardan | ✓ | ✓ | ✓ |
 | Bağlı bir rakiple kaydettiğin maç (skor, tarih, saat, kort — not hariç) | ✓ | ✓ (yalnızca o rakip) | |
 | Maç teklifleri | ✓ | ✓ (yalnızca teklifin tarafı) | |
