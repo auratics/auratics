@@ -100,8 +100,8 @@ Paylaştığın görsel, paylaştığın yerde başkalarınca görülebilir.
 (eleme ya da lig), kurucusunun adı, oyuncu sayısı ve içinde oynayan
 bağlantılı rakiplerinin adları; kurucunun ve oyuncuların bağlantılı
 rakiplerine "Turnuvaya katıl" ekranında görünür. Diğer oyuncuların adları
-görünmez. Kurucu bunu turnuva ekranındaki "Rakipler görebilsin ve katılmak
-isteyebilsin" ayarıyla kapatabilir; engellediğin ya da seni engelleyen
+görünmez. Kurucu bunu turnuva ekranındaki "Turnuva görünürlüğü"
+ayarıyla kapatabilir; engellediğin ya da seni engelleyen
 kişilere hiç gösterilmez. Katılmak istediğinde görünen adın ve kullanıcı adın
 (fotoğrafın yalnızca izin verdiysen) turnuva sahibine gider; kabul ederse
 turnuvaya katılırsın.

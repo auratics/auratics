@@ -114,7 +114,7 @@ name, format (knockout or league), its organiser's name, the number of
 players and the names of your linked rivals playing in it are shown under
 "Join a tournament" to the linked rivals of its organiser and of its players.
 The other players' names are not shown. The organiser can turn this off with
-"Let rivals see it and ask to join" on the tournament screen, and it is never
+"Tournament visibility" on the tournament screen, and it is never
 shown to people you have blocked or who have blocked you. When you ask to
 join, your display name and username (and your photo, only if you allowed it)
 go to the organiser; if they accept, you join the tournament.
