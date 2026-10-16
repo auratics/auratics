@@ -72,7 +72,7 @@ you by typing at least the first 3 letters of your username or of a word in
 your display name. Search results list your display name and username (at most
 20 people per search), and they can send you a link request. Your profile
 photo appears in search results only if you allowed it (Settings → Preferences
-→ "Show my photo"; off by default). Your stats are
+→ "Show my photo to everyone"; off by default). Your stats are
 shown only if you accept the request.
 
 You can turn off appearing in search in Settings → Preferences → "Show me in
@@ -105,7 +105,7 @@ your lists.
 **Share cards:** You can share a match, your stats or your score against a
 rival as a picture. The card shows your name and photo, your rival's name and
 the scores. Your rival's photo appears only if they allowed it (Settings →
-Preferences → "Show my photo"; off by default — the
+Preferences → "Show my photo to everyone"; off by default — the
 same consent covers the photo in search results). A picture you share can be seen by
 others wherever you share it.
 
