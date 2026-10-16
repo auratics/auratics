@@ -42,7 +42,7 @@ Personal Data Protection Law No. 6698 (KVKK).
   your match notes.
 - Your rival links and your match proposals (day, time, place).
 - Tournaments: tournament name, tournament photo (optional), participants,
-  pairings, match times and scores.
+  pairings, match times, scores and join requests.
 
 **Notifications**
 - If you allow notifications, your device's notification address (push
@@ -103,6 +103,16 @@ the scores. Your rival's photo appears only if they allowed it (Settings →
 Preferences → "Others besides my rivals may see my photo"; off by default — the
 same consent covers the photo in search results). A picture you share can be seen by
 others wherever you share it.
+
+**Your rivals' tournaments:** For a tournament that hasn't started yet, its
+name, format (knockout or league), its organiser's name, the number of
+players and the names of your linked rivals playing in it are shown under
+"Join a tournament" to the linked rivals of its organiser and of its players.
+The other players' names are not shown. The organiser can turn this off with
+"Let rivals see it and ask to join" on the tournament screen, and it is never
+shown to people you have blocked or who have blocked you. When you ask to
+join, your display name and username (and your photo, only if you allowed it)
+go to the organiser; if they accept, you join the tournament.
 
 ## 3. Why do we process it? (Legal grounds)
 

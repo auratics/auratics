@@ -34,7 +34,7 @@ aydınlatma metni olarak da hazırlanmıştır.
 **Girdiğin içerik**
 - Maç kayıtların: rakip adları, set skorları, tarih, saat, kort adı ve maç notların.
 - Rakip bağlantıların, maç tekliflerin (gün, saat, yer).
-- Turnuvalar: turnuva adı, turnuva fotoğrafı (isteğe bağlı), katılımcılar, eşleşmeler, maç saatleri ve skorlar.
+- Turnuvalar: turnuva adı, turnuva fotoğrafı (isteğe bağlı), katılımcılar, eşleşmeler, maç saatleri, skorlar ve katılma istekleri.
 
 **Bildirimler**
 - Bildirimlere izin verirsen cihazının bildirim adresi (push token) ve bildirim tercihin.
@@ -93,6 +93,16 @@ görünür (Ayarlar → Tercihler → "Fotoğrafım rakiplerim dışındakilere 
 görünebilir"; varsayılan olarak kapalı — arama sonuçlarındaki fotoğraf için de
 aynı izin geçerlidir).
 Paylaştığın görsel, paylaştığın yerde başkalarınca görülebilir.
+
+**Rakiplerinin turnuvaları:** Henüz başlamamış bir turnuvanın adı, biçimi
+(eleme ya da lig), kurucusunun adı, oyuncu sayısı ve içinde oynayan
+bağlantılı rakiplerinin adları; kurucunun ve oyuncuların bağlantılı
+rakiplerine "Turnuvaya katıl" ekranında görünür. Diğer oyuncuların adları
+görünmez. Kurucu bunu turnuva ekranındaki "Rakipler görebilsin ve katılmak
+isteyebilsin" ayarıyla kapatabilir; engellediğin ya da seni engelleyen
+kişilere hiç gösterilmez. Katılmak istediğinde görünen adın ve kullanıcı adın
+(fotoğrafın yalnızca izin verdiysen) turnuva sahibine gider; kabul ederse
+turnuvaya katılırsın.
 
 ## 3. Neden işliyoruz? (Hukuki sebepler)
 
