@@ -76,7 +76,7 @@ photo appears in search results only if you allowed it (Settings → Preferences
 shown only if you accept the request.
 
 You can turn off appearing in search in Settings → Preferences → "Show me in
-search"; then you don't appear in search, but
+search results"; then you don't appear in search, but
 people you share your invite link with can still add you, and you can still
 add rivals yourself. People you have blocked, or who have blocked you, can
 never find you.

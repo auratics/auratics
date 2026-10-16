@@ -63,7 +63,7 @@ aramada en fazla 20 kişi) ve sana bağlantı isteği gönderebilir. Profil
 fotoğrafın arama sonuçlarında yalnızca izin verdiysen görünür (Ayarlar →
 Tercihler → "Fotoğrafımı herkese göster"; varsayılan olarak kapalı). İstatistiklerin yalnızca isteği kabul edersen görünür.
 
-Ayarlar → Tercihler → "Beni aramada göster" ile aramada görünmeyi
+Ayarlar → Tercihler → "Beni arama sonuçlarında göster" ile aramada görünmeyi
 kapatabilirsin; o zaman aramada çıkmazsın, ama davet linkini
 paylaştığın kişiler seni yine ekleyebilir ve sen de rakiplerini eklemeye devam
 edebilirsin. Engellediğin ya da seni engelleyen biri seni hiçbir zaman
