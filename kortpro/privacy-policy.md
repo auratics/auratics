@@ -61,11 +61,10 @@ adının ya da görünen adındaki bir kelimenin en az ilk 3 harfini yazarak sen
 arayabilir. Arama sonuçlarında görünen adın ve kullanıcı adın listelenir (bir
 aramada en fazla 20 kişi) ve sana bağlantı isteği gönderebilir. Profil
 fotoğrafın arama sonuçlarında yalnızca izin verdiysen görünür (Ayarlar →
-Tercihler → "Fotoğrafım rakiplerim dışındakilere de görünebilir"; varsayılan
-olarak kapalı). İstatistiklerin yalnızca isteği kabul edersen görünür.
+Tercihler → "Fotoğrafımı göster"; varsayılan olarak kapalı). İstatistiklerin yalnızca isteği kabul edersen görünür.
 
-Ayarlar → Tercihler → "Görünen adım ve kullanıcı adımla bulunabilirim" ile
-aramada görünmeyi kapatabilirsin; o zaman aramada çıkmazsın, ama davet linkini
+Ayarlar → Tercihler → "Beni aramada göster" ile aramada görünmeyi
+kapatabilirsin; o zaman aramada çıkmazsın, ama davet linkini
 paylaştığın kişiler seni yine ekleyebilir ve sen de rakiplerini eklemeye devam
 edebilirsin. Engellediğin ya da seni engelleyen biri seni hiçbir zaman
 bulamaz.
@@ -93,8 +92,7 @@ rakibini "maçlarla birlikte" silerse, maç ikinizin listesinden de silinir.
 **Paylaşım kartları:** Bir maçını, istatistiğini ya da bir rakiple aranızdaki
 skoru görsel olarak paylaşabilirsin. Kartta senin adın ve fotoğrafın, rakibinin
 adı ve skorlar yer alır. Rakibinin fotoğrafı yalnızca kendisi izin verdiyse
-görünür (Ayarlar → Tercihler → "Fotoğrafım rakiplerim dışındakilere de
-görünebilir"; varsayılan olarak kapalı — arama sonuçlarındaki fotoğraf için de
+görünür (Ayarlar → Tercihler → "Fotoğrafımı göster"; varsayılan olarak kapalı — arama sonuçlarındaki fotoğraf için de
 aynı izin geçerlidir).
 Paylaştığın görsel, paylaştığın yerde başkalarınca görülebilir.
 
