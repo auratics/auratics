@@ -31,7 +31,6 @@ Personal Data Protection Law No. 6698 (KVKK).
 - Your display name.
 - Your gender (female, male or "prefer not to say") — to show it on your
   player card. If you choose "prefer not to say", it is shown nowhere.
-- Your personal 6-character player code — so your rivals can find you.
 - Your username (e.g. @makikali) — so your rivals can find you. It is made
   from your display name; you can change it in Settings.
 - Your profile photo — **optional** (details in section 4).
@@ -72,8 +71,8 @@ There are no public profiles and nobody is listed. Someone who types your
 whole username can find you: they see only your display name and username,
 and can send you a link request. Your photo and stats are shown only if you
 accept. You can turn this off in Settings → Privacy → "Others can find me by
-my username"; rivals can then add you only with your player code or an invite
-link. People you have blocked, or who have blocked you, cannot find you by
+my username"; then nobody can find you and your invite link does not work,
+but you can still add rivals yourself. People you have blocked, or who have blocked you, cannot find you by
 your username.
 
 Visibility works like this:
