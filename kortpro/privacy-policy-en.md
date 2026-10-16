@@ -97,6 +97,10 @@ Visibility works like this:
 People you block cannot see your profile photo, and cannot send you link
 requests or match proposals.
 
+If either of you deletes a match recorded together with a linked rival, or
+deletes the rival together with the matches, the match is deleted from both
+your lists.
+
 **Share cards:** You can share a match, your stats or your score against a
 rival as a picture. The card shows your name and photo, your rival's name and
 the scores. Your rival's photo appears only if they allowed it (Settings →

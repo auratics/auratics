@@ -86,6 +86,9 @@ Görünürlük şöyledir:
 Engellediğin kişiler profil fotoğrafını göremez, sana bağlantı isteği ve maç
 teklifi gönderemez.
 
+Bağlı bir rakiple ortak kaydedilen bir maçı ikinizden biri silerse ya da
+rakibini "maçlarla birlikte" silerse, maç ikinizin listesinden de silinir.
+
 **Paylaşım kartları:** Bir maçını, istatistiğini ya da bir rakiple aranızdaki
 skoru görsel olarak paylaşabilirsin. Kartta senin adın ve fotoğrafın, rakibinin
 adı ve skorlar yer alır. Rakibinin fotoğrafı yalnızca kendisi izin verdiyse
