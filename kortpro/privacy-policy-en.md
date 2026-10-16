@@ -67,13 +67,18 @@ you across other apps and websites, and your data is not sold.
 
 ## 2. Who can see your information?
 
-There are no public profiles and nobody is listed. Someone who types your
-whole username can find you: they see only your display name and username,
-and can send you a link request. Your photo and stats are shown only if you
-accept. You can turn this off in Settings → Privacy → "Others can find me by
-my username"; then nobody can find you and your invite link does not work,
-but you can still add rivals yourself. People you have blocked, or who have blocked you, cannot find you by
-your username.
+There are no public profiles. A KortPro user with an account can search for
+you by typing at least the first 3 letters of your username or of a word in
+your display name. Search results list your display name and username (at most
+20 people per search), and they can send you a link request. Your profile
+photo appears in search results only if you allowed it (Settings → Preferences
+→ "Others besides my rivals may see my photo"; off by default). Your stats are
+shown only if you accept the request.
+
+You can turn off appearing in search in Settings → Preferences → "Others can
+find me by name and username"; then nobody can find you and your invite link
+does not work, but you can still add rivals yourself. People you have blocked,
+or who have blocked you, can never find you.
 
 Visibility works like this:
 
@@ -94,8 +99,9 @@ requests or match proposals.
 
 **Share cards:** You can share a match, your stats or your score against a
 rival as a picture. The card shows your name and photo, your rival's name and
-the scores. Your rival's photo appears only if they allowed it (Settings → My
-photo on share cards; off by default). A picture you share can be seen by
+the scores. Your rival's photo appears only if they allowed it (Settings →
+Preferences → "Others besides my rivals may see my photo"; off by default — the
+same consent covers the photo in search results). A picture you share can be seen by
 others wherever you share it.
 
 ## 3. Why do we process it? (Legal grounds)

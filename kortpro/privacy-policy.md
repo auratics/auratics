@@ -56,13 +56,18 @@ verilerin satılmaz.
 
 ## 2. Bilgilerini kim görür?
 
-Herkese açık bir profil yoktur ve kişiler listelenmez. Kullanıcı adını tam
-olarak yazan biri seni bulabilir: yalnızca görünen adını ve kullanıcı adını
-görür ve sana bağlantı isteği gönderebilir. Fotoğrafın ve istatistiklerin
-yalnızca isteği kabul edersen görünür. Ayarlar → Gizlilik → "Kullanıcı adımla
-bulunabilirim" ile bunu kapatabilirsin; o zaman seni kimse bulamaz ve davet
-linkin çalışmaz, ama sen rakiplerini eklemeye devam edebilirsin. Seni engellediğin ya da seni engelleyen
-biri seni kullanıcı adınla bulamaz.
+Herkese açık bir profil yoktur. Hesabı olan bir KortPro kullanıcısı, kullanıcı
+adının ya da görünen adındaki bir kelimenin en az ilk 3 harfini yazarak seni
+arayabilir. Arama sonuçlarında görünen adın ve kullanıcı adın listelenir (bir
+aramada en fazla 20 kişi) ve sana bağlantı isteği gönderebilir. Profil
+fotoğrafın arama sonuçlarında yalnızca izin verdiysen görünür (Ayarlar →
+Tercihler → "Fotoğrafım rakiplerim dışındakilere de görünebilir"; varsayılan
+olarak kapalı). İstatistiklerin yalnızca isteği kabul edersen görünür.
+
+Ayarlar → Tercihler → "Adımla ve kullanıcı adımla bulunabilirim" ile aramada
+görünmeyi kapatabilirsin; o zaman seni kimse bulamaz ve davet linkin çalışmaz,
+ama sen rakiplerini eklemeye devam edebilirsin. Engellediğin ya da seni
+engelleyen biri seni hiçbir zaman bulamaz.
 
 Görünürlük şöyledir:
 
@@ -84,7 +89,9 @@ teklifi gönderemez.
 **Paylaşım kartları:** Bir maçını, istatistiğini ya da bir rakiple aranızdaki
 skoru görsel olarak paylaşabilirsin. Kartta senin adın ve fotoğrafın, rakibinin
 adı ve skorlar yer alır. Rakibinin fotoğrafı yalnızca kendisi izin verdiyse
-görünür (Ayarlar → Paylaşım kartlarında fotoğrafım; varsayılan olarak kapalı).
+görünür (Ayarlar → Tercihler → "Fotoğrafım rakiplerim dışındakilere de
+görünebilir"; varsayılan olarak kapalı — arama sonuçlarındaki fotoğraf için de
+aynı izin geçerlidir).
 Paylaştığın görsel, paylaştığın yerde başkalarınca görülebilir.
 
 ## 3. Neden işliyoruz? (Hukuki sebepler)
