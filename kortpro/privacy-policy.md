@@ -64,10 +64,11 @@ fotoğrafın arama sonuçlarında yalnızca izin verdiysen görünür (Ayarlar �
 Tercihler → "Fotoğrafım rakiplerim dışındakilere de görünebilir"; varsayılan
 olarak kapalı). İstatistiklerin yalnızca isteği kabul edersen görünür.
 
-Ayarlar → Tercihler → "Adımla ve kullanıcı adımla bulunabilirim" ile aramada
-görünmeyi kapatabilirsin; o zaman seni kimse bulamaz ve davet linkin çalışmaz,
-ama sen rakiplerini eklemeye devam edebilirsin. Engellediğin ya da seni
-engelleyen biri seni hiçbir zaman bulamaz.
+Ayarlar → Tercihler → "Görünen adım ve kullanıcı adımla bulunabilirim" ile
+aramada görünmeyi kapatabilirsin; o zaman aramada çıkmazsın, ama davet linkini
+paylaştığın kişiler seni yine ekleyebilir ve sen de rakiplerini eklemeye devam
+edebilirsin. Engellediğin ya da seni engelleyen biri seni hiçbir zaman
+bulamaz.
 
 Görünürlük şöyledir:
 

@@ -76,9 +76,10 @@ photo appears in search results only if you allowed it (Settings → Preferences
 shown only if you accept the request.
 
 You can turn off appearing in search in Settings → Preferences → "Others can
-find me by name and username"; then nobody can find you and your invite link
-does not work, but you can still add rivals yourself. People you have blocked,
-or who have blocked you, can never find you.
+find me by display name and username"; then you don't appear in search, but
+people you share your invite link with can still add you, and you can still
+add rivals yourself. People you have blocked, or who have blocked you, can
+never find you.
 
 Visibility works like this:
 
