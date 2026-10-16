@@ -39,7 +39,7 @@ aydınlatma metni olarak da hazırlanmıştır.
 **Bildirimler**
 - Bildirimlere izin verirsen cihazının bildirim adresi (push token) ve bildirim tercihin.
 
-**Kullanım verileri** (Ayarlar → Gizlilik ve destek → "Kullanım istatistiklerini paylaş" ile kapatabilirsin)
+**Kullanım verileri** (Ayarlar → Gizlilik ve destek → "Kullanım istatistikleri" ile kapatabilirsin)
 - Uygulamada hangi ekranları açtığın ve hangi işlemleri yaptığın (ör. maç
   kaydetmek, turnuva başlatmak, davet paylaşmak); uygulama sürümü, cihaz
   modeli ve işletim sistemi.

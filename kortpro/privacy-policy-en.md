@@ -48,7 +48,7 @@ Personal Data Protection Law No. 6698 (KVKK).
 - If you allow notifications, your device's notification address (push
   token) and your notification preference.
 
-**Usage data** (you can turn it off in Settings → Privacy and support → "Share usage statistics")
+**Usage data** (you can turn it off in Settings → Privacy and support → "Usage statistics")
 - Which screens you open and what you do in the app (for example logging a
   match, starting a tournament, sharing an invite); the app version, device
   model and operating system.
