@@ -2,7 +2,8 @@
 
 Son güncelleme: 20 Ekim 2026
 
-Bu metin **Maaş Metre** uygulaması için geçerlidir.
+Bu metin **Maaş Metre** uygulaması için geçerlidir. Uygulama, mağazalarda
+**auratics** geliştirici adıyla yayımlanır.
 
 **Veri sorumlusu:** Feyza Can
 **İletişim:** auratics.studio@gmail.com
@@ -38,8 +39,8 @@ aydınlatma metni olarak da hazırlanmıştır.
   sunucuya hiçbir bilgi gönderilmez.
 
 **Reklam verileri**
-- Uygulamada Google AdMob reklamları gösterilir. AdMob, reklam göstermek ve
-  ölçmek için cihaz bilgisi, IP adresi, reklam etkileşimleri ve Android'de
+- Uygulamada Google AdMob reklamları gösterilir. AdMob, reklam göstermek,
+  ilgi alanlarına göre kişiselleştirmek ve ölçmek için cihaz bilgisi, IP adresi, reklam etkileşimleri ve Android'de
   reklam kimliğini kullanabilir. iOS'ta reklam kimliğine (IDFA) erişim izni
   istenmez.
 - Reklam kimliğini telefonunun ayarlarından sıfırlayabilir ya da
@@ -82,7 +83,7 @@ sunucularına ulaşır.
 
 | Sağlayıcı | Ne için | Nerede |
 |---|---|---|
-| Supabase, Inc. | Veritabanı ve giriş | Yurt dışı (bulut veri merkezi) |
+| Supabase, Inc. | Veritabanı ve giriş | Almanya (Frankfurt) |
 | Google (AdMob) | Reklamlar | ABD |
 | Expo (650 Industries, Inc.) | Uygulama güncellemelerinin indirilmesi | ABD |
 
@@ -96,6 +97,8 @@ Aktarımları yalnızca gereken veriyle sınırlı tutuyoruz:
 - Expo'ya yalnızca güncelleme denetimi için gerekenler gider: cihaz türü,
   uygulama sürümü ve rastgele bir kurulum kimliği.
 - Maaşın ve e-postan Google'a ya da Expo'ya gönderilmez.
+- **Veritabanın Avrupa Birliği'ndedir** (Almanya); AB veri koruma kurallarına
+  tabi bir veri merkezinde tutulur.
 
 ## 6. Ne kadar saklıyoruz?
 
