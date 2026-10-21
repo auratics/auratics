@@ -9,6 +9,7 @@ It helps if you include your phone model and the version of the app.
 
 **Do I need an account?**
 No. Fast Tracker works without an account, and your fasts stay on your phone.
+An account is only for Backup and sync.
 
 **I started fasting earlier. Can I set the start time?**
 Yes. Before you tap **Start fasting**, choose how many hours ago you started,
@@ -26,7 +27,9 @@ Days with a fast of 12 hours or more are green. The darker the green, the
 longer the fast: 12, 14, 16, 18 and 24 hours.
 
 **Will my fasts move to a new phone?**
-Not yet. They are stored only on the phone you use now, and uninstalling the
+Yes, with Backup and sync. Turn it on in Settings on your current phone, sign
+in with Google or Apple, then sign in the same way on the new phone. Without
+it, your fasts are stored only on the phone you use now, and uninstalling the
 app deletes them.
 
 **Why are there ads?**

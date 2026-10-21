@@ -3,8 +3,9 @@
 This page explains how to delete your data from **Fast Tracker**, an app by
 **auratics**.
 
-Fast Tracker has no accounts. Your fasts and settings are stored only on your
-phone, and we keep no copy of them.
+Fast Tracker works without an account, and then your fasts and settings are
+stored only on your phone. If you turned on **Backup and sync**, a copy of your
+fasts is also kept with your account on our server.
 
 ## Delete one fast
 
@@ -12,10 +13,25 @@ phone, and we keep no copy of them.
 2. Tap the fast you want to remove.
 3. Tap **Delete** and confirm.
 
-## Delete everything
+With Backup and sync, it is deleted from your account and your other phones
+too.
 
-Uninstall the app. Every fast and setting is removed from your phone right
-away. Deleted data cannot be recovered.
+## Delete your account and its backup
+
+1. Open **Settings** (the gear at the top right).
+2. Under **Backup and sync**, tap **Delete account** and confirm.
+
+Your account and every fast stored with it are deleted from our server right
+away. The fasts on your phone stay.
+
+Without the app, write to **auratics.studio@gmail.com** from the email address
+of your account, with the subject "Delete my account". We delete it and tell
+you within 30 days.
+
+## Delete everything on the phone
+
+In Settings, tap **Delete all data**, or uninstall the app. Every fast is
+removed from your phone right away. Deleted data cannot be recovered.
 
 ## Advertising data
 
@@ -29,8 +45,8 @@ ID.
 
 ## Questions
 
-We hold no data about you, so there is nothing to request from us. If you have
-a question, write to **auratics.studio@gmail.com**.
+Without an account, we hold no data about you. If you have a question, write
+to **auratics.studio@gmail.com**.
 
 ---
 
