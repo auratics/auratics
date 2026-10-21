@@ -1,7 +1,7 @@
 # Fast Tracker — Deleting your data
 
-This page explains how to delete your data from **Fast Tracker**, an app by
-**auratics**.
+This page explains how to delete your data from **Intermittent Fasting
+Tracker** (Fast Tracker on the home screen), an app by **auratics**.
 
 Fast Tracker works without an account, and then your fasts and settings are
 stored only on your phone. If you turned on **Backup and sync**, a copy of your
