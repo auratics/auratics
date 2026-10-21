@@ -74,7 +74,7 @@ Google uses data from apps that use its services:
 |---|---|---|---|
 | Google (AdMob) | Ads | As described in section 4 | United States |
 | Expo (650 Industries, Inc.) | Downloading app updates | Device type, app version and a random installation ID | United States |
-| Supabase, Inc. | Checking whether a newer version of the app is available | Platform and app version | Germany (Frankfurt) |
+| GitHub, Inc. (GitHub Pages) | Checking whether a newer version of the app is available | Nothing beyond the request itself; the comparison happens on your phone | United States |
 
 Like any request over the internet, each of these also reaches the provider
 with your IP address. None of them receives your fasts.
@@ -94,8 +94,8 @@ We do not process your fasts at all; they never leave your phone.
 
 - On your phone: until you delete it or uninstall the app.
 - With us: nothing. We keep no copy of your fasts.
-- Google, Expo and Supabase keep the data they receive according to their
-  own policies.
+- Google, Expo and GitHub keep the data they receive according to their own
+  policies.
 
 ## 8. Deleting your data
 
