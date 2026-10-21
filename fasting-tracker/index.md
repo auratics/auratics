@@ -1,0 +1,8 @@
+# Fast Tracker
+
+A simple intermittent fasting timer. Start a fast, see how far you are from
+your goal, and keep a history of every fast on your phone.
+
+- [Privacy Policy](privacy-policy)
+- [Support](support)
+- [Deleting your data](delete-data)
