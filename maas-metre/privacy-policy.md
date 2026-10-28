@@ -10,7 +10,7 @@ Son güncelleme: 28 Ekim 2026
 Bu metin **Maaş Metre** uygulaması için geçerlidir. Uygulama, mağazalarda
 **auratics** geliştirici adıyla yayımlanır.
 
-**Veri sorumlusu:** Feyza Can
+**Veri sorumlusu:** Feyza Can\
 **İletişim:** auratics.studio@gmail.com
 
 Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında
