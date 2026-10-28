@@ -1,6 +1,6 @@
 # Maaş Metre Gizlilik Politikası ve Aydınlatma Metni
 
-Son güncelleme: 20 Ekim 2026
+Son güncelleme: 28 Ekim 2026
 
 Bu metin **Maaş Metre** uygulaması için geçerlidir. Uygulama, mağazalarda
 **auratics** geliştirici adıyla yayımlanır.
@@ -38,23 +38,41 @@ aydınlatma metni olarak da hazırlanmıştır.
 - Aylık hatırlatma telefonunda planlanır. Bunun için bize ya da başka bir
   sunucuya hiçbir bilgi gönderilmez.
 
-**Reklam verileri**
-- Uygulamada Google AdMob reklamları gösterilir. AdMob, reklam göstermek,
-  ilgi alanlarına göre kişiselleştirmek ve ölçmek için cihaz bilgisi, IP adresi, reklam etkileşimleri ve Android'de
-  reklam kimliğini kullanabilir. iOS'ta reklam kimliğine (IDFA) erişim izni
-  istenmez.
-- Reklam kimliğini telefonunun ayarlarından sıfırlayabilir ya da
-  kişiselleştirilmiş reklamları kapatabilirsin.
-- Google bu verileri kendi gizlilik politikasına göre işler:
-  [policies.google.com/privacy](https://policies.google.com/privacy)
+**Paylaşım kartları**
+- Bir karşılaştırmayı ya da gereken zammı kart olarak paylaştığında görsel
+  telefonunda oluşturulur. Kartta maaş tutarın yer almaz; yalnızca yüzdeler
+  ve tarihler vardır. Neyi, nereye paylaşacağına sen karar verirsin; bize bir
+  şey gönderilmez.
+
+**Kullanım istatistikleri**
+- Uygulamayı geliştirmek için hangi ekranların açıldığını ve bazı işlemlerin
+  yapılıp yapılmadığını sayarız: ilk maaşın kaydedilmesi, karşılaştırma ya da
+  grafik aralığının seçilmesi, bir kartın paylaşılması, hatırlatmanın açılması
+  gibi. Bunun için PostHog kullanılır.
+- Bu kayıtlar hesap kimliğinle (misafirsen de rastgele bir kimlikle)
+  ilişkilendirilir; cihaz modeli, işletim sistemi ve uygulama sürümü eklenir.
+  Maaşın, kurlar, e-postan ve notların gönderilmez; IP adresin saklanmaz ve
+  konumun çıkarılmaz.
+- **Ayarlar → Gizlilik → Kullanım istatistikleri**'nden istediğin zaman
+  kapatabilirsin.
+
+**Reklam yok**
+- Maaş Metre 1.1.0 ve sonraki sürümler reklam göstermez ve reklam kimliğini
+  kullanmaz.
+- 1.1.0'dan önceki sürümler Google AdMob reklamları gösterir. Bu sürümlerde
+  AdMob, reklam için cihaz bilgisini, IP adresini ve Android'de reklam
+  kimliğini kullanabilir; Google bu verileri kendi gizlilik politikasına göre
+  işler: [policies.google.com/privacy](https://policies.google.com/privacy).
+  Uygulamayı güncellediğinde bu sona erer.
 
 **Toplamadıklarımız:** adın, konumun, rehberin, fotoğrafların, banka ya da kart
-bilgilerin. Uygulama kullanım istatistiği toplamaz. Verilerin satılmaz.
+bilgilerin. Verilerin satılmaz.
 
 ## 2. Bilgilerini kim görür?
 
-Maaş kayıtların yalnızca sana görünür. Maaş Metre'de profil, paylaşım ya da
-başka kullanıcılarla etkileşim yoktur. Veritabanında her kayıt satır düzeyinde
+Maaş kayıtların yalnızca sana görünür. Maaş Metre'de profil ya da başka
+kullanıcılarla etkileşim yoktur; paylaşım kartlarını yalnızca sen, kendi
+seçtiğin yere gönderirsin. Veritabanında her kayıt satır düzeyinde
 erişim kurallarıyla korunur: hiçbir kullanıcı başkasının kaydını okuyamaz ya
 da değiştiremez.
 
@@ -68,8 +86,8 @@ için bakarız.
   ve ifası).
 - **Güvenlik** — giriş kayıtları, kötüye kullanımın önlenmesi. KVKK md. 5/2-f
   (meşru menfaat).
-- **Uygulamayı ücretsiz sunabilmek** — reklam gösterimi. KVKK md. 5/2-f
-  (meşru menfaat).
+- **Uygulamayı geliştirmek** — kullanım istatistikleri; Ayarlar'dan
+  kapatılabilir. KVKK md. 5/2-f (meşru menfaat).
 - **Yasal yükümlülükler** — resmi makamların talepleri. KVKK md. 5/2-ç.
 
 ## 4. Kurlar nereden geliyor?
@@ -84,8 +102,9 @@ sunucularına ulaşır.
 | Sağlayıcı | Ne için | Nerede |
 |---|---|---|
 | Supabase, Inc. | Veritabanı ve giriş | Almanya (Frankfurt) |
-| Google (AdMob) | Reklamlar | ABD |
 | Expo (650 Industries, Inc.) | Uygulama güncellemelerinin indirilmesi | ABD |
+| PostHog, Inc. | Kullanım istatistikleri | Almanya (Frankfurt) |
+| Google (AdMob) | Reklamlar, yalnızca 1.1.0'dan önceki sürümlerde | ABD |
 
 Bu sağlayıcıların sunucuları Türkiye dışında olduğundan, Maaş Metre'yi
 kullandığında verilerin KVKK md. 9 kapsamında yurt dışına aktarılır.
@@ -93,10 +112,11 @@ kullandığında verilerin KVKK md. 9 kapsamında yurt dışına aktarılır.
 Aktarımları yalnızca gereken veriyle sınırlı tutuyoruz:
 
 - Supabase'e hesap bilgilerin ve maaş kayıtların gider.
-- Google'a yalnızca reklam için gereken cihaz bilgileri gider.
 - Expo'ya yalnızca güncelleme denetimi için gerekenler gider: cihaz türü,
   uygulama sürümü ve rastgele bir kurulum kimliği.
-- Maaşın ve e-postan Google'a ya da Expo'ya gönderilmez.
+- PostHog'a yalnızca ekran ve işlem adları, hesap kimliğin, cihaz modeli,
+  işletim sistemi ve uygulama sürümü gider.
+- Maaşın ve e-postan Expo'ya ya da PostHog'a gönderilmez.
 - **Veritabanın Avrupa Birliği'ndedir** (Almanya); AB veri koruma kurallarına
   tabi bir veri merkezinde tutulur.
 
@@ -107,14 +127,15 @@ Aktarımları yalnızca gereken veriyle sınırlı tutuyoruz:
 - Misafir kayıtları: sen silene kadar. Uygulamayı telefonundan silmek
   sunucudaki kayıtları silmez (7. bölüm).
 - Giriş kayıtları: güvenlik için sınırlı bir süre.
+- Kullanım istatistikleri: en fazla bir yıl.
 - Telefonundaki bilgiler: uygulamayı silince telefonundan da silinir.
 
 ## 7. Verilerini silmek
 
-- **Hesabın varsa:** Profil → Ayarlar → **Hesabı sil**. Hesabın ve bütün maaş
+- **Hesabın varsa:** Ayarlar → **Hesabı sil**. Hesabın ve bütün maaş
   kayıtların kalıcı olarak silinir; bu işlem geri alınamaz.
-- **Misafir olarak kullanıyorsan:** Maaşlarım ekranında bir kayda basılı
-  tutarak kayıtlarını tek tek silebilirsin. Bunu uygulamayı silmeden önce
+- **Misafir olarak kullanıyorsan:** Maaşlarım ekranında bir kaydı sola
+  kaydırarak kayıtlarını tek tek silebilirsin. Bunu uygulamayı silmeden önce
   yap: misafir kimliği telefona bağlıdır ve uygulama silindikten sonra o
   kayıtlara bir daha ulaşılamaz.
 - **Uygulamaya erişemiyorsan:** hesabının e-posta adresinden
