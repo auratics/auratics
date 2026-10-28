@@ -1,3 +1,8 @@
+---
+layout: maas-metre
+title: Destek
+---
+
 # Maaş Metre Destek
 
 Bir sorun, soru ya da önerin varsa yaz: **auratics.studio@gmail.com**

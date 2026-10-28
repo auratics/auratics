@@ -1,0 +1,416 @@
+/* Maaş Metre — the app's own espresso and gold, its own two typefaces. */
+
+@font-face {
+  font-family: "Headline";
+  src: url("fonts/BricolageGrotesque-CondensedExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/DMSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/DMSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/DMSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --bg: #15110d;
+  --bg-deep: #0f0c09;
+  --card: #211a14;
+  --raised: #2c231b;
+  --border: #3a2e23;
+  --text: #f5ead8;
+  --muted: #b9a88f;
+  --gold: #e9b64c;
+  --loss: #ee8463;
+  --gain: #a5cf86;
+  --page: 1120px;
+  --gutter: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--gold);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* The masthead: the app's own, gold rule under it. */
+.masthead {
+  padding: 22px 0 0;
+}
+.masthead .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--gold);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  text-decoration: none;
+}
+.brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.brand span {
+  font-family: "Headline", sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+.masthead nav a {
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.kicker {
+  margin: 0 0 12px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Headline", sans-serif;
+  font-weight: 800;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(52px, 9vw, 96px);
+}
+h2 {
+  font-size: clamp(38px, 6vw, 60px);
+}
+h1 em,
+h2 em {
+  color: var(--gold);
+  font-style: normal;
+  display: block;
+}
+
+.rule {
+  width: 64px;
+  height: 4px;
+  margin: 22px 0;
+  background: var(--gold);
+  border: 0;
+}
+
+.lead {
+  max-width: 34em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 19px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 0 72px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 20% -20% -40% 30%;
+  background: radial-gradient(closest-side, rgba(233, 182, 76, 0.16), transparent);
+  pointer-events: none;
+}
+.hero .wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+.badges a {
+  display: block;
+  line-height: 0;
+}
+.badges .apple img {
+  height: 52px;
+  width: auto;
+}
+.badges .google img {
+  height: 52px;
+  width: auto;
+}
+
+.facts-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+}
+.facts-inline li::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  vertical-align: middle;
+}
+
+/* A screenshot in a plain dark phone. */
+.phone {
+  width: min(100%, 320px);
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 46px;
+  background: #0b0907;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+}
+.phone img {
+  width: 100%;
+  aspect-ratio: 1320 / 2868;
+  border-radius: 37px;
+}
+
+/* Features: text and phone, sides swapping row to row. */
+.feature {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+}
+.feature:nth-of-type(even) {
+  background: var(--bg-deep);
+}
+.feature .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 56px;
+}
+.feature:nth-of-type(even) .copy {
+  order: 2;
+}
+.feature p {
+  max-width: 30em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+.feature p + p {
+  margin-top: 12px;
+}
+.feature strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* The small print of why the numbers can be trusted. */
+.facts {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+}
+.facts ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.facts li {
+  padding: 22px;
+  border-radius: 22px;
+  background: var(--card);
+}
+.facts h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.facts li p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.cta {
+  padding: 80px 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.cta .rule {
+  margin: 22px auto;
+}
+.cta .badges {
+  justify-content: center;
+}
+.cta p {
+  margin: 0;
+  color: var(--muted);
+}
+
+footer {
+  padding: 36px 0 48px;
+  border-top: 2px solid var(--gold);
+  color: var(--muted);
+  font-size: 14px;
+}
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+footer nav a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+footer p {
+  margin: 0;
+}
+
+/* The legal pages: one readable column in the same voice. */
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px var(--gutter) 72px;
+}
+.doc h1 {
+  font-size: clamp(40px, 7vw, 60px);
+  margin-bottom: 8px;
+}
+.doc h2 {
+  margin: 44px 0 12px;
+  font-size: 30px;
+  line-height: 1.05;
+}
+.doc p,
+.doc li {
+  color: #e6d9c4;
+}
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.doc th,
+.doc td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.doc hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    padding: 36px 0 56px;
+  }
+  .hero .wrap,
+  .feature .wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .feature:nth-of-type(even) .copy {
+    order: 0;
+  }
+  .feature {
+    padding: 56px 0;
+  }
+  .phone {
+    width: min(100%, 280px);
+  }
+  .facts ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+  .lead {
+    font-size: 17px;
+  }
+  .facts ul {
+    grid-template-columns: 1fr;
+  }
+  .masthead nav {
+    display: none;
+  }
+}

@@ -1,3 +1,8 @@
+---
+layout: maas-metre
+title: Hesabını ve verilerini silme
+---
+
 # Maaş Metre — Hesabını ve verilerini silme
 
 Bu sayfa, **auratics** tarafından geliştirilen **Maaş Metre** uygulamasında

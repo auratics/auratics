@@ -1,3 +1,8 @@
+---
+layout: maas-metre
+title: Gizlilik Politikası
+---
+
 # Maaş Metre Gizlilik Politikası ve Aydınlatma Metni
 
 Son güncelleme: 28 Ekim 2026
