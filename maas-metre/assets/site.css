@@ -128,7 +128,8 @@ h2 {
   margin: 0;
   font-family: "Headline", sans-serif;
   font-weight: 800;
-  line-height: 0.98;
+  /* Room for Turkish capitals: a cedilla above a dotted İ must not touch. */
+  line-height: 1.1;
   text-transform: uppercase;
 }
 h1 {
