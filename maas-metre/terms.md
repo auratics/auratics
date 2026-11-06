@@ -133,9 +133,12 @@ yeni koşulları kabul ettiğin anlamına gelir.
 
 ## 14. Geçerli hukuk
 
-Bu koşullara Türkiye Cumhuriyeti hukuku uygulanır. Tüketici olarak yasalardan doğan
-başvuru hakların saklıdır; bir anlaşmazlıkta Tüketici Hakem Heyetleri ve Tüketici
-Mahkemeleri'ne başvurabilirsin.
+Bu koşullara Türkiye Cumhuriyeti hukuku uygulanır. Türkiye'de bir anlaşmazlıkta
+Tüketici Hakem Heyetleri ve Tüketici Mahkemeleri'ne başvurabilirsin.
+
+Başka bir ülkede, örneğin Avrupa Birliği'nde yaşıyorsan, o ülkenin tüketici
+hukukundan doğan ve sözleşmeyle vazgeçilemeyen hakların ile yetkili mercilere
+başvurma hakkın saklıdır.
 
 ## 15. İletişim
 
