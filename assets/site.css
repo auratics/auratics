@@ -1,0 +1,272 @@
+/* auratics — a quiet dark page; each app's card wears that app's own colours. */
+
+@font-face {
+  font-family: "Sora";
+  src: url("fonts/Sora_600SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("fonts/Sora_700Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0c0c12;
+  --card: #15151e;
+  --border: #262634;
+  --text: #f3f3f7;
+  --muted: #a3a3b4;
+  --glow: #8f7cff;
+  --page: 1120px;
+  --gutter: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.top .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.logo {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+.top a {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.top a:hover {
+  color: var(--text);
+}
+
+.intro {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 64px;
+}
+.intro::before {
+  content: "";
+  position: absolute;
+  inset: -40% -10% 10% 40%;
+  background:
+    radial-gradient(closest-side at 40% 50%, rgba(143, 124, 255, 0.18), transparent),
+    radial-gradient(closest-side at 70% 60%, rgba(60, 242, 200, 0.1), transparent);
+  pointer-events: none;
+}
+.intro .wrap {
+  position: relative;
+}
+.kicker {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+h1,
+h2 {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+h1 {
+  font-size: clamp(44px, 7.5vw, 84px);
+  line-height: 1.02;
+}
+h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, #b6a9ff, #3cf2c8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lead {
+  max-width: 32em;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 19px;
+}
+
+/* The apps: one card each, the whole card a link. */
+.apps {
+  padding: 0 0 96px;
+}
+.apps ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.app {
+  --app-bg: var(--card);
+  --app-text: var(--text);
+  --app-muted: var(--muted);
+  --app-accent: var(--text);
+  --app-border: var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  height: 100%;
+  padding: 28px;
+  border: 1px solid var(--app-border);
+  border-radius: 28px;
+  background: var(--app-bg);
+  color: var(--app-text);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.app:hover,
+.app:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+.app:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 3px;
+}
+.app img {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.app .body {
+  display: block;
+  flex: 1;
+}
+.app .tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--app-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.app h2 {
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.15;
+}
+.app p {
+  margin: 10px 0 0;
+  color: var(--app-muted);
+}
+.app .go {
+  color: var(--app-accent);
+  font-weight: 700;
+  font-size: 15px;
+}
+.app .go span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.app:hover .go span {
+  transform: translateX(4px);
+}
+
+.kortpro {
+  --app-bg: linear-gradient(160deg, #10284a, #07111f 70%);
+  --app-text: #eef4ff;
+  --app-muted: #a7b6cf;
+  --app-accent: #8efdfb;
+  --app-border: #1d3557;
+}
+.maas {
+  --app-bg: linear-gradient(160deg, #2c231b, #15110d 70%);
+  --app-text: #f5ead8;
+  --app-muted: #b9a88f;
+  --app-accent: #e9b64c;
+  --app-border: #3a2e23;
+}
+.fast {
+  --app-bg: linear-gradient(160deg, #131b30, #0a0f1e 70%);
+  --app-text: #f4f6fb;
+  --app-muted: #9aa6c3;
+  --app-accent: #3cf2c8;
+  --app-border: #26314f;
+}
+.habuddy {
+  --app-bg: linear-gradient(160deg, #f4f8fb, #dfedf6);
+  --app-text: #1e3242;
+  --app-muted: #4f6878;
+  --app-accent: #27455c;
+  --app-border: #dfedf6;
+}
+
+footer {
+  padding: 32px 0 48px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+}
+footer p {
+  margin: 0;
+}
+footer a {
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .intro {
+    padding: 40px 0 48px;
+  }
+  .apps ul {
+    grid-template-columns: 1fr;
+  }
+  .app {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+  .lead {
+    font-size: 17px;
+  }
+}
