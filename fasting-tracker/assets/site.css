@@ -156,7 +156,8 @@ h2 em {
   font-size: 19px;
 }
 
-/* Hero, with the app's progress ring drawn faintly behind the phone. */
+/* Hero. The 3D scene (js/hero.js) replaces the screenshot once it loads; until
+   then, or without WebGL, the screenshot sits inside a ring drawn in CSS. */
 .hero {
   position: relative;
   overflow: hidden;
@@ -171,6 +172,9 @@ h2 em {
 }
 .hero .art {
   position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 640px;
 }
 .hero .art::before {
   content: "";
@@ -188,6 +192,193 @@ h2 em {
   mask: radial-gradient(closest-side, #000 0 60%, transparent 60.5% 92%, #000 92.5% 100%);
   opacity: 0.35;
   pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+.hero .scene {
+  position: absolute;
+  inset: -40px -60px;
+  width: calc(100% + 120px);
+  height: calc(100% + 80px);
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.hero .art .phone {
+  transition: opacity 0.6s ease;
+}
+.hero .art.is-3d .scene {
+  opacity: 1;
+}
+.hero .art.is-3d::before,
+.hero .art.is-3d .phone {
+  opacity: 0;
+}
+
+/* The timer card that floats over the phone and keeps on ticking. */
+.live-card {
+  position: absolute;
+  left: -36px;
+  bottom: 70px;
+  z-index: 2;
+  width: 250px;
+  padding: 16px 18px 18px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(19, 27, 48, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  animation: float 6s ease-in-out infinite;
+}
+.live-card p {
+  margin: 0;
+}
+.live-top {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.live-top span:first-child::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--mint);
+  vertical-align: 1px;
+  animation: pulse 2s ease-in-out infinite;
+}
+.live-time {
+  margin-top: 8px !important;
+  font-family: "Sora", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.live-left {
+  color: var(--mint);
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.live-bar {
+  height: 6px;
+  margin-top: 12px;
+  border-radius: 3px;
+  background: var(--track);
+  overflow: hidden;
+}
+.live-bar span {
+  display: block;
+  height: 100%;
+  width: calc(var(--progress, 0.89) * 100%);
+  border-radius: inherit;
+  background: var(--mint);
+  transition: width 0.9s linear;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.today {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.today b {
+  display: inline-block;
+  min-width: 4.2em;
+  color: var(--mint);
+  font-variant-numeric: tabular-nums;
+}
+.today .sep {
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  margin: 0 8px;
+  background: var(--border);
+  vertical-align: middle;
+}
+
+/* A slow band of schedules between the hero and the features. */
+.ticker {
+  overflow: hidden;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  animation: ticker 40s linear infinite;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 600;
+  color: var(--muted);
+}
+.ticker-track i {
+  color: var(--mint);
+  font-size: 0.6em;
+  font-style: normal;
+}
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Rising in on arrival, only when scripts run. */
+.js .reveal {
+  opacity: 0;
+  translate: 0 40px;
+  transition: opacity 0.8s ease, translate 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js .reveal.in {
+  opacity: 1;
+  translate: 0 0;
+}
+.facts li.reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.facts li.reveal:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.facts li.reveal:nth-child(4) {
+  transition-delay: 0.24s;
+}
+.feature .phone {
+  transform: perspective(1400px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-card,
+  .live-top span:first-child::before,
+  .ticker-track {
+    animation: none;
+  }
 }
 
 .badges {
@@ -428,9 +619,20 @@ footer p a {
     grid-template-columns: 1fr;
     gap: 44px;
   }
+  .hero .art {
+    min-height: 560px;
+  }
   .hero .art::before {
     width: 440px;
     height: 440px;
+  }
+  .live-card {
+    left: 0;
+    bottom: 24px;
+    width: 220px;
+  }
+  .live-time {
+    font-size: 28px;
   }
   .feature:nth-of-type(odd) .copy {
     order: 0;
@@ -453,9 +655,23 @@ footer p a {
   .lead {
     font-size: 17px;
   }
+  .hero .art {
+    min-height: 470px;
+  }
+  .hero .wrap {
+    gap: 24px;
+  }
+  .today .tail {
+    display: none;
+  }
   .hero .art::before {
     width: 360px;
     height: 360px;
+  }
+  .hero .scene {
+    inset: -20px -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
   }
   .facts ul {
     grid-template-columns: 1fr;
