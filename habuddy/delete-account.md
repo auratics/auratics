@@ -27,10 +27,10 @@ Email **auratics.studio@gmail.com** from your account's email address, with the 
 - Your profile photo and check-in photos.
 - Your habits, check-ins and reminders.
 - Your friendships, your memberships in shared habits and your check-ins in them. A habit you own that others share is deleted for them too.
+- Reports made by you or about you.
 
 ## What is kept
 
-- Reports other people made about content you posted, and our decisions on them, for up to 12 months, to deal with abuse. They are not linked to your account once it is deleted.
 - Purchase records that Apple, Google and RevenueCat must keep for tax and accounting. Deleting your account does not cancel a subscription: cancel it in your App Store or Google Play account.
 
 Deleted data cannot be recovered.
