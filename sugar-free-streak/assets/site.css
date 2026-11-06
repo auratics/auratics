@@ -1,0 +1,36 @@
+/* Sugar Free Streak: the app's deep plum and ember, light or dark with the reader's system. */
+:root {
+  --bg: #F6F5FB;
+  --text: #1C1033;
+  --muted: #5F567A;
+  --line: #DDD8EC;
+  --band: #1C1033;
+  --band-text: #F2EFFA;
+  --accent: #C2410C;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #140B26;
+    --text: #F2EFFA;
+    --muted: #B8B0CF;
+    --line: #32284B;
+    --band: #1F1537;
+    --accent: #FF9A63;
+    color-scheme: dark;
+  }
+}
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+.wrap, main.doc { max-width: 720px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+.masthead { background: var(--band); padding: 14px 0; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--band-text); font-weight: 700; font-size: 18px; text-decoration: none; }
+.brand img { width: 36px; height: 36px; border-radius: 9px; }
+main.doc { padding-top: 28px; padding-bottom: 40px; overflow-wrap: anywhere; }
+h1 { font-size: 30px; line-height: 1.2; letter-spacing: -0.5px; }
+h2 { font-size: 20px; margin-top: 32px; }
+a { color: var(--accent); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; display: block; overflow-x: auto; }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+footer { border-top: 1px solid var(--line); padding: 20px 0 32px; font-size: 14px; color: var(--muted); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 8px; }
