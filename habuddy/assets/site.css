@@ -1,0 +1,11 @@
+body { margin: 0; background: #F4F8FB; color: #1E3242; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+.wrap, main.doc { max-width: 720px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+.masthead { background: #DFEDF6; padding: 14px 0; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: #1E3242; font-weight: 700; font-size: 18px; text-decoration: none; }
+.brand img { width: 36px; height: 36px; border-radius: 9px; }
+main.doc { padding-top: 28px; padding-bottom: 40px; }
+h1 { font-size: 30px; line-height: 1.2; letter-spacing: -0.5px; }
+h2 { font-size: 20px; margin-top: 32px; }
+a { color: #27455C; }
+footer { border-top: 1px solid #E3EBF1; padding: 20px 0 32px; font-size: 14px; color: #4F6878; }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 8px; }

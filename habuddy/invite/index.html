@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>You're invited to Habuddy</title>
+<meta name="description" content="Do your habits together. Open your invite in Habuddy.">
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #DFEDF6; color: #1E3242; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  main { width: min(100%, 420px); box-sizing: border-box; padding: 32px 20px; text-align: center; }
+  h1 { margin: 0 0 8px; font-size: 34px; line-height: 40px; letter-spacing: -0.8px; font-weight: 700; }
+  p { margin: 0 0 20px; font-size: 16px; line-height: 23px; color: #3D5B70; }
+  a.button { display: block; margin-top: 10px; padding: 17px; border-radius: 18px; background: #27455C; color: #FFFFFF; font-size: 16.5px; font-weight: 600; text-decoration: none; }
+  a.secondary { background: #FFFFFF; color: #27455C; }
+  .code { margin: 24px 0 8px; padding: 16px; border-radius: 18px; background: #FFFFFF; font-size: 26px; font-weight: 700; letter-spacing: 4px; }
+  .hint { font-size: 14px; margin-bottom: 0; }
+  [hidden] { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Habits stick better together</h1>
+  <p>A friend invited you to Habuddy.</p>
+  <a class="button" id="open" href="habuddy://" hidden>Open in Habuddy</a>
+  <a class="button secondary" href="https://apps.apple.com/app/id6800276408">Get it on the App Store</a>
+  <a class="button secondary" href="https://play.google.com/store/apps/details?id=com.auratics.habitual">Get it on Google Play</a>
+  <div id="withCode" hidden>
+    <div class="code" id="code"></div>
+    <p class="hint">Just installed it? Go to Friends → Have an invite code? and enter this.</p>
+  </div>
+</main>
+<script>
+  // Only ever a well-formed code goes anywhere: the page takes it from the address.
+  var code = (new URLSearchParams(location.search).get('c') || '').toUpperCase();
+  if (/^[A-Z2-9]{8}$/.test(code)) {
+    var target = 'habuddy://invite/' + code;
+    var open = document.getElementById('open');
+    open.href = target;
+    open.hidden = false;
+    document.getElementById('code').textContent = code;
+    document.getElementById('withCode').hidden = false;
+    location.href = target;
+  }
+</script>
+</body>
+</html>
