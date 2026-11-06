@@ -156,8 +156,9 @@ h2 em {
   font-size: 19px;
 }
 
-/* Hero. The 3D scene (js/hero.js) replaces the screenshot once it loads; until
-   then, or without WebGL, the screenshot sits inside a ring drawn in CSS. */
+/* Hero. The 3D scene (js/hero.js) fades in once its image loads. The screenshot
+   in a CSS ring is the fallback: at once without scripts, after a wait if the
+   scene has not come, and never on top of the scene. */
 .hero {
   position: relative;
   overflow: hidden;
@@ -192,7 +193,6 @@ h2 em {
   mask: radial-gradient(closest-side, #000 0 60%, transparent 60.5% 92%, #000 92.5% 100%);
   opacity: 0.35;
   pointer-events: none;
-  transition: opacity 0.6s ease;
 }
 .hero .scene {
   position: absolute;
@@ -202,15 +202,22 @@ h2 em {
   opacity: 0;
   transition: opacity 0.9s ease;
 }
-.hero .art .phone {
-  transition: opacity 0.6s ease;
+.js .hero .art::before,
+.js .hero .art .phone {
+  animation: fallback 0.4s ease 2.5s both;
 }
 .hero .art.is-3d .scene {
   opacity: 1;
 }
-.hero .art.is-3d::before,
-.hero .art.is-3d .phone {
+.js .hero .art.is-3d::before,
+.js .hero .art.is-3d .phone {
+  animation: none;
   opacity: 0;
+}
+@keyframes fallback {
+  from {
+    opacity: 0;
+  }
 }
 
 /* The timer card that floats over the phone and keeps on ticking. */

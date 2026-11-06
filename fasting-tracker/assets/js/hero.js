@@ -85,6 +85,9 @@ function start() {
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
+  // Stands at zero until the screen's image arrives, so the intro is seen.
+  const clock = new THREE.Clock(false);
+
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
 
@@ -119,6 +122,7 @@ function start() {
 
   const texture = new THREE.TextureLoader().load(art.dataset.screen, () => {
     art.classList.add('is-3d');
+    clock.start();
     render();
   });
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -243,7 +247,6 @@ function start() {
     { passive: true },
   );
 
-  const clock = new THREE.Clock();
   let lastT = 0;
   let visible = true;
   let running = false;
