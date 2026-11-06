@@ -30,7 +30,7 @@ We do not sell your data, show ads, or track you across other companies' apps.
 
 ## Who can see what
 
-Your email is never shown to other people. Friends see your name and profile photo. People in a habit you share also see that habit's check-ins and photos. Everything else is visible only to you. Your photos are private files, reachable only by the people above.
+Your email is never shown to other people. Friends see your name and profile photo, and so does anyone you send an invite to, before they accept it. People in a habit you share also see that habit's check-ins and photos. Everything else is visible only to you. Your photos are private files, reachable only by the people above.
 
 ## Who processes it for us
 
