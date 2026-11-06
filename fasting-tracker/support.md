@@ -1,3 +1,8 @@
+---
+layout: fasting-tracker
+title: Support
+---
+
 # Fast Tracker Support
 
 If you have a problem, a question or an idea, write to

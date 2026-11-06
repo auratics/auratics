@@ -1,3 +1,8 @@
+---
+layout: fasting-tracker
+title: Deleting your data
+---
+
 # Fast Tracker — Deleting your data
 
 This page explains how to delete your data from **Intermittent Fasting

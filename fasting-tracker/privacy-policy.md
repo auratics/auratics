@@ -1,3 +1,8 @@
+---
+layout: fasting-tracker
+title: Privacy Policy
+---
+
 # Fast Tracker Privacy Policy
 
 Last updated: 21 October 2026
@@ -6,7 +11,7 @@ This policy applies to the **Intermittent Fasting Tracker** app for Android
 and iOS, named Fast Tracker on the home screen and published in the app
 stores as **auratics**.
 
-**Data controller:** Feyza Can
+**Data controller:** Feyza Can\
 **Contact:** auratics.studio@gmail.com
 
 **In short**
