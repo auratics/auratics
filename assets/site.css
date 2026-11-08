@@ -89,6 +89,159 @@ a {
 }
 .intro .wrap {
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 32px;
+}
+.see {
+  display: inline-block;
+  margin-top: 28px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+.see span {
+  display: inline-block;
+  margin-left: 4px;
+  color: #3cf2c8;
+  animation: nudge 2s ease-in-out infinite;
+}
+@keyframes nudge {
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* The 3D scene (js/aura.js) fades in once every icon has loaded. The icons
+   around a glow are the fallback: at once without scripts, after a wait if
+   the scene has not come, and never under the scene. */
+.art {
+  position: relative;
+  min-height: 520px;
+}
+.art .scene {
+  position: absolute;
+  inset: -40px -60px;
+  width: calc(100% + 120px);
+  height: calc(100% + 80px);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.art.is-3d .scene {
+  opacity: 1;
+}
+.orbit {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.orbit::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 260px;
+  height: 260px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(143, 124, 255, 0.45), rgba(60, 242, 200, 0.12) 60%, transparent);
+}
+.orbit li {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+.orbit li:nth-child(1) {
+  translate: calc(-50% - 150px) calc(-50% - 70px);
+}
+.orbit li:nth-child(2) {
+  translate: calc(-50% + 150px) calc(-50% - 110px);
+}
+.orbit li:nth-child(3) {
+  translate: calc(-50% + 130px) calc(-50% + 110px);
+}
+.orbit li:nth-child(4) {
+  translate: calc(-50% - 120px) calc(-50% + 120px);
+}
+.orbit img {
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+.js .art .orbit {
+  animation: fallback 0.4s ease 2.5s both;
+}
+.js .art.is-3d .orbit {
+  animation: none;
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes fallback {
+  from {
+    opacity: 0;
+  }
+}
+.tile-label {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(21, 21, 30, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: "Sora", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  translate: 14px -130%;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.tile-label.on {
+  opacity: 1;
+}
+
+/* A slow band of the apps between the intro and the cards. */
+.ticker {
+  overflow: hidden;
+  margin-bottom: 56px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  animation: ticker 40s linear infinite;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 600;
+  color: var(--muted);
+}
+.ticker-track i {
+  background: linear-gradient(90deg, #b6a9ff, #3cf2c8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 0.6em;
+  font-style: normal;
+}
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
 }
 .kicker {
   margin: 0 0 16px;
@@ -126,6 +279,7 @@ h1 em {
 /* The apps: one card each, the whole card a link. */
 .apps {
   padding: 0 0 96px;
+  scroll-margin-top: 24px;
 }
 .apps ul {
   display: grid;
@@ -151,11 +305,27 @@ h1 em {
   background: var(--app-bg);
   color: var(--app-text);
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg))
+    translateY(var(--lift, 0px));
+  transition: transform 0.25s ease, box-shadow 0.2s ease;
+}
+.app::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.09), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.app:hover::after {
+  opacity: 1;
 }
 .app:hover,
 .app:focus-visible {
-  transform: translateY(-4px);
+  --lift: -4px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 .app:focus-visible {
@@ -250,9 +420,46 @@ footer a {
   color: var(--text);
 }
 
+/* Rising in on arrival, only when scripts run. */
+.js .reveal {
+  opacity: 0;
+  translate: 0 40px;
+  transition: opacity 0.8s ease, translate 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js .reveal.in {
+  opacity: 1;
+  translate: 0 0;
+}
+.apps li.reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.apps li.reveal:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.apps li.reveal:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track,
+  .see span {
+    animation: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .intro .wrap {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .art {
+    min-height: 420px;
+  }
+}
+
 @media (max-width: 760px) {
   .intro {
-    padding: 40px 0 48px;
+    padding: 40px 0 24px;
   }
   .apps ul {
     grid-template-columns: 1fr;
@@ -265,6 +472,31 @@ footer a {
 @media (max-width: 480px) {
   body {
     font-size: 16px;
+  }
+  .art {
+    min-height: 340px;
+  }
+  .art .scene {
+    inset: -20px -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  .orbit li:nth-child(1) {
+    translate: calc(-50% - 110px) calc(-50% - 60px);
+  }
+  .orbit li:nth-child(2) {
+    translate: calc(-50% + 110px) calc(-50% - 80px);
+  }
+  .orbit li:nth-child(3) {
+    translate: calc(-50% + 100px) calc(-50% + 80px);
+  }
+  .orbit li:nth-child(4) {
+    translate: calc(-50% - 95px) calc(-50% + 90px);
+  }
+  .orbit img {
+    width: 68px;
+    height: 68px;
+    border-radius: 17px;
   }
   .lead {
     font-size: 17px;
