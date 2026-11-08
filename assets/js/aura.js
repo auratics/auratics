@@ -352,7 +352,7 @@ function start() {
 
     // The aura breathes; its shell turns.
     const breath = still ? 1 : 1 + Math.sin(t * 1.3) * 0.06;
-    aura.scale.setScalar(Math.max(easeOutBack(t / 1.2), 0.0001) * breath);
+    aura.scale.setScalar(Math.max(still ? 1 : easeOutBack(t / 1.2), 0.0001) * breath);
     shell.rotation.y = still ? 0.4 : t * 0.15;
     shell.rotation.x = still ? 0.2 : t * 0.07;
     halos[0].material.opacity = halos[0].userData.base * (still ? 1 : 0.85 + Math.sin(t * 1.3) * 0.15);
@@ -366,7 +366,7 @@ function start() {
     const world = new THREE.Vector3();
     tiles.forEach((entry, i) => {
       const grow = still ? 1 : easeOutBack((t - entry.delay) / 0.9);
-      const reach = ORBIT * (1 + (1 - easeOutCubic((t - entry.delay) / 1.2)) * 0.9);
+      const reach = ORBIT * (1 + (still ? 0 : 1 - easeOutCubic((t - entry.delay) / 1.2)) * 0.9);
       const a = entry.angle + spin;
       world.set(Math.cos(a) * reach, Math.sin(a) * reach, 0);
       orbit.localToWorld(world);
