@@ -101,7 +101,8 @@ function start() {
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-  // Stands at zero until every icon has arrived, so the intro is seen whole.
+  // The glow and the orbit are there from the first frame; each tile joins
+  // when its icon has arrived, no sooner than its turn in the line.
   const clock = new THREE.Clock(false);
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
@@ -174,17 +175,14 @@ function start() {
   body.translate(0, 0, -body.boundingBox.max.z);
   const face = faceGeometry(TILE, TILE, 0.3);
   const loader = new THREE.TextureLoader();
-  let loaded = 0;
 
   const tiles = links.map((link, i) => {
     const color = new THREE.Color(link.dataset.color);
     const texture = loader.load(link.dataset.tile, () => {
-      loaded += 1;
-      if (loaded === links.length) {
-        art.classList.add('is-3d');
-        clock.start();
-        still ? frame() : render();
-      }
+      const entry = tiles[i];
+      entry.ready = true;
+      entry.delay = Math.max(entry.delay, clock.getElapsedTime());
+      if (still) frame();
     });
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
@@ -211,7 +209,8 @@ function start() {
       link,
       angle: (i / links.length) * Math.PI * 2 + 0.5,
       focus: 0,
-      delay: 0.35 + i * 0.14,
+      ready: false,
+      delay: 0.25 + i * 0.14,
     };
   });
 
@@ -352,7 +351,7 @@ function start() {
 
     // The aura breathes; its shell turns.
     const breath = still ? 1 : 1 + Math.sin(t * 1.3) * 0.06;
-    aura.scale.setScalar(Math.max(still ? 1 : easeOutBack(t / 1.2), 0.0001) * breath);
+    aura.scale.setScalar((still ? 1 : 0.75 + 0.25 * easeOutBack(t / 1.0)) * breath);
     shell.rotation.y = still ? 0.4 : t * 0.15;
     shell.rotation.x = still ? 0.2 : t * 0.07;
     halos[0].material.opacity = halos[0].userData.base * (still ? 1 : 0.85 + Math.sin(t * 1.3) * 0.15);
@@ -365,7 +364,7 @@ function start() {
     system.updateMatrixWorld(true);
     const world = new THREE.Vector3();
     tiles.forEach((entry, i) => {
-      const grow = still ? 1 : easeOutBack((t - entry.delay) / 0.9);
+      const grow = !entry.ready ? 0 : still ? 1 : easeOutBack((t - entry.delay) / 0.9);
       const reach = ORBIT * (1 + (still ? 0 : 1 - easeOutCubic((t - entry.delay) / 1.2)) * 0.9);
       const a = entry.angle + spin;
       world.set(Math.cos(a) * reach, Math.sin(a) * reach, 0);
@@ -420,7 +419,8 @@ function start() {
   document.addEventListener('visibilitychange', () => (document.hidden ? pause() : play()));
 
   resize();
-  aura.scale.setScalar(0.0001);
   tiles.forEach((entry) => entry.tile.scale.setScalar(0.0001));
+  clock.start();
+  art.classList.add('is-3d');
   play();
 }

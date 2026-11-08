@@ -114,7 +114,7 @@ a {
   }
 }
 
-/* The 3D scene (js/aura.js) fades in once every icon has loaded. The icons
+/* The 3D scene (js/aura.js) shows as soon as it starts. The icons
    around a glow are the fallback: at once without scripts, after a wait if
    the scene has not come, and never under the scene. */
 .art {
@@ -127,7 +127,7 @@ a {
   width: calc(100% + 120px);
   height: calc(100% + 80px);
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.35s ease;
 }
 .art.is-3d .scene {
   opacity: 1;
