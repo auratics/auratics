@@ -200,7 +200,7 @@ function start() {
       ),
     );
     tile.add(front);
-    const light = glow(dot, color, 3.0, 0.32);
+    const light = glow(dot, color, 2.1, 0.24);
     light.position.z = -0.3;
     tile.add(light);
     system.add(tile);
