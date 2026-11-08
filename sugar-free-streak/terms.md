@@ -56,4 +56,4 @@ If these terms change in a way that matters, we will say so in the app.
 
 ## Contact
 
-auratics.studio@gmail.com
+support@auratics.app

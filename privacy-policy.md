@@ -35,4 +35,4 @@ Our apps are not directed at children under 13.
 
 ## Contact
 
-Questions: auratics.studio@gmail.com
+Questions: support@auratics.app

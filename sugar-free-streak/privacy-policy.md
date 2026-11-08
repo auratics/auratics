@@ -12,7 +12,7 @@ and iOS, named Sugar Free on the home screen and published in the app stores
 by **auratics**.
 
 **Data controller:** Feyza Can\
-**Contact:** auratics.studio@gmail.com
+**Contact:** support@auratics.app
 
 **In short**
 - You can start without signing up. The app gives you a guest account that
@@ -109,7 +109,7 @@ only with backup on.
 - **Your account and everything stored with it:** Settings → **Delete
   account** (for a guest, **Delete my data**). This deletes the account and
   every log on our server and on the phone, right away.
-- **Without the app:** write to **auratics.studio@gmail.com** from the email
+- **Without the app:** write to **support@auratics.app** from the email
   address of your account, and we delete it within 30 days.
 
 Step by step: [Deleting your data](delete-account)
@@ -122,7 +122,7 @@ portability, and to withdraw consent. You also have the right to complain to
 your local data protection authority.
 
 For a copy of what we store about your account, or any other request, write
-to **auratics.studio@gmail.com** and we will reply within 30 days.
+to **support@auratics.app** and we will reply within 30 days.
 
 ## 11. Security
 
@@ -137,7 +137,7 @@ records of its users are kept, unchanged and unused, for about 30 days after
 Sugar Free Streak's release so that copies of the old app keep working, and are
 deleted by 31 December 2026 at the latest. To get a copy
 before then, or to have them deleted sooner, write to
-**auratics.studio@gmail.com**.
+**support@auratics.app**.
 
 ## 13. Children
 
@@ -152,4 +152,4 @@ the date at the top.
 
 ## 15. Contact
 
-auratics.studio@gmail.com
+support@auratics.app

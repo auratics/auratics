@@ -10,7 +10,7 @@ Last updated: November 6, 2026
 This policy applies to the **Habuddy** app, previously published as **Habitual**. The app is published on the App Store and Google Play under the developer name **auratics**.
 
 **Data controller:** Feyza Can, trading as auratics\
-**Contact:** auratics.studio@gmail.com
+**Contact:** support@auratics.app
 
 Habuddy is a habit tracker you can use alone or with friends. This page explains what the app collects, why, and what you can do about it.
 
@@ -59,4 +59,4 @@ If this policy changes in a way that matters, we will say so in the app.
 
 ## Contact
 
-auratics.studio@gmail.com
+support@auratics.app

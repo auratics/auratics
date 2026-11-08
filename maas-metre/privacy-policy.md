@@ -11,7 +11,7 @@ Bu metin **Maaş Metre** uygulaması için geçerlidir. Uygulama, mağazalarda
 **auratics** geliştirici adıyla yayımlanır.
 
 **Veri sorumlusu:** Feyza Can\
-**İletişim:** auratics.studio@gmail.com
+**İletişim:** support@auratics.app
 
 Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında
 aydınlatma metni olarak da hazırlanmıştır.
@@ -144,7 +144,7 @@ Aktarımları yalnızca gereken veriyle sınırlı tutuyoruz:
   yap: misafir kimliği telefona bağlıdır ve uygulama silindikten sonra o
   kayıtlara bir daha ulaşılamaz.
 - **Uygulamaya erişemiyorsan:** hesabının e-posta adresinden
-  auratics.studio@gmail.com adresine yaz; hesabın ve kayıtların silinir.
+  support@auratics.app adresine yaz; hesabın ve kayıtların silinir.
 
 Adım adım anlatım: [Hesabını ve verilerini silme](delete-account)
 
@@ -153,7 +153,7 @@ Adım adım anlatım: [Hesabını ve verilerini silme](delete-account)
 KVKK md. 11 uyarınca; verilerinin işlenip işlenmediğini öğrenme, bilgi
 isteme, düzeltilmesini ya da silinmesini isteme, aktarıldığı kişileri öğrenme,
 itiraz etme ve zararının giderilmesini talep etme hakların vardır.
-Taleplerin için **auratics.studio@gmail.com** adresine yaz; en geç 30 gün
+Taleplerin için **support@auratics.app** adresine yaz; en geç 30 gün
 içinde cevap veririz.
 
 ## 9. Güvenlik
@@ -173,4 +173,4 @@ tarih değişir.
 
 ## 12. İletişim
 
-auratics.studio@gmail.com
+support@auratics.app

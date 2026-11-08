@@ -142,4 +142,4 @@ başvurma hakkın saklıdır.
 
 ## 15. İletişim
 
-auratics.studio@gmail.com
+support@auratics.app

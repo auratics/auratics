@@ -21,7 +21,7 @@ account.
 
 ## Without the app
 
-Email **auratics.studio@gmail.com** from your account's email address, with the
+Email **support@auratics.app** from your account's email address, with the
 subject "Delete my account". We delete your account and data, and confirm by
 email within 30 days.
 

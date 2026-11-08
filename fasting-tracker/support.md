@@ -6,7 +6,7 @@ title: Support
 # Fast Tracker Support
 
 If you have a problem, a question or an idea, write to
-**auratics.studio@gmail.com**.
+**support@auratics.app**.
 
 It helps if you include your phone model and the version of the app.
 

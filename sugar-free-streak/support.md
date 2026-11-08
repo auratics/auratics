@@ -6,7 +6,7 @@ title: Support
 # Sugar Free Streak Support
 
 If you have a problem, a question or an idea, write to
-**auratics.studio@gmail.com**. It helps if you include your phone model and
+**support@auratics.app**. It helps if you include your phone model and
 the app's version, which is at the bottom of Settings.
 
 ## Frequently asked questions

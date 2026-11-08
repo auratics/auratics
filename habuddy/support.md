@@ -5,7 +5,7 @@ title: Support
 
 # Habuddy support
 
-Have a problem, a question or an idea? Write to **auratics.studio@gmail.com**. Including your phone model and the app version (Me → Settings) helps us answer faster.
+Have a problem, a question or an idea? Write to **support@auratics.app**. Including your phone model and the app version (Me → Settings) helps us answer faster.
 
 ## Common questions
 

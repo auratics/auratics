@@ -12,7 +12,7 @@ and iOS, named Fast Tracker on the home screen and published in the app
 stores as **auratics**.
 
 **Data controller:** Feyza Can\
-**Contact:** auratics.studio@gmail.com
+**Contact:** support@auratics.app
 
 **In short**
 - Fast Tracker works without an account, and then your fasts stay on your
@@ -146,7 +146,7 @@ fasts.
   account**. The fasts on your phone stay.
 - **Everything on the phone:** Settings → **Delete all data**, or uninstall
   the app.
-- **Without the app:** write to **auratics.studio@gmail.com** from the email
+- **Without the app:** write to **support@auratics.app** from the email
   address of your account, and we delete the account within 30 days.
 - **Advertising data:** reset or delete your advertising ID in your phone's
   settings, or manage Google's data at
@@ -162,7 +162,7 @@ portability, and to withdraw consent. You also have the right to complain to
 your local data protection authority.
 
 For a copy of what we store about your account, or any other request, write
-to **auratics.studio@gmail.com** and we will reply within 30 days.
+to **support@auratics.app** and we will reply within 30 days.
 
 ## 11. Security
 
@@ -183,4 +183,4 @@ the date at the top.
 
 ## 14. Contact
 
-auratics.studio@gmail.com
+support@auratics.app

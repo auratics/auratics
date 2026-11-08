@@ -2,7 +2,7 @@
 
 Users can request deletion of their data by contacting us at:
 
-auratics.studio@gmail.com
+support@auratics.app
 
 Since this app does not require user accounts and does not store personal data on servers, most data is stored locally on the user’s device.
 

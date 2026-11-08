@@ -19,7 +19,7 @@ If you are using an older version as a guest, you have no account to delete: del
 
 ## Without the app
 
-Email **auratics.studio@gmail.com** from your account's email address, with the subject "Delete my account". We delete your account and data, and confirm by email within 30 days.
+Email **support@auratics.app** from your account's email address, with the subject "Delete my account". We delete your account and data, and confirm by email within 30 days.
 
 ## What is deleted
 

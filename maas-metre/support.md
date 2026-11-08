@@ -5,7 +5,7 @@ title: Destek
 
 # Maaş Metre Destek
 
-Bir sorun, soru ya da önerin varsa yaz: **auratics.studio@gmail.com**
+Bir sorun, soru ya da önerin varsa yaz: **support@auratics.app**
 
 Telefonunun modelini ve uygulama sürümünü (Profil → Ayarlar → Hakkında)
 eklersen daha hızlı yardımcı olabiliriz.

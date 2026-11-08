@@ -2,7 +2,7 @@
 
 Need help with one of our apps? Get in touch and we will get back to you.
 
-**Contact:** auratics.studio@gmail.com
+**Contact:** support@auratics.app
 
 ## Frequently asked
 

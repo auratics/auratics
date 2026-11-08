@@ -18,7 +18,7 @@ Hesabın ve bütün maaş kayıtların hemen ve kalıcı olarak silinir.
 
 ## Uygulamaya erişemiyorsan
 
-Hesabının e-posta adresinden **auratics.studio@gmail.com** adresine "Hesabımı
+Hesabının e-posta adresinden **support@auratics.app** adresine "Hesabımı
 sil" konulu bir e-posta gönder. Hesabın ve kayıtların silinir; en geç 30 gün
 içinde sana e-postayla haber veririz.
 

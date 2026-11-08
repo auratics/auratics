@@ -29,7 +29,7 @@ too.
 Your account and every fast stored with it are deleted from our server right
 away. The fasts on your phone stay.
 
-Without the app, write to **auratics.studio@gmail.com** from the email address
+Without the app, write to **support@auratics.app** from the email address
 of your account, with the subject "Delete my account". We delete it and tell
 you within 30 days.
 
@@ -51,7 +51,7 @@ ID.
 ## Questions
 
 Without an account, we hold no data about you. If you have a question, write
-to **auratics.studio@gmail.com**.
+to **support@auratics.app**.
 
 ---
 
