@@ -114,9 +114,9 @@ a {
   }
 }
 
-/* The 3D scene (js/aura.js) shows as soon as it starts. The icons
-   around a glow are the fallback: at once without scripts, after a wait if
-   the scene has not come, and never under the scene. */
+/* The 3D scene (js/aura.js) shows as soon as it starts, over a still of
+   itself. The icons around a glow are the fallback: at once without scripts,
+   after a wait if the scene has not come, and never under the scene. */
 .art {
   position: relative;
   min-height: min(520px, 68vh);
@@ -131,6 +131,20 @@ a {
 }
 .art.is-3d .scene {
   opacity: 1;
+}
+/* Until the scene is drawn, a still of its first frame (the glow and the
+   orbit, drawn on black and screened onto the page) holds its place. */
+.js .art::before {
+  content: "";
+  position: absolute;
+  inset: -40px -60px;
+  background: url("img/scene-still.webp") center / contain no-repeat;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.js .art.is-3d::before {
+  opacity: 0;
 }
 .orbit {
   position: absolute;
@@ -490,6 +504,9 @@ footer a {
   }
   .art {
     min-height: 340px;
+  }
+  .js .art::before {
+    inset: -20px -20px;
   }
   .art .scene {
     inset: -20px -20px;
