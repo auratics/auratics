@@ -75,10 +75,6 @@ body.menu .sheet{clip-path:circle(150% at calc(100% - 38px) 62px); visibility:vi
 .hero .eyebrow{margin-bottom:clamp(18px,2.5vw,30px); color:var(--muted)}
 .hero .lead{font-size:clamp(1.05rem,1.4vw,1.25rem); max-width:30em; margin:clamp(20px,2.4vw,30px) 0 22px}
 .status{display:inline-flex; align-items:center; gap:10px; padding:9px 16px 9px 14px; border:1px solid var(--line); border-radius:99px; font:500 .78rem/1 var(--sans); letter-spacing:.06em; background:rgba(255,255,255,.35)}
-.status i{width:8px; height:8px; border-radius:50%; background:#b9b2a6; position:relative}
-.status.open i{background:#5c8a4a}
-.status.open i::after{content:''; position:absolute; inset:-5px; border-radius:50%; border:1px solid #5c8a4a; animation:ping 2s infinite}
-@keyframes ping{from{transform:scale(.5); opacity:1} to{transform:scale(1.6); opacity:0}}
 .ctas{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px}
 .btn{display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 26px; border-radius:99px; text-decoration:none; font:500 .76rem/1 var(--sans); letter-spacing:.18em; text-transform:uppercase; border:1px solid var(--ink); transition:background .35s, color .35s, transform .35s}
 .btn.fill{background:var(--ink); color:var(--cream)}
@@ -95,7 +91,7 @@ body.menu .sheet{clip-path:circle(150% at calc(100% - 38px) 62px); visibility:vi
 .hero .arch img{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}
 @keyframes settle{from{transform:scale(1.12)} to{transform:scale(1)}}
 .hero-art{position:relative; max-width:min(500px, calc((100vh - 170px) * .76)); justify-self:end; width:100%}
-.seal{position:absolute; left:-46px; bottom:12%; width:132px; height:132px; border-radius:50%; background:var(--ink); color:var(--cream); display:grid; place-items:center; box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.seal{text-decoration:none; position:absolute; left:-46px; bottom:12%; width:132px; height:132px; border-radius:50%; background:var(--ink); color:var(--cream); display:grid; place-items:center; box-shadow:0 18px 40px rgba(0,0,0,.18)}
 .seal svg.ring{position:absolute; inset:0; width:100%; height:100%; animation:spin 22s linear infinite}
 .seal svg.ring text{font:500 10px var(--sans); letter-spacing:.12em; fill:var(--gold-soft); text-transform:uppercase}
 .seal .c{font:400 1.05rem/1.05 var(--display); text-align:center; text-transform:uppercase}
@@ -212,6 +208,79 @@ details .more{padding:0 0 22px}
 .roasters li{border:1px solid rgba(245,240,230,.3); border-radius:99px; padding:9px 16px; font:500 .72rem/1 var(--sans); letter-spacing:.16em; text-transform:uppercase}
 @media (max-width:899px){.aff .wrap{grid-template-columns:1fr} .vid{max-width:360px; margin:0 auto}}
 
+/* additions */
+.status-row{display:flex; flex-wrap:wrap; align-items:center; gap:12px}
+.btc-pill{height:38px; width:auto}
+.duo{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:32px}
+.duo figure{margin:0; border-radius:4px; overflow:hidden; background:#fff}
+.duo img{width:100%; height:100%; object-fit:cover}
+.duo .sketch img{object-fit:contain; background:#fff}
+details.wide{margin-top:clamp(28px,4vw,44px)}
+.more.cols{columns:2 320px; column-gap:40px}
+.nutri{width:100%; border-collapse:collapse; font-size:.95rem; margin-top:8px}
+.nutri th{font:500 .68rem/1.3 var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--muted); text-align:left; padding:8px 12px 8px 0; border-bottom:1px solid var(--ink)}
+.nutri td{padding:12px 12px 12px 0; border-bottom:1px solid var(--line); vertical-align:top}
+.nutri td small{color:var(--muted); font-size:.82rem}
+.nutri td:nth-child(2){font-weight:500; white-space:nowrap}
+.nutri td:nth-child(3){color:var(--muted); white-space:nowrap}
+.band .intro.muted{margin-top:18px; font-size:clamp(.98rem,1.2vw,1.08rem); color:rgba(245,240,230,.72)}
+.after{margin-top:clamp(28px,4vw,44px); max-width:40em; font-size:clamp(1rem,1.3vw,1.15rem)}
+.philo{margin-top:clamp(48px,7vw,90px); text-align:center}
+.philo p{margin:14px 0 0; font:400 clamp(1.6rem,3.6vw,3rem)/1.15 var(--display); text-transform:uppercase; color:var(--gold-soft)}
+.masonry{columns:3 220px; column-gap:14px}
+.masonry.two{columns:2; column-gap:14px}
+.masonry figure{margin:0 0 14px; break-inside:avoid; border-radius:4px; overflow:hidden; background:var(--paper-2)}
+.masonry img{width:100%; height:auto; transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.masonry figure:hover img{transform:scale(1.04)}
+.credit-dark{margin-top:18px; font:500 .68rem/1.4 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--muted)}
+.credit a,.credit-dark a{color:inherit}
+details.on-dark{border-color:rgba(245,240,230,.2); margin-top:8px}
+.logos{list-style:none; padding:0; margin:14px 0 0; display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:10px}
+.logos li{background:var(--cream); border-radius:6px; height:74px; display:grid; place-items:center; padding:12px 16px}
+.logos li.inv{background:#2a2622}
+.logos img{max-height:46px; max-width:100%; width:auto; height:auto; object-fit:contain}
+.roasters ul.logos{display:grid; grid-template-columns:repeat(auto-fill,minmax(104px,1fr)); gap:8px}
+.roasters .logos li{border:0; border-radius:6px; padding:10px 14px; height:64px}
+.roasters .logos img{max-height:38px}
+.org{grid-template-columns:repeat(5,1fr); margin:26px 0 0}
+.org li{background:#fff; height:96px}
+.org img{max-height:68px}
+.guides{margin:30px 0 0; font-size:1.02rem}
+.guides .label{color:var(--muted); margin-right:12px}
+.press-logos{grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); margin-top:26px}
+.press-logos li{background:#fff; height:96px}
+.press-logos img{max-height:56px}
+.coffee-rail{padding-bottom:clamp(40px,6vw,80px); margin-top:-1px}
+.coffee-rail .rail img{width:clamp(180px,20vw,260px); aspect-ratio:2/3; object-fit:cover; height:auto}
+.ig{display:inline-flex; align-items:center; gap:10px}
+.ig img{width:22px; height:22px; border:0}
+.btc img{height:92px; width:auto}
+.btc-foot{height:46px!important; width:auto; border-radius:6px}
+@media (max-width:760px){.org{grid-template-columns:repeat(3,1fr)} .duo{grid-template-columns:1fr 1fr} .masonry{columns:2; column-gap:8px} .masonry figure{margin-bottom:8px}}
+
+.visit .wrap.map-wrap{display:block; margin-top:clamp(48px,7vw,90px)}
+.map{display:block; width:100%; height:clamp(300px,40vw,440px); border:0; border-radius:6px}
+/* instagram */
+.insta{padding-top:0}
+.insta-head{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:clamp(16px,3vw,32px); margin-bottom:clamp(28px,4vw,44px)}
+.insta h2{font-size:clamp(2.4rem,6.5vw,5rem); text-transform:none; letter-spacing:0}
+.insta h2 a{text-decoration:none; background:linear-gradient(90deg,#f58529,#dd2a7b 45%,#8134af 75%,#515bd4); -webkit-background-clip:text; background-clip:text; color:transparent}
+.ig-badge{width:clamp(64px,8vw,92px); aspect-ratio:1; border-radius:50%; padding:3px; background:conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75); display:block; animation:spin 9s linear infinite}
+.ig-badge span{width:100%; height:100%; border-radius:50%; background:var(--paper); display:grid; place-items:center; color:var(--ink); animation:spin 9s linear infinite reverse}
+.ig-badge svg{width:42%; height:42%}
+.ig-btn{border:0; color:#fff; background:linear-gradient(90deg,#f58529,#dd2a7b 50%,#8134af); gap:10px; background-size:200% 100%; transition:background-position .6s, transform .35s}
+.ig-btn:hover{background-position:100% 0}
+.ig-btn svg{width:16px; height:16px}
+.ig-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:6px}
+.ig-tile{position:relative; display:block; aspect-ratio:1; overflow:hidden; border-radius:4px; background:var(--paper-2)}
+.ig-tile img{width:100%; height:100%; object-fit:cover; transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.ig-tile span{position:absolute; inset:0; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,rgba(245,133,41,.55),rgba(221,42,123,.55),rgba(129,52,175,.55)); opacity:0; transition:opacity .45s}
+.ig-tile span svg{width:34px; height:34px; transform:scale(.7); transition:transform .45s}
+.ig-tile:hover img{transform:scale(1.08)}
+.ig-tile:hover span{opacity:1}
+.ig-tile:hover span svg{transform:none}
+@media (max-width:760px){.insta-head{grid-template-columns:auto 1fr} .ig-btn{grid-column:1/-1; justify-content:center} .ig-grid{grid-template-columns:repeat(2,1fr)}}
+
 /* film */
 .film{padding:0 0 clamp(72px,10vw,140px)}
 .aff + .film{margin-top:-1px}
@@ -248,14 +317,11 @@ details .more{padding:0 0 22px}
 .hours{width:100%; border-collapse:collapse; margin-bottom:30px; max-width:460px}
 .hours td{padding:12px 0; border-bottom:1px solid rgba(245,240,230,.2); font:500 .8rem/1 var(--sans); letter-spacing:.14em; text-transform:uppercase}
 .hours td:last-child{text-align:right}
-.hours tr.now td{color:var(--gold-soft)}
-.hours tr.off td{opacity:.5}
 .info{display:grid; grid-template-columns:auto 1fr; gap:10px 24px; margin-bottom:32px; font-size:1.02rem}
 .info dt{font:500 .7rem/2.1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:rgba(245,240,230,.6)}
 .info dd{margin:0}
 .info a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.35)}
-.btc{display:inline-flex; align-items:center; gap:8px; margin-top:24px; font:500 .7rem/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:rgba(245,240,230,.7)}
-.btc i{width:20px; height:20px; border-radius:50%; background:#f7931a; color:#fff; display:grid; place-items:center; font:600 .72rem/1 var(--sans); font-style:normal}
+.btc{margin-top:22px}
 @media (max-width:899px){.visit .wrap{grid-template-columns:1fr} .visit .arch{max-width:420px}}
 
 footer{background:var(--dark); color:rgba(245,240,230,.6); padding:50px 0 60px; border-top:1px solid rgba(245,240,230,.12)}
@@ -278,13 +344,13 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Sablé Gelato, back to top"><img src="img/logo.png" alt="Sablé - Gelato &amp; Cioccolato - Laboratorio Artigianale" width="520" height="354"></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#about">About me</a><a href="#gelato">My gelato</a><a href="#chocolate">Chocolate</a><a href="#affogato">Affogato</a><a href="#awards">Awards</a><a href="#visit">Visit</a>
+      <a href="#about">About me</a><a href="#gelato">My gelato</a><a href="#lab">Lab</a><a href="#chocolate">Chocolate</a><a href="#affogato">Affogato</a><a href="#awards">Awards</a><a href="#instagram">Instagram</a><a href="#visit">Visit</a>
     </nav>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
   </div>
 </header>
 <nav class="sheet" id="sheet" aria-label="Menu">
-  <a href="#about">About me</a><a href="#gelato">My gelato</a><a href="#chocolate">Chocolate</a><a href="#affogato">Affogato</a><a href="#awards">Awards</a><a href="#visit">Visit</a>
+  <a href="#about">About me</a><a href="#gelato">My gelato</a><a href="#lab">Lab</a><a href="#chocolate">Chocolate</a><a href="#affogato">Affogato</a><a href="#awards">Awards</a><a href="#instagram">Instagram</a><a href="#visit">Visit</a>
   <span class="label muted">Via dei Mille 3a · Bologna</span>
 </nav>
 
@@ -300,7 +366,7 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
         <span class="ln" style="--i:3"><span>Gelateria</span></span>
       </h1>
       <p class="lead" data-r style="--d:.5s">Very few flavours, all seasonal, created every morning: an ice cream free of emulsifiers, thickeners and preservatives.</p>
-      <div data-r style="--d:.6s"><span class="status" id="status"><i></i><span>Open from Wednesday to Sunday · 11:30 – 19:00</span></span></div>
+      <div class="status-row" data-r style="--d:.6s"><span class="status"><span>Open from Wednesday to Sunday · 11:30 – 19:00</span></span><img class="btc-pill" src="img/logos/bitcoin-accepted.webp" alt="Bitcoin accepted here" width="318" height="111"></div>
       <div class="ctas" data-r style="--d:.7s">
         <a class="btn fill" href="#gelato">My gelato</a>
         <a class="btn ghost" href="#visit">Get in touch</a>
@@ -308,10 +374,10 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
     </div>
     <div class="hero-art" data-r style="--d:.2s">
       <div class="arch"><img data-px="0.10" src="img/cone-700.webp" srcset="img/cone-700.webp 700w, img/cone-1400.webp 1400w" sizes="(max-width:899px) 90vw, 40vw" alt="A cone of Sablé gelato with a vanilla pod" width="700" height="875" fetchpriority="high"></div>
-      <div class="seal" aria-label="Due Coni Gambero Rosso 2023 to 2026">
+      <a class="seal" href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener" aria-label="Due Coni Gambero Rosso 2023, 2024, 2025, 2026">
         <svg class="ring" viewBox="0 0 132 132" aria-hidden="true"><defs><path id="circ" d="M66,66 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs><text><textPath href="#circ" textLength="322">Gambero Rosso · 2023 – 2026 · Gambero Rosso ·</textPath></text></svg>
         <div class="c">Due<br>Coni</div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -363,6 +429,10 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
           <p>I don't have any type of storage and I'm really small, the shop measures only 27 m². Here you can find excellence and research in every handmade and refined process to maximize the true flavour of every ingredient!</p>
         </div>
       </details>
+      <div class="duo" data-r>
+        <figure class="sketch"><img src="img/sketch-700.webp" alt="Drawing of Sablé Gelato: “I don't need industry for an excellent ice cream, much less compromises.” Ice cream maker and chocolate maker" loading="lazy" width="900" height="1273"></figure>
+        <figure><img src="img/counter-bw-700.webp" alt="The Sablé Gelato counter, in black and white" loading="lazy" width="700" height="863"></figure>
+      </div>
     </div>
   </div>
 </section>
@@ -400,25 +470,81 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
         </ul>
       </div>
     </div>
+    <details class="wide" data-r>
+      <summary>What's in my gelato, in my words <i></i></summary>
+      <div class="more cols">
+        <p>What's inside my gelato… or it would be better to say what's not inside my gelato. Inside my ice cream there are no chemical additives of any kind, there are no thickeners, there are no chemical emulsifiers, there are no stabilizers, there is no powdered milk and there is not even condensed milk, there is no dry glucose, there are no maltodextrins or inulin, there are not the classic ingredients that you find in 99.9% of Italian and world ice creams.</p>
+        <p>Well, now I can tell you what's in my ice cream: my ice cream is made starting from raw milk from a local company that is analyzed every week to ensure the highest quality of proteins, fats and fibers. I only use high quality fresh cream, classic white sugar or cane sugar, honey, inverted sugar that I create naturally in my laboratory, fresh eggs from local farms (Rainbow Cocche), salt from different origins in the world, organic fresh fruit sorbets favoring slow food ingredients!</p>
+      </div>
+    </details>
     <div class="nums">
       <div class="num" data-r><b><span data-count="14">14</span>–<span data-count="19">19</span>%</b><span>Sugar content of our gelato</span><small>Vs. other Italian gelato 16% – 26%</small></div>
       <div class="num" data-r style="--d:.1s"><b><span data-count="89">89</span>%</b><span>Fruit in our sorbets, on average, from whole, ripe fruit</span><small>Including the natural sugars of fruit</small></div>
       <div class="num" data-r style="--d:.2s"><b><span data-count="70">70</span>–<span data-count="90">90</span></b><span>kcal per 100 g of sorbet, the lightest</span><small>Gelato: 190 – 210 kcal · average 140 kcal</small></div>
     </div>
+    <details class="wide" data-r>
+      <summary>Nutritional value <i></i></summary>
+      <div class="more">
+        <p>By avoiding industrial and processed substances and using only the highest quality raw ingredients, we create gelato and sorbets with genuine nutritional value: real food, made simply and honestly. We believe that clarity builds trust, and great gelato should nourish, not overwhelm. Here's how our recipes compare to conventional options:</p>
+        <table class="nutri">
+          <tr><th>Per 100 g</th><th>Sablé</th><th>Other Italian gelato</th></tr>
+          <tr><td>Gelato · fat content</td><td>6% – 10%</td><td></td></tr>
+          <tr><td>Gelato · sugar content</td><td>14% – 19%</td><td>16% – 26%</td></tr>
+          <tr><td>Sorbet · sugar content<br><small>Depends on the type of fruit used, including the natural sugars of fruit</small></td><td>25% – 29%</td><td>28% – 36%</td></tr>
+          <tr><td>Fruit content in our sorbets<br><small>From whole, ripe fruit (which naturally contains ~17% sugar)</small></td><td>89% on average</td><td></td></tr>
+          <tr><td>Calories · sorbet</td><td>70 – 90 kcal (lowest)</td><td></td></tr>
+          <tr><td>Calories · gelato</td><td>190 – 210 kcal (highest)</td><td></td></tr>
+          <tr><td>Calories · average</td><td>140 kcal</td><td></td></tr>
+        </table>
+        <p style="margin-top:18px">Our gelato and sorbets are light, real, and full of flavour, with no excess fat or hidden additives.</p>
+      </div>
+    </details>
   </div>
 </section>
 
 <section class="dark band" aria-labelledby="art-h">
   <div class="bg"><img data-px="0.12" src="img/lemon-700.webp" srcset="img/lemon-700.webp 700w, img/lemon-1400.webp 1400w" sizes="100vw" alt="" loading="lazy"></div>
   <div class="wrap">
-    <div class="label" data-r>Our philosophy</div>
+    <div class="label" data-r>Making ice cream</div>
     <h2 id="art-h" data-r style="margin-top:16px">Real gelato<br>is art</h2>
     <p class="intro" data-r>Making ice cream, for us, does not mean following fixed formulas. It's listening to nature, understanding its changes and finding a new balance every day.</p>
+    <p class="intro muted" data-r>We only use live, non-industrial ingredients. This means that every day brings something different: the milk changes with the seasons and with the grass that the cows eat, the fruit varies in its sugar and water, even two strawberries from the same plant are never the same. We constantly adapt the recipes, to favour these changes and transform them into perfect taste, structure and consistency.</p>
     <div class="truths">
       <p data-r><em>01</em>It lives only one day, once exposed to the air.</p>
       <p data-r><em>02</em>It cannot be put in the freezer at home: the deep cold ruins the texture and the soul.</p>
       <p data-r><em>03</em>Ice cream should be eaten fresh, freshly made. Just like nature thought.</p>
     </div>
+    <div class="after" data-r>
+      <p>Our ice cream is born every morning in our open kitchen, always prepared fresh! Only real ingredients, no preservatives.</p>
+      <p>With few ingredients, a lot of technique, and absolute respect for the raw material, we treat ice cream as a living craft, made of precision, instinct and passion.</p>
+    </div>
+    <div class="philo" data-r>
+      <div class="label">Our philosophy</div>
+      <p>Free gelato, without compromise.</p>
+      <p>Respect for nature, from the earth to the cone.</p>
+      <p>A flavour that speaks truth, different every day.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec lab" id="lab">
+  <div class="wrap">
+    <div class="sec-head">
+      <div data-r><div class="label">Laboratorio artigianale</div><h2>In the lab</h2></div>
+      <p class="muted" data-r style="max-width:30em;margin:0">I go to the mountains to collect my ingredients to be able to bring them back into my ice cream through infusions that can last up to 72 hours and extractions with fermentations, a unique ice cream that every day lives a new life.</p>
+    </div>
+    <div class="masonry" data-r>
+        <figure><img src="img/stir-700.webp" alt="Alessandro stirring in the laboratory" loading="lazy" width="700" height="1050"></figure>
+        <figure><img src="img/milk-700.webp" alt="Milk poured into the batch freezer" loading="lazy" width="700" height="1050"></figure>
+        <figure><img src="img/eggs-700.webp" alt="Fresh eggs from local farms" loading="lazy" width="700" height="1050"></figure>
+        <figure><img src="img/honey-700.webp" alt="Raw honeycomb" loading="lazy" width="700" height="1050"></figure>
+        <figure><img src="img/pistachio-hand-700.webp" alt="Pistachios in a hand" loading="lazy" width="700" height="1050"></figure>
+        <figure><img src="img/mixer-700.webp" alt="Vintage vertical gelato machine" loading="lazy" width="700" height="1050"></figure>
+        <figure><img src="img/swirl-700.webp" alt="Gelato being extracted from the machine" loading="lazy" width="700" height="1050"></figure>
+        <figure><img src="img/pistachios-700.webp" alt="Pistachios" loading="lazy" width="700" height="1050"></figure>
+        <figure><img src="img/jar-700.webp" alt="Cocoa beans in a jar: “Nicaragua bean, no industry chocolate”" loading="lazy" width="700" height="1050"></figure>
+    </div>
+    <p class="credit-dark" data-r>Special thanks for photo: Davide T. · <a href="https://www.instagram.com/_davematics/" target="_blank" rel="noopener">Instagram page</a></p>
   </div>
 </section>
 
@@ -434,12 +560,22 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
         <div><span><b>Refined in a stone machine for 72 hours</b>, adding only cane sugar or white beet sugar</span></div>
         <div><span><b>At least four months</b> vacuum-packed, to let the natural aromas mature</span></div>
       </div>
-      <p class="muted" data-r><em>Every bite awakens new emotions and flavours, a limited edition chocolate in every bar.</em></p>
+      <p class="muted" data-r><em>Every bite awakens new emotions and flavours, a limited edition chocolate in every bar and preparation as only a true craftsman can create.</em></p>
+      <details data-r>
+        <summary>Read more <i></i></summary>
+        <div class="more">
+          <p>The love for real chocolate began 10 years ago now, true because I really start from the selection of the farmer and the plantation, which must respect very strict standards. I carry out every phase in my laboratory, from cleaning and manual selection, to roasting which seeks the maximum expression of the cocoa bean, which can recall red fruits, or even yellow ones like bananas: each cocoa bean has a different flavour.</p>
+          <p>After that the peel is separated from the inside; the peel is used for infusions and also for my personal garden. The cocoa beans are refined in a stone machine for 72 hours adding only cane sugar or white beet sugar, after which it is vacuum-packed for at least four months to allow all the natural aromas of the cocoa beans to mature. It is then used to create my chocolate sorbet in the ice cream shop or, in the months that allow it, I manually produce every single bean to bar bar.</p>
+        </div>
+      </details>
     </div>
-    <div class="mosaic" data-r style="--d:.1s">
-      <div class="frame"><img data-px="0.08" src="img/melanger-700.webp" alt="Cocoa refined in a stone machine" loading="lazy" width="700" height="1050"></div>
-      <div class="frame"><img src="img/beans-700.webp" alt="Cocoa beans" loading="lazy" width="700" height="933"></div>
-      <div class="frame"><img src="img/bars-700.webp" alt="Sablé chocolate bars" loading="lazy" width="700" height="753"></div>
+    <div class="masonry two" data-r style="--d:.1s">
+      <figure><img src="img/melanger-700.webp" alt="Cocoa refined in a stone machine" loading="lazy" width="700" height="1050"></figure>
+      <figure><img src="img/beans-700.webp" alt="Cocoa beans" loading="lazy" width="700" height="933"></figure>
+      <figure><img src="img/bars-700.webp" alt="Sablé chocolate bars" loading="lazy" width="700" height="753"></figure>
+      <figure><img src="img/pour-beans-700.webp" alt="Roasted cocoa nibs poured into the stone machine" loading="lazy" width="700" height="1050"></figure>
+      <figure><img src="img/choc-texture-700.webp" alt="Sablé chocolate bar surface" loading="lazy" width="700" height="842"></figure>
+      <figure><img src="img/wrappers-700.webp" alt="Sablé chocolate wrappers" loading="lazy" width="700" height="790"></figure>
     </div>
   </div>
 </section>
@@ -456,11 +592,43 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       <p class="q" data-r>In my gelato shop, affogato is not just a dessert. It is an encounter.</p>
       <p data-r>There isn't just one affogato. There is a meeting between a specific gelato and a precise coffee. My role is to create balance. A properly extracted espresso should not overpower the gelato, but open it.</p>
       <p data-r class="muted">Specialty affogato is rarely found in traditional gelato shops. Here, it is not an addition to the menu. It is a project.</p>
+      <details class="on-dark" data-r>
+        <summary>Read more <i></i></summary>
+        <div class="more">
+          <p>It comes from the idea that true artisan gelato, made with living ingredients, without industrial shortcuts, can speak with a coffee extracted with the same care, the same obsession for detail, the same respect for origin. This is why I call it a specialty affogato.</p>
+          <p>I use carefully selected, traceable coffees, handled with attention at every stage: from the plantation to roasting, all the way to extraction. Every origin has its own voice: floral, citrusy, chocolatey, spicy.</p>
+          <p>A vanilla cream should not sweeten the coffee, but support it. Even a sorbet can create unexpected contrasts: fresh, vibrant, alive.</p>
+          <p>For me, specialty is not a trend. It is a method. It is respect for raw ingredients. It is transparency. It is study. I bring into my gelato shop the same approach I apply to every flavour: conscious origin selection, clean processing, and the pursuit of natural balance.</p>
+          <p>It is the point where the world of quality coffee meets true artisan gelato. And this is only the beginning.</p>
+        </div>
+      </details>
       <div class="roasters" data-r>
         <div class="label">The roasters we choose</div>
-        <ul><li>Taste Treviso</li><li>Cafēn</li><li>Hibi Kaffe</li><li>C·Sol</li><li>Ga.Pe</li><li>La Cabra</li><li>Marks</li><li>Sprout</li></ul>
+        <ul class="logos">
+          <li><img src="img/logos/taste-treviso.webp" alt="Taste, Treviso" loading="lazy" width="164" height="75"></li>
+          <li><img src="img/logos/cafen.svg" alt="Cafēn" loading="lazy" width="300" height="80"></li>
+          <li><img src="img/logos/hibi-kaffe.webp" alt="Hibi Kaffe" loading="lazy" width="253" height="176"></li>
+          <li><img src="img/logos/c-sol.svg" alt="C·Sol" loading="lazy" width="300" height="80"></li>
+          <li><img src="img/logos/gape.webp" alt="Ga.Pe coffee roasters" loading="lazy" width="288" height="111"></li>
+          <li><img src="img/logos/la-cabra.webp" alt="La Cabra" loading="lazy" width="352" height="58"></li>
+          <li><img src="img/logos/marks.webp" alt="Marks" loading="lazy" width="201" height="114"></li>
+          <li class="inv"><img src="img/logos/sprout.webp" alt="Sprout" loading="lazy" width="327" height="108"></li>
+          <li><img src="img/logos/roaster-w.webp" alt="Coffee roaster logo" loading="lazy" width="146" height="102"></li>
+        </ul>
       </div>
-      <p class="credit" data-r>Special thanks for video: Davide T.</p>
+      <p class="credit" data-r>Special thanks for video: Davide T. · <a href="https://www.instagram.com/_davematics/" target="_blank" rel="noopener">Instagram page</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="dark coffee-rail" aria-label="Coffee photos">
+  <div class="wrap">
+    <div class="rail" data-r>
+      <img src="img/grinder-700.webp" alt="Coffee grinder" loading="lazy" width="700" height="1050">
+      <img src="img/tamp-700.webp" alt="Tamping the espresso" loading="lazy" width="700" height="1050">
+      <img src="img/espresso-700.webp" alt="Espresso extraction" loading="lazy" width="700" height="1050">
+      <img src="img/affogato-700.webp" alt="A specialty affogato" loading="lazy" width="700" height="1050">
+      <img src="img/machine-700.webp" alt="The espresso machine" loading="lazy" width="700" height="1050">
     </div>
   </div>
 </section>
@@ -489,6 +657,14 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       <li><em>09</em><div><b>Terzo posto, MIG “Coppa d'oro Under 35”</b><span>2022 · Gelato alla Malaga</span></div></li>
       <li><em>10</em><div><b>Premio Innovazione, Sherbeth Festival</b><span>2022 – 23 · Favo e Fiori</span></div></li>
     </ol>
+    <p class="guides" data-r><span class="label">On the guides</span> Il Gambero Rosso: due coni e miglior gelatiere emergente d'Italia 2023</p>
+    <ul class="logos org" data-r>
+        <li><img src="img/logos/gambero-rosso.webp" alt="Gambero Rosso" loading="lazy" width="281" height="80"></li>
+        <li><img src="img/logos/gelato-festival.webp" alt="Gelato Festival World Masters" loading="lazy" width="600" height="598"></li>
+        <li><img src="img/logos/world-ranking.webp" alt="Gelato Festival World Ranking" loading="lazy" width="600" height="214"></li>
+        <li><img src="img/logos/sherbeth.webp" alt="Sherbeth, Festival Internazionale del Gelato Artigianale" loading="lazy" width="534" height="120"></li>
+        <li><img src="img/logos/mig.webp" alt="MIG Longarone" loading="lazy" width="160" height="125"></li>
+    </ul>
     <div class="wall" data-r>
         <figure><img src="img/award-1.webp" alt="Miglior gelatiere emergente d'Italia 2023, Gambero Rosso" loading="lazy" width="800" height="800"></figure>
         <figure><img src="img/award-2.webp" alt="Gelaterie d'Italia 2024, Gambero Rosso" loading="lazy" width="800" height="800"></figure>
@@ -502,7 +678,42 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
     </div>
     <div class="press" data-r>
       <div class="label">They write about me</div>
-      <ul><li>Bloomberg</li><li>The Telegraph</li><li>Food &amp; Wine</li><li>la Repubblica</li><li>Gambero Rosso</li><li>Cibo Today</li><li>il Golosario</li><li>Reporter Gourmet</li><li>La Gazzetta del Gusto</li><li>Taste Bologna</li></ul>
+      <ul class="logos press-logos">
+        <li><img src="img/logos/bloomberg.webp" alt="Bloomberg" loading="lazy" width="187" height="39"></li>
+        <li><img src="img/logos/telegraph.webp" alt="The Telegraph" loading="lazy" width="300" height="50"></li>
+        <li><img src="img/logos/food-wine.webp" alt="Food &amp; Wine Italia" loading="lazy" width="512" height="100"></li>
+        <li><img src="img/logos/la-repubblica.webp" alt="la Repubblica" loading="lazy" width="600" height="124"></li>
+        <li><img src="img/logos/gambero-rosso.webp" alt="Gambero Rosso" loading="lazy" width="281" height="80"></li>
+        <li><img src="img/logos/cibo-today.webp" alt="Cibo Today" loading="lazy" width="225" height="225"></li>
+        <li><img src="img/logos/blue.webp" alt="blue, fly smart" loading="lazy" width="600" height="245"></li>
+        <li><img src="img/logos/reporter-gourmet.webp" alt="Reporter Gourmet" loading="lazy" width="167" height="91"></li>
+        <li><img src="img/logos/il-golosario.webp" alt="il Golosario" loading="lazy" width="249" height="54"></li>
+        <li><img src="img/logos/taste-bologna.webp" alt="Taste Bologna" loading="lazy" width="277" height="227"></li>
+        <li><img src="img/logos/gazzetta-del-gusto.webp" alt="La Gazzetta del Gusto" loading="lazy" width="600" height="288"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec insta" id="instagram">
+  <div class="wrap">
+    <div class="insta-head" data-r>
+      <a class="ig-badge" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener" aria-label="Sablé Gelato on Instagram"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span></a>
+      <div>
+        <div class="label muted">Instagram</div>
+        <h2><a href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener">@sable_gelato</a></h2>
+      </div>
+      <a class="btn ig-btn" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>Follow on Instagram</a>
+    </div>
+    <div class="ig-grid" data-r>
+      <a class="ig-tile" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener" aria-label="Sablé gelato with flowers, on Instagram"><img src="img/f1-700.webp" alt="" loading="lazy" width="700" height="875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span></a>
+      <a class="ig-tile" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener" aria-label="In the laboratory, on Instagram"><img src="img/stir-700.webp" alt="" loading="lazy" width="700" height="875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span></a>
+      <a class="ig-tile" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener" aria-label="Gelato with pumpkin, on Instagram"><img src="img/f6-700.webp" alt="" loading="lazy" width="700" height="875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span></a>
+      <a class="ig-tile" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener" aria-label="Espresso for the affogato, on Instagram"><img src="img/espresso-700.webp" alt="" loading="lazy" width="700" height="875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span></a>
+      <a class="ig-tile" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener" aria-label="Gelato with prickly pears, on Instagram"><img src="img/f3-700.webp" alt="" loading="lazy" width="700" height="875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span></a>
+      <a class="ig-tile" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener" aria-label="Cocoa beans, on Instagram"><img src="img/beans-700.webp" alt="" loading="lazy" width="700" height="875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span></a>
+      <a class="ig-tile" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener" aria-label="Gelato with herbs, on Instagram"><img src="img/f7-700.webp" alt="" loading="lazy" width="700" height="875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span></a>
+      <a class="ig-tile" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener" aria-label="Raw honeycomb, on Instagram"><img src="img/honey-700.webp" alt="" loading="lazy" width="700" height="875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -514,26 +725,29 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       <h2 data-r style="margin-top:16px">Get in touch</h2>
       <div class="sub" data-r>Micro Emotional Gelateria</div>
       <table class="hours" id="hours" data-r>
-        <tr data-d="1"><td>Monday</td><td>Closed</td></tr>
-        <tr data-d="2"><td>Tuesday</td><td>Closed</td></tr>
-        <tr data-d="3"><td>Wednesday</td><td>11:30 – 19:00</td></tr>
-        <tr data-d="4"><td>Thursday</td><td>11:30 – 19:00</td></tr>
-        <tr data-d="5"><td>Friday</td><td>11:30 – 19:00</td></tr>
-        <tr data-d="6"><td>Saturday</td><td>11:30 – 19:00</td></tr>
-        <tr data-d="0"><td>Sunday</td><td>11:30 – 19:00</td></tr>
+        <tr><td>Monday</td><td>Closed</td></tr>
+        <tr><td>Tuesday</td><td>Closed</td></tr>
+        <tr><td>Wednesday</td><td>11:30 – 19:00</td></tr>
+        <tr><td>Thursday</td><td>11:30 – 19:00</td></tr>
+        <tr><td>Friday</td><td>11:30 – 19:00</td></tr>
+        <tr><td>Saturday</td><td>11:30 – 19:00</td></tr>
+        <tr><td>Sunday</td><td>11:30 – 19:00</td></tr>
       </table>
       <dl class="info" data-r>
         <dt>Address</dt><dd>Via dei Mille 3a, 40121 Bologna, Italia<br><span class="muted">Winter closure is carried out</span></dd>
         <dt>Contact</dt><dd><a href="mailto:sablegelato@gmail.com">sablegelato@gmail.com</a></dd>
-        <dt>Instagram</dt><dd><a href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener">@sable_gelato</a></dd>
+        <dt>Instagram</dt><dd><a class="ig" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener"><img src="img/logos/instagram.webp" alt="" loading="lazy" width="600" height="599">@sable_gelato</a></dd>
       </dl>
       <div class="ctas" data-r>
         <a class="btn fill" href="https://www.google.com/maps/search/?api=1&amp;query=Sabl%C3%A9%20Gelato%20Via%20dei%20Mille%203a%20Bologna&amp;query_place_id=ChIJWyT990rVf0cRv8dIUiWKpGk" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Directions</a>
       </div>
-      <div class="btc" data-r><i>₿</i>We accept Bitcoin</div>
+      <div class="btc" data-r><img src="img/logos/bitcoin-white.webp" alt="We accept Bitcoin" loading="lazy" width="225" height="209"></div>
     </div>
     <div class="arch" data-r style="--d:.1s"><img data-px="0.08" src="img/shop-700.webp" srcset="img/shop-700.webp 700w, img/shop-1400.webp 1400w" sizes="(max-width:899px) 90vw, 40vw" alt="Alessandro at the Sablé Gelato counter" loading="lazy" width="700" height="933"></div>
+  </div>
+  <div class="wrap map-wrap" data-r>
+    <iframe class="map" title="Map: Sablé Gelato, Via dei Mille 3a, Bologna" src="https://maps.google.com/maps?q=Sabl%C3%A9%20Gelato%2C%20Via%20dei%20Mille%203a%2C%2040121%20Bologna&amp;z=16&amp;hl=en&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
   </div>
 </section>
 </main>
@@ -542,25 +756,12 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
   <div class="wrap">
     <img src="img/logo-white.png" alt="Sablé" width="520" height="354" loading="lazy">
     <div>Photos: Davide T. · © Sablé Gelato</div>
+    <img class="btc-foot" src="img/logos/bitcoin-black.webp" alt="We accept Bitcoin" loading="lazy" width="225" height="225">
     <div>Demo preview by <a href="https://auratics.app">Auratics</a> · not the official website</div>
   </div>
 </footer>
 
 <script>
-/* Open / closed, in Bologna time */
-(function(){
-  const now = new Date(), f = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Rome',weekday:'long',day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',hour12:false});
-  const p = Object.fromEntries(f.formatToParts(now).map(x => [x.type, x.value]));
-  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  const d = days.indexOf(p.weekday), mins = (+p.hour % 24) * 60 + (+p.minute);
-  const openDay = d !== 1 && d !== 2, O = 11*60+30, C = 19*60;
-  const st = document.getElementById('status'), txt = st.querySelector('span');
-  if (openDay && mins >= O && mins < C){ st.classList.add('open'); txt.textContent = 'Open now · until 19:00'; }
-  else if (openDay && mins < O){ txt.textContent = 'Closed · opens today at 11:30'; }
-  else { let n = d; do { n = (n+1)%7; } while(n===1||n===2); txt.textContent = `Closed · opens ${days[n]} at 11:30`; }
-  const row = document.querySelector(`#hours tr[data-d="${d}"]`); if (row) row.classList.add(openDay ? 'now' : 'off');
-})();
-
 /* Header, menu, reveal, parallax, counters */
 const head = document.getElementById('head'), burger = document.getElementById('burger');
 burger.addEventListener('click', () => { const o = document.body.classList.toggle('menu'); burger.setAttribute('aria-expanded', o); });
