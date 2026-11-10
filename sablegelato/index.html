@@ -89,7 +89,7 @@ body.menu .sheet{clip-path:circle(150% at calc(100% - 38px) 62px); visibility:vi
 .arch{position:relative; aspect-ratio:4/5.2; border-radius:999px 999px 6px 6px; overflow:hidden; background:var(--paper-2); isolation:isolate}
 .arch img{width:100%; height:118%; object-fit:cover; object-position:50% 50%; will-change:transform}
 .hero .arch img{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}
-.hero-img img{height:100%; object-position:50% 0; transform-origin:50% 30%}
+.hero-img img{height:100%; object-position:50% 40%; transform-origin:50% 30%}
 @keyframes settle{from{transform:scale(1.12)} to{transform:scale(1)}}
 .hero-art{position:relative; max-width:min(500px, calc((100vh - 170px) * .76)); justify-self:end; width:100%}
 .seal{text-decoration:none; position:absolute; left:-46px; bottom:12%; width:132px; height:132px; border-radius:50%; background:var(--ink); color:var(--cream); display:grid; place-items:center; box-shadow:0 18px 40px rgba(0,0,0,.18)}
@@ -101,7 +101,7 @@ body.menu .sheet{clip-path:circle(150% at calc(100% - 38px) 62px); visibility:vi
   .hero .wrap{grid-template-columns:1fr}
   .hero h1{font-size:clamp(3.1rem, 13vw, 5.5rem)}
   .hero-art{justify-self:center; max-width:420px; margin-top:8px}
-  .seal{left:auto; right:-6px; bottom:-18px; width:112px; height:112px}
+  .seal{left:-6px; right:auto; bottom:4%; width:112px; height:112px}
 }
 
 /* marquee */
@@ -365,7 +365,7 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       </div>
     </div>
     <div class="hero-art" data-r style="--d:.2s">
-      <div class="arch hero-img"><img src="img/cone-700.webp" srcset="img/cone-700.webp 700w, img/cone-1400.webp 1270w" sizes="(max-width:899px) 90vw, 40vw" alt="A cone of Sablé gelato with a vanilla pod" width="700" height="1045" fetchpriority="high"></div>
+      <div class="arch hero-img"><img src="img/cone-700.webp" srcset="img/cone-700.webp 700w, img/cone-1400.webp 1400w" sizes="(max-width:899px) 90vw, 40vw" alt="A cone of Sablé gelato with a vanilla pod" width="700" height="910" fetchpriority="high"></div>
       <a class="seal" href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener" aria-label="Due Coni Gambero Rosso 2023, 2024, 2025, 2026">
         <svg class="ring" viewBox="0 0 132 132" aria-hidden="true"><defs><path id="circ" d="M66,66 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs><text><textPath href="#circ" textLength="324" lengthAdjust="spacingAndGlyphs">Gambero Rosso · 2023 · 2024 · 2025 · 2026 ·</textPath></text></svg>
         <div class="c">Due<br>Coni</div>
