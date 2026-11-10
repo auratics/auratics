@@ -210,7 +210,6 @@ details .more{padding:0 0 22px}
 
 /* additions */
 .status-row{display:flex; flex-wrap:wrap; align-items:center; gap:12px}
-.btc-pill{height:38px; width:auto}
 .duo{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:32px}
 .duo figure{margin:0; border-radius:4px; overflow:hidden; background:#fff}
 .duo img{width:100%; height:100%; object-fit:cover}
@@ -238,6 +237,11 @@ details.on-dark{border-color:rgba(245,240,230,.2); margin-top:8px}
 .logos{list-style:none; padding:0; margin:14px 0 0; display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:10px}
 .logos li{background:var(--cream); border-radius:6px; height:74px; display:grid; place-items:center; padding:12px 16px}
 .logos li.inv{background:#2a2622}
+.logos li > a{display:grid; place-items:center; width:100%; height:100%}
+.logos li:has(a){transition:transform .35s, box-shadow .35s}
+.logos li:has(a):hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.wall a{display:block}
+.awards ol li b a{text-decoration:none; border-bottom:1px solid var(--line)}
 .logos img{max-height:46px; max-width:100%; width:auto; height:auto; object-fit:contain}
 .roasters ul.logos{display:grid; grid-template-columns:repeat(auto-fill,minmax(104px,1fr)); gap:8px}
 .roasters .logos li{border:0; border-radius:6px; padding:10px 14px; height:64px}
@@ -366,7 +370,7 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
         <span class="ln" style="--i:3"><span>Gelateria</span></span>
       </h1>
       <p class="lead" data-r style="--d:.5s">Very few flavours, all seasonal, created every morning: an ice cream free of emulsifiers, thickeners and preservatives.</p>
-      <div class="status-row" data-r style="--d:.6s"><span class="status"><span>Open from Wednesday to Sunday · 11:30 – 19:00</span></span><img class="btc-pill" src="img/logos/bitcoin-accepted.webp" alt="Bitcoin accepted here" width="318" height="111"></div>
+      <div class="status-row" data-r style="--d:.6s"><span class="status"><span>Open from Wednesday to Sunday · 11:30 – 19:00</span></span></div>
       <div class="ctas" data-r style="--d:.7s">
         <a class="btn fill" href="#gelato">My gelato</a>
         <a class="btn ghost" href="#visit">Get in touch</a>
@@ -375,7 +379,7 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
     <div class="hero-art" data-r style="--d:.2s">
       <div class="arch"><img data-px="0.10" src="img/cone-700.webp" srcset="img/cone-700.webp 700w, img/cone-1400.webp 1400w" sizes="(max-width:899px) 90vw, 40vw" alt="A cone of Sablé gelato with a vanilla pod" width="700" height="875" fetchpriority="high"></div>
       <a class="seal" href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener" aria-label="Due Coni Gambero Rosso 2023, 2024, 2025, 2026">
-        <svg class="ring" viewBox="0 0 132 132" aria-hidden="true"><defs><path id="circ" d="M66,66 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs><text><textPath href="#circ" textLength="322">Gambero Rosso · 2023 – 2026 · Gambero Rosso ·</textPath></text></svg>
+        <svg class="ring" viewBox="0 0 132 132" aria-hidden="true"><defs><path id="circ" d="M66,66 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs><text><textPath href="#circ" textLength="324" lengthAdjust="spacingAndGlyphs">Gambero Rosso · 2023 · 2024 · 2025 · 2026 ·</textPath></text></svg>
         <div class="c">Due<br>Coni</div>
       </a>
     </div>
@@ -605,15 +609,15 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       <div class="roasters" data-r>
         <div class="label">The roasters we choose</div>
         <ul class="logos">
-          <li><img src="img/logos/taste-treviso.webp" alt="Taste, Treviso" loading="lazy" width="164" height="75"></li>
-          <li><img src="img/logos/cafen.svg" alt="Cafēn" loading="lazy" width="300" height="80"></li>
-          <li><img src="img/logos/hibi-kaffe.webp" alt="Hibi Kaffe" loading="lazy" width="253" height="176"></li>
-          <li><img src="img/logos/c-sol.svg" alt="C·Sol" loading="lazy" width="300" height="80"></li>
-          <li><img src="img/logos/gape.webp" alt="Ga.Pe coffee roasters" loading="lazy" width="288" height="111"></li>
-          <li><img src="img/logos/la-cabra.webp" alt="La Cabra" loading="lazy" width="352" height="58"></li>
-          <li><img src="img/logos/marks.webp" alt="Marks" loading="lazy" width="201" height="114"></li>
-          <li class="inv"><img src="img/logos/sprout.webp" alt="Sprout" loading="lazy" width="327" height="108"></li>
-          <li><img src="img/logos/roaster-w.webp" alt="Coffee roaster logo" loading="lazy" width="146" height="102"></li>
+          <li><a href="https://tastecoffee.it/" target="_blank" rel="noopener"><img src="img/logos/taste-treviso.webp" alt="Taste, Treviso" loading="lazy" width="164" height="75"></a></li>
+          <li><a href="https://cafen.co.uk" target="_blank" rel="noopener"><img src="img/logos/cafen.svg" alt="Cafēn" loading="lazy" width="300" height="80"></a></li>
+          <li><a href="https://hibikaffe.no/" target="_blank" rel="noopener"><img src="img/logos/hibi-kaffe.webp" alt="Hibi Kaffe" loading="lazy" width="253" height="176"></a></li>
+          <li><a href="https://csolroastery.com" target="_blank" rel="noopener"><img src="img/logos/c-sol.svg" alt="C·Sol" loading="lazy" width="300" height="80"></a></li>
+          <li><a href="https://gapecoffees.com/it" target="_blank" rel="noopener"><img src="img/logos/gape.webp" alt="Ga.Pe coffee roasters" loading="lazy" width="288" height="111"></a></li>
+          <li><a href="https://lacabra.com/" target="_blank" rel="noopener"><img src="img/logos/la-cabra.webp" alt="La Cabra" loading="lazy" width="352" height="58"></a></li>
+          <li><a href="https://threemarkscoffee.com" target="_blank" rel="noopener"><img src="img/logos/marks.webp" alt="Three Marks Coffee" loading="lazy" width="201" height="114"></a></li>
+          <li class="inv"><a href="https://sproutcoffeeroasters.art" target="_blank" rel="noopener"><img src="img/logos/sprout.webp" alt="Sprout" loading="lazy" width="327" height="108"></a></li>
+          <li><a href="https://timwendelboe.no/" target="_blank" rel="noopener"><img src="img/logos/roaster-w.webp" alt="Tim Wendelboe" loading="lazy" width="146" height="102"></a></li>
         </ul>
       </div>
       <p class="credit" data-r>Special thanks for video: Davide T. · <a href="https://www.instagram.com/_davematics/" target="_blank" rel="noopener">Instagram page</a></p>
@@ -649,7 +653,7 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       <li><em>01</em><div><b>Best 100 Gelato Shop in Italy</b></div></li>
       <li><em>02</em><div><b>58° Best Gelato Chef in the World</b><span>2026</span></div></li>
       <li><em>03</em><div><b>48° Best Gelato Chef in the World</b><span>2024 – 2025</span></div></li>
-      <li><em>04</em><div><b>Due Coni Gambero Rosso</b><span>2023, 2024, 2025 and 2026</span></div></li>
+      <li><em>04</em><div><b><a href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener">Due Coni Gambero Rosso</a></b><span>2023, 2024, 2025 and 2026</span></div></li>
       <li><em>05</em><div><b>Gelatiere emergente d'Italia</b><span>Gambero Rosso, 2023</span></div></li>
       <li><em>06</em><div><b>Semifinale Italiana Gelato World Master</b><span>2023 · Favo e Fiori</span></div></li>
       <li><em>07</em><div><b>Secondo posto, Sherbeth Festival</b><span>2023 – 24 · Wild Almond</span></div></li>
@@ -659,37 +663,37 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
     </ol>
     <p class="guides" data-r><span class="label">On the guides</span> Il Gambero Rosso: due coni e miglior gelatiere emergente d'Italia 2023</p>
     <ul class="logos org" data-r>
-        <li><img src="img/logos/gambero-rosso.webp" alt="Gambero Rosso" loading="lazy" width="281" height="80"></li>
-        <li><img src="img/logos/gelato-festival.webp" alt="Gelato Festival World Masters" loading="lazy" width="600" height="598"></li>
-        <li><img src="img/logos/world-ranking.webp" alt="Gelato Festival World Ranking" loading="lazy" width="600" height="214"></li>
+        <li><a href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener"><img src="img/logos/gambero-rosso.webp" alt="Gambero Rosso" loading="lazy" width="281" height="80"></a></li>
+        <li><a href="https://gelatofestival.com/pages/world-ranking-2024" target="_blank" rel="noopener"><img src="img/logos/gelato-festival.webp" alt="Gelato Festival World Masters" loading="lazy" width="600" height="598"></a></li>
+        <li><a href="https://gelatofestival.com/pages/world-ranking-2024" target="_blank" rel="noopener"><img src="img/logos/world-ranking.webp" alt="Gelato Festival World Ranking" loading="lazy" width="600" height="214"></a></li>
         <li><img src="img/logos/sherbeth.webp" alt="Sherbeth, Festival Internazionale del Gelato Artigianale" loading="lazy" width="534" height="120"></li>
         <li><img src="img/logos/mig.webp" alt="MIG Longarone" loading="lazy" width="160" height="125"></li>
     </ul>
     <div class="wall" data-r>
-        <figure><img src="img/award-1.webp" alt="Miglior gelatiere emergente d'Italia 2023, Gambero Rosso" loading="lazy" width="800" height="800"></figure>
-        <figure><img src="img/award-2.webp" alt="Gelaterie d'Italia 2024, Gambero Rosso" loading="lazy" width="800" height="800"></figure>
-        <figure><img src="img/award-3.webp" alt="58° Best Gelato Chef in the World 2026, Gelato Festival World Ranking" loading="lazy" width="800" height="648"></figure>
-        <figure><img src="img/award-4.webp" alt="Gelaterie d'Italia 2023, Gambero Rosso" loading="lazy" width="800" height="800"></figure>
+        <figure><a href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener"><img src="img/award-1.webp" alt="Miglior gelatiere emergente d'Italia 2023, Gambero Rosso" loading="lazy" width="800" height="800"></a></figure>
+        <figure><a href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener"><img src="img/award-2.webp" alt="Gelaterie d'Italia 2024, Gambero Rosso" loading="lazy" width="800" height="800"></a></figure>
+        <figure><a href="https://gelatofestival.com/pages/world-ranking-2024" target="_blank" rel="noopener"><img src="img/award-3.webp" alt="58° Best Gelato Chef in the World 2026, Gelato Festival World Ranking" loading="lazy" width="800" height="648"></a></figure>
+        <figure><a href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener"><img src="img/award-4.webp" alt="Gelaterie d'Italia 2023, Gambero Rosso" loading="lazy" width="800" height="800"></a></figure>
         <figure><img src="img/award-5.webp" alt="Innovazione 2022" loading="lazy" width="799" height="632"></figure>
         <figure><img src="img/award-6.webp" alt="Cura dei dettagli, Sherbeth Festival" loading="lazy" width="800" height="793"></figure>
-        <figure><img src="img/award-7.webp" alt="Premio Speciale Gelatiere Emergente, Gelaterie d'Italia 2023" loading="lazy" width="800" height="566"></figure>
+        <figure><a href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener"><img src="img/award-7.webp" alt="Premio Speciale Gelatiere Emergente, Gelaterie d'Italia 2023" loading="lazy" width="800" height="566"></a></figure>
         <figure><img src="img/award-8.webp" alt="2° classificato, Sherbeth Festival" loading="lazy" width="800" height="783"></figure>
         <figure><img src="img/award-9.webp" alt="Italian finalists, Gelato Festival World Masters" loading="lazy" width="800" height="928"></figure>
     </div>
     <div class="press" data-r>
       <div class="label">They write about me</div>
       <ul class="logos press-logos">
-        <li><img src="img/logos/bloomberg.webp" alt="Bloomberg" loading="lazy" width="187" height="39"></li>
-        <li><img src="img/logos/telegraph.webp" alt="The Telegraph" loading="lazy" width="300" height="50"></li>
-        <li><img src="img/logos/food-wine.webp" alt="Food &amp; Wine Italia" loading="lazy" width="512" height="100"></li>
-        <li><img src="img/logos/la-repubblica.webp" alt="la Repubblica" loading="lazy" width="600" height="124"></li>
-        <li><img src="img/logos/gambero-rosso.webp" alt="Gambero Rosso" loading="lazy" width="281" height="80"></li>
-        <li><img src="img/logos/cibo-today.webp" alt="Cibo Today" loading="lazy" width="225" height="225"></li>
-        <li><img src="img/logos/blue.webp" alt="blue, fly smart" loading="lazy" width="600" height="245"></li>
+        <li><a href="https://www.bloomberg.com/news/articles/2026-05-08/best-gelato-to-eat-in-italy-in-2026-from-chocolate-to-pistachio-to-butter-sage" target="_blank" rel="noopener"><img src="img/logos/bloomberg.webp" alt="Bloomberg" loading="lazy" width="187" height="39"></a></li>
+        <li><a href="https://www.telegraph.co.uk/travel/destinations/europe/italy/visit-emilia-romagna-land-of-lambrusco-italy/" target="_blank" rel="noopener"><img src="img/logos/telegraph.webp" alt="The Telegraph" loading="lazy" width="300" height="50"></a></li>
+        <li><a href="https://www.foodandwineitalia.com/buono-e-puro/" target="_blank" rel="noopener"><img src="img/logos/food-wine.webp" alt="Food &amp; Wine Italia" loading="lazy" width="512" height="100"></a></li>
+        <li><a href="https://bologna.repubblica.it/cronaca/2023/10/23/news/gelato_festival_world_masters_anzola_dellemilia-418585381/" target="_blank" rel="noopener"><img src="img/logos/la-repubblica.webp" alt="la Repubblica" loading="lazy" width="600" height="124"></a></li>
+        <li><a href="https://www.gamberorosso.it/notizie/guida-gelaterie-ditalia-2023-di-gambero-rosso-tutti-i-premi/" target="_blank" rel="noopener"><img src="img/logos/gambero-rosso.webp" alt="Gambero Rosso" loading="lazy" width="281" height="80"></a></li>
+        <li><a href="https://www.cibotoday.it/citta/bologna/sable-gelateria-bologna-alessandro-cesari.html" target="_blank" rel="noopener"><img src="img/logos/cibo-today.webp" alt="Cibo Today" loading="lazy" width="225" height="225"></a></li>
+        <li><a href="https://en.aegeanair.com/travel-info/travelling-with-aegean/on-board/blue-magazine/blue-106/" target="_blank" rel="noopener"><img src="img/logos/blue.webp" alt="blue, fly smart" loading="lazy" width="600" height="245"></a></li>
         <li><img src="img/logos/reporter-gourmet.webp" alt="Reporter Gourmet" loading="lazy" width="167" height="91"></li>
         <li><img src="img/logos/il-golosario.webp" alt="il Golosario" loading="lazy" width="249" height="54"></li>
-        <li><img src="img/logos/taste-bologna.webp" alt="Taste Bologna" loading="lazy" width="277" height="227"></li>
-        <li><img src="img/logos/gazzetta-del-gusto.webp" alt="La Gazzetta del Gusto" loading="lazy" width="600" height="288"></li>
+        <li><a href="https://www.tastebologna.net/blog/best-gelato-bologna" target="_blank" rel="noopener"><img src="img/logos/taste-bologna.webp" alt="Taste Bologna" loading="lazy" width="277" height="227"></a></li>
+        <li><a href="https://www.gazzettadelgusto.it/dove-mangiare/sable-bologna-gelato-alessandro-cesari/" target="_blank" rel="noopener"><img src="img/logos/gazzetta-del-gusto.webp" alt="La Gazzetta del Gusto" loading="lazy" width="600" height="288"></a></li>
       </ul>
     </div>
   </div>
