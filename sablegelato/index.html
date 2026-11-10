@@ -199,7 +199,12 @@ details .more{padding:0 0 22px}
 /* affogato */
 .aff .wrap{display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(32px,6vw,96px); align-items:center}
 .vid{position:relative; aspect-ratio:9/14; border-radius:999px 999px 6px 6px; overflow:hidden; background:#000; max-width:440px}
-.vid img{width:100%; height:115%; object-fit:cover; will-change:transform}
+.vid video{width:100%; height:100%; object-fit:cover}
+.snd{position:absolute; right:16px; bottom:16px; width:46px; height:46px; border-radius:50%; border:1px solid rgba(245,240,230,.5); background:rgba(18,16,14,.55); color:var(--cream); display:grid; place-items:center; cursor:pointer; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); transition:background .3s}
+.snd:hover{background:rgba(18,16,14,.8)}
+.snd svg{width:20px; height:20px}
+.snd .on{display:none} .snd[aria-pressed="true"] .on{display:inline} .snd[aria-pressed="true"] .off{display:none}
+.credit{margin-top:26px; font:500 .68rem/1.4 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:rgba(245,240,230,.5)}
 .aff h2{margin-bottom:30px}
 .aff .q{font:400 clamp(1.6rem,3vw,2.5rem)/1.2 var(--display); text-transform:uppercase; margin:0 0 26px; color:var(--gold-soft)}
 .roasters{margin-top:40px; border-top:1px solid rgba(245,240,230,.25); padding-top:22px}
@@ -207,12 +212,29 @@ details .more{padding:0 0 22px}
 .roasters li{border:1px solid rgba(245,240,230,.3); border-radius:99px; padding:9px 16px; font:500 .72rem/1 var(--sans); letter-spacing:.16em; text-transform:uppercase}
 @media (max-width:899px){.aff .wrap{grid-template-columns:1fr} .vid{max-width:360px; margin:0 auto}}
 
+/* film */
+.film{padding:0 0 clamp(72px,10vw,140px)}
+.aff + .film{margin-top:-1px}
+.screen{position:relative; aspect-ratio:16/9; border-radius:6px; overflow:hidden; background:#000}
+.screen video{width:100%; height:100%; object-fit:cover; display:block}
+.play{position:absolute; inset:0; border:0; background:linear-gradient(0deg, rgba(18,16,14,.55), transparent 55%); color:var(--cream); cursor:pointer; display:flex; align-items:flex-end; justify-content:flex-start; gap:16px; padding:clamp(18px,3vw,36px); transition:opacity .4s}
+.play span{width:clamp(56px,7vw,84px); height:clamp(56px,7vw,84px); border-radius:50%; border:1px solid rgba(245,240,230,.7); display:grid; place-items:center; transition:transform .4s, background .4s}
+.play span svg{width:38%; height:38%; margin-left:6%}
+.play:hover span{transform:scale(1.08); background:rgba(245,240,230,.12)}
+.play em{font:500 .74rem/1 var(--sans); font-style:normal; letter-spacing:.2em; text-transform:uppercase; margin-bottom:clamp(20px,2.6vw,32px)}
+.screen.on .play{opacity:0; pointer-events:none}
+
 /* awards */
 .awards ol{list-style:none; margin:0; padding:0; border-top:1px solid var(--ink); columns:2; column-gap:clamp(32px,6vw,90px)}
 .awards ol li{break-inside:avoid; display:grid; grid-template-columns:52px 1fr; gap:8px; padding:18px 0; border-bottom:1px solid var(--line)}
 .awards ol li b{font:400 1.45rem/1.15 var(--display); text-transform:uppercase; display:block}
 .awards ol li span{font-size:.92rem; color:var(--muted)}
 .awards ol li em{font:500 .72rem/2.2 var(--sans); font-style:normal; letter-spacing:.14em; color:var(--gold)}
+.wall{columns:3 260px; column-gap:16px; margin-top:clamp(48px,7vw,90px)}
+.wall figure{margin:0 0 16px; break-inside:avoid; background:#fff; border-radius:6px; overflow:hidden; box-shadow:0 1px 0 var(--line); transition:transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s}
+.wall figure:hover{transform:translateY(-4px); box-shadow:0 16px 36px rgba(21,19,17,.12)}
+.wall img{width:100%; height:auto}
+@media (max-width:560px){.wall{columns:2; column-gap:10px} .wall figure{margin-bottom:10px}}
 .press{margin-top:clamp(56px,8vw,100px); text-align:center}
 .press .label{color:var(--muted)}
 .press ul{list-style:none; padding:0; margin:26px 0 0; display:flex; flex-wrap:wrap; justify-content:center; gap:14px 34px}
@@ -425,7 +447,8 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
 <section class="sec dark aff" id="affogato">
   <div class="wrap">
     <div class="vid" id="vid" data-r>
-      <img data-px="0.08" src="img/affogato-700.webp" alt="A specialty affogato at Sablé" loading="lazy" width="700" height="1050">
+      <video muted loop playsinline preload="none" poster="img/poster-aff.webp" data-src="video/affogato.mp4" aria-label="Video: a specialty affogato being made at Sablé"></video>
+      <button class="snd" id="snd" type="button" aria-label="Turn sound on" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M17 9l5 6M22 9l-5 6"/></svg></button>
     </div>
     <div>
       <div class="label" data-r>Where quality coffee meets true artisan gelato</div>
@@ -437,6 +460,16 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
         <div class="label">The roasters we choose</div>
         <ul><li>Taste Treviso</li><li>Cafēn</li><li>Hibi Kaffe</li><li>C·Sol</li><li>Ga.Pe</li><li>La Cabra</li><li>Marks</li><li>Sprout</li></ul>
       </div>
+      <p class="credit" data-r>Special thanks for video: Davide T.</p>
+    </div>
+  </div>
+</section>
+
+<section class="film dark" aria-label="Sablé Gelato, a film">
+  <div class="wrap">
+    <div class="screen" id="film" data-r>
+      <video preload="none" playsinline poster="img/poster-film.webp" data-src="video/sable-film.mp4" aria-label="Film: Sablé Gelato, Alessandro Cesari"></video>
+      <button class="play" id="play" type="button" aria-label="Play the film"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><em>Watch the film · 3 min</em></button>
     </div>
   </div>
 </section>
@@ -456,6 +489,17 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       <li><em>09</em><div><b>Terzo posto, MIG “Coppa d'oro Under 35”</b><span>2022 · Gelato alla Malaga</span></div></li>
       <li><em>10</em><div><b>Premio Innovazione, Sherbeth Festival</b><span>2022 – 23 · Favo e Fiori</span></div></li>
     </ol>
+    <div class="wall" data-r>
+        <figure><img src="img/award-1.webp" alt="Miglior gelatiere emergente d'Italia 2023, Gambero Rosso" loading="lazy" width="800" height="800"></figure>
+        <figure><img src="img/award-2.webp" alt="Gelaterie d'Italia 2024, Gambero Rosso" loading="lazy" width="800" height="800"></figure>
+        <figure><img src="img/award-3.webp" alt="58° Best Gelato Chef in the World 2026, Gelato Festival World Ranking" loading="lazy" width="800" height="648"></figure>
+        <figure><img src="img/award-4.webp" alt="Gelaterie d'Italia 2023, Gambero Rosso" loading="lazy" width="800" height="800"></figure>
+        <figure><img src="img/award-5.webp" alt="Innovazione 2022" loading="lazy" width="799" height="632"></figure>
+        <figure><img src="img/award-6.webp" alt="Cura dei dettagli, Sherbeth Festival" loading="lazy" width="800" height="793"></figure>
+        <figure><img src="img/award-7.webp" alt="Premio Speciale Gelatiere Emergente, Gelaterie d'Italia 2023" loading="lazy" width="800" height="566"></figure>
+        <figure><img src="img/award-8.webp" alt="2° classificato, Sherbeth Festival" loading="lazy" width="800" height="783"></figure>
+        <figure><img src="img/award-9.webp" alt="Italian finalists, Gelato Festival World Masters" loading="lazy" width="800" height="928"></figure>
+    </div>
     <div class="press" data-r>
       <div class="label">They write about me</div>
       <ul><li>Bloomberg</li><li>The Telegraph</li><li>Food &amp; Wine</li><li>la Repubblica</li><li>Gambero Rosso</li><li>Cibo Today</li><li>il Golosario</li><li>Reporter Gourmet</li><li>La Gazzetta del Gusto</li><li>Taste Bologna</li></ul>
@@ -486,7 +530,6 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       <div class="ctas" data-r>
         <a class="btn fill" href="https://www.google.com/maps/search/?api=1&amp;query=Sabl%C3%A9%20Gelato%20Via%20dei%20Mille%203a%20Bologna&amp;query_place_id=ChIJWyT990rVf0cRv8dIUiWKpGk" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Directions</a>
-        <a class="btn ghost" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener">Instagram</a>
       </div>
       <div class="btc" data-r><i>₿</i>We accept Bitcoin</div>
     </div>
@@ -554,6 +597,18 @@ function onScroll(){
 }
 addEventListener('scroll', () => { if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
 addEventListener('resize', onScroll); onScroll();
+
+/* affogato video: loads and plays only when on screen; sound button */
+const vid = document.getElementById('vid'), v = vid.querySelector('video'), snd = document.getElementById('snd');
+new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ if (!v.src) v.src = v.dataset.src; v.play().catch(()=>{}); } else v.pause();
+}), {threshold:.25}).observe(vid);
+snd.addEventListener('click', () => { v.muted = !v.muted; if (!v.src) v.src = v.dataset.src; v.play().catch(()=>{}); snd.setAttribute('aria-pressed', !v.muted); snd.setAttribute('aria-label', v.muted ? 'Turn sound on' : 'Turn sound off'); });
+
+/* film: loads only when someone presses play */
+const film = document.getElementById('film'), fv = film.querySelector('video');
+document.getElementById('play').addEventListener('click', () => { if (!fv.src) fv.src = fv.dataset.src; film.classList.add('on'); fv.controls = true; v.pause(); fv.play().catch(()=>{}); });
+fv.addEventListener('play', () => film.classList.add('on'));
 
 /* drag to scroll the photo rail on desktop */
 const rail = document.getElementById('rail'); let down = false, sx = 0, sl = 0;
