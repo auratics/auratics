@@ -87,7 +87,7 @@ body.menu .sheet{clip-path:circle(150% at calc(100% - 38px) 62px); visibility:vi
 .dark .btn.ghost:hover{background:var(--cream); color:var(--ink)}
 
 .arch{position:relative; aspect-ratio:4/5.2; border-radius:999px 999px 6px 6px; overflow:hidden; background:var(--paper-2); isolation:isolate}
-.arch img{width:100%; height:118%; object-fit:cover; object-position:58% 38%; will-change:transform}
+.arch img{width:100%; height:118%; object-fit:cover; object-position:50% 35%; will-change:transform}
 .hero .arch img{animation:settle 2.4s cubic-bezier(.2,.7,.2,1) both}
 @keyframes settle{from{transform:scale(1.12)} to{transform:scale(1)}}
 .hero-art{position:relative; max-width:min(500px, calc((100vh - 170px) * .76)); justify-self:end; width:100%}
@@ -130,6 +130,7 @@ section{position:relative}
 .about .portrait{position:sticky; top:calc(var(--ribbon) + var(--head) + 24px)}
 .frame{overflow:hidden; border-radius:4px; aspect-ratio:3/4; background:var(--paper-2)}
 .frame img{width:100%; height:115%; object-fit:cover; will-change:transform}
+.frame img.top{object-position:50% 0}
 .caption{margin-top:12px; font:500 .7rem/1.4 var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
 .big-p{font:400 clamp(1.25rem,1.9vw,1.6rem)/1.55 var(--serif)}
 .stats{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--ink); margin:40px 0}
@@ -235,7 +236,8 @@ details.wide{margin-top:clamp(28px,4vw,44px)}
 .credit a,.credit-dark a{color:inherit}
 details.on-dark{border-color:rgba(245,240,230,.2); margin-top:8px}
 .logos{list-style:none; padding:0; margin:14px 0 0; display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:10px}
-.logos li{background:var(--cream); border-radius:6px; height:74px; display:grid; place-items:center; padding:12px 16px}
+.logos li{background:var(--cream); border-radius:6px; height:74px; display:grid; place-items:center; padding:12px 16px; min-width:0}
+.logos li > *{min-width:0; max-width:100%}
 .logos li.inv{background:#2a2622}
 .logos li > a{display:grid; place-items:center; width:100%; height:100%}
 .logos li:has(a){transition:transform .35s, box-shadow .35s}
@@ -256,10 +258,6 @@ details.on-dark{border-color:rgba(245,240,230,.2); margin-top:8px}
 .press-logos img{max-height:56px}
 .coffee-rail{padding-bottom:clamp(40px,6vw,80px); margin-top:-1px}
 .coffee-rail .rail img{width:clamp(180px,20vw,260px); aspect-ratio:2/3; object-fit:cover; height:auto}
-.ig{display:inline-flex; align-items:center; gap:10px}
-.ig img{width:22px; height:22px; border:0}
-.btc img{height:92px; width:auto}
-.btc-foot{height:46px!important; width:auto; border-radius:6px}
 @media (max-width:760px){.org{grid-template-columns:repeat(3,1fr)} .duo{grid-template-columns:1fr 1fr} .masonry{columns:2; column-gap:8px} .masonry figure{margin-bottom:8px}}
 
 .visit .wrap.map-wrap{display:block; margin-top:clamp(48px,7vw,90px)}
@@ -318,14 +316,24 @@ details.on-dark{border-color:rgba(245,240,230,.2); margin-top:8px}
 .visit .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(32px,6vw,96px); align-items:center}
 .visit h2{font-size:clamp(3rem,9vw,7rem); margin-bottom:12px}
 .visit .sub{font:400 clamp(1.3rem,2vw,1.7rem)/1.2 var(--display); text-transform:uppercase; color:var(--gold-soft); margin-bottom:34px}
-.hours{width:100%; border-collapse:collapse; margin-bottom:30px; max-width:460px}
+.hours{width:100%; border-collapse:collapse; margin-bottom:34px; max-width:460px; border-top:1px solid rgba(245,240,230,.2)}
 .hours td{padding:12px 0; border-bottom:1px solid rgba(245,240,230,.2); font:500 .8rem/1 var(--sans); letter-spacing:.14em; text-transform:uppercase}
 .hours td:last-child{text-align:right}
-.info{display:grid; grid-template-columns:auto 1fr; gap:10px 24px; margin-bottom:32px; font-size:1.02rem}
-.info dt{font:500 .7rem/2.1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:rgba(245,240,230,.6)}
-.info dd{margin:0}
-.info a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.35)}
-.btc{margin-top:22px}
+.info{max-width:460px; margin-bottom:34px; border-top:1px solid rgba(245,240,230,.2)}
+.info .row{display:grid; grid-template-columns:118px 1fr 18px; align-items:center; gap:12px; padding:16px 0; border-bottom:1px solid rgba(245,240,230,.2); color:inherit; text-decoration:none}
+.info .k{font:500 .7rem/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:rgba(245,240,230,.55)}
+.info .v{font-size:1.02rem; line-height:1.4}
+.info .v small{display:block; margin-top:4px; font-size:.86rem; color:rgba(245,240,230,.55)}
+.info .arr{width:18px; height:18px; opacity:.45; transition:transform .35s, opacity .35s}
+.info .link .v{transition:color .35s}
+.info .link:hover .v{color:var(--gold-soft)}
+.info .link:hover .arr{opacity:1; transform:translate(2px,-2px)}
+.info .ig{display:flex; align-items:center; gap:10px}
+.info .ig img{width:20px; height:20px}
+.btc-badge{display:inline-flex; align-items:center; gap:12px; padding:8px 20px 8px 8px; border-radius:99px; border:1px solid rgba(247,147,26,.45); background:linear-gradient(90deg,rgba(247,147,26,.16),rgba(247,147,26,.03)); font:500 .74rem/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--cream)}
+.btc-badge img{width:34px; height:34px; filter:drop-shadow(0 2px 8px rgba(247,147,26,.45))}
+.btc-badge.small{padding:5px 14px 5px 5px; gap:9px; font-size:.62rem}
+.btc-badge.small img{width:24px; height:24px}
 @media (max-width:899px){.visit .wrap{grid-template-columns:1fr} .visit .arch{max-width:420px}}
 
 footer{background:var(--dark); color:rgba(245,240,230,.6); padding:50px 0 60px; border-top:1px solid rgba(245,240,230,.12)}
@@ -377,7 +385,7 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       </div>
     </div>
     <div class="hero-art" data-r style="--d:.2s">
-      <div class="arch"><img data-px="0.10" src="img/cone-700.webp" srcset="img/cone-700.webp 700w, img/cone-1400.webp 1400w" sizes="(max-width:899px) 90vw, 40vw" alt="A cone of Sablé gelato with a vanilla pod" width="700" height="875" fetchpriority="high"></div>
+      <div class="arch"><img data-px="0.10" src="img/cone-700.webp" srcset="img/cone-700.webp 700w, img/cone-1400.webp 1270w" sizes="(max-width:899px) 90vw, 40vw" alt="A cone of Sablé gelato with a vanilla pod" width="700" height="1108" fetchpriority="high"></div>
       <a class="seal" href="https://www.gamberorosso.it/ristoranti/scheda-negozio/sable-gelato/" target="_blank" rel="noopener" aria-label="Due Coni Gambero Rosso 2023, 2024, 2025, 2026">
         <svg class="ring" viewBox="0 0 132 132" aria-hidden="true"><defs><path id="circ" d="M66,66 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs><text><textPath href="#circ" textLength="324" lengthAdjust="spacingAndGlyphs">Gambero Rosso · 2023 · 2024 · 2025 · 2026 ·</textPath></text></svg>
         <div class="c">Due<br>Coni</div>
@@ -414,8 +422,8 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
 <section class="sec about" id="about">
   <div class="wrap">
     <div class="portrait" data-r>
-      <div class="frame"><img data-px="0.08" src="img/alessandro-700.webp" alt="Alessandro Cesari in his laboratory" loading="lazy" width="700" height="1050"></div>
-      <div class="caption">Alessandro Cesari · Photo: Davide T.</div>
+      <div class="frame"><img class="top" data-px="0.06" src="img/alessandro-white.webp" alt="Alessandro Cesari in his chef's whites" loading="lazy" width="520" height="670"></div>
+      <div class="caption">Alessandro Cesari</div>
     </div>
     <div>
       <div class="label muted" data-r>Micro emotional gelateria</div>
@@ -538,6 +546,7 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
       <p class="muted" data-r style="max-width:30em;margin:0">I go to the mountains to collect my ingredients to be able to bring them back into my ice cream through infusions that can last up to 72 hours and extractions with fermentations, a unique ice cream that every day lives a new life.</p>
     </div>
     <div class="masonry" data-r>
+        <figure><img src="img/alessandro-700.webp" alt="Alessandro Cesari in his laboratory" loading="lazy" width="700" height="1050"></figure>
         <figure><img src="img/stir-700.webp" alt="Alessandro stirring in the laboratory" loading="lazy" width="700" height="1050"></figure>
         <figure><img src="img/milk-700.webp" alt="Milk poured into the batch freezer" loading="lazy" width="700" height="1050"></figure>
         <figure><img src="img/eggs-700.webp" alt="Fresh eggs from local farms" loading="lazy" width="700" height="1050"></figure>
@@ -737,16 +746,12 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
         <tr><td>Saturday</td><td>11:30 – 19:00</td></tr>
         <tr><td>Sunday</td><td>11:30 – 19:00</td></tr>
       </table>
-      <dl class="info" data-r>
-        <dt>Address</dt><dd>Via dei Mille 3a, 40121 Bologna, Italia<br><span class="muted">Winter closure is carried out</span></dd>
-        <dt>Contact</dt><dd><a href="mailto:sablegelato@gmail.com">sablegelato@gmail.com</a></dd>
-        <dt>Instagram</dt><dd><a class="ig" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener"><img src="img/logos/instagram.webp" alt="" loading="lazy" width="600" height="599">@sable_gelato</a></dd>
-      </dl>
-      <div class="ctas" data-r>
-        <a class="btn fill" href="https://www.google.com/maps/search/?api=1&amp;query=Sabl%C3%A9%20Gelato%20Via%20dei%20Mille%203a%20Bologna&amp;query_place_id=ChIJWyT990rVf0cRv8dIUiWKpGk" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Directions</a>
+      <div class="info" data-r>
+        <div class="row"><span class="k">Address</span><span class="v">Via dei Mille 3a, 40121 Bologna, Italia<small>Winter closure is carried out</small></span></div>
+        <a class="row link" href="mailto:sablegelato@gmail.com"><span class="k">Contact</span><span class="v">sablegelato@gmail.com</span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="row link" href="https://www.instagram.com/sable_gelato/" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v ig"><img src="img/logos/instagram.webp" alt="" loading="lazy" width="600" height="599">@sable_gelato</span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
-      <div class="btc" data-r><img src="img/logos/bitcoin-white.webp" alt="We accept Bitcoin" loading="lazy" width="225" height="209"></div>
+      <div class="btc-badge" data-r><img src="img/logos/bitcoin-coin.webp" alt="" loading="lazy" width="122" height="126"><span>We accept Bitcoin</span></div>
     </div>
     <div class="arch" data-r style="--d:.1s"><img data-px="0.08" src="img/shop-700.webp" srcset="img/shop-700.webp 700w, img/shop-1400.webp 1400w" sizes="(max-width:899px) 90vw, 40vw" alt="Alessandro at the Sablé Gelato counter" loading="lazy" width="700" height="933"></div>
   </div>
@@ -760,7 +765,7 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
   <div class="wrap">
     <img src="img/logo-white.png" alt="Sablé" width="520" height="354" loading="lazy">
     <div>Photos: Davide T. · © Sablé Gelato</div>
-    <img class="btc-foot" src="img/logos/bitcoin-black.webp" alt="We accept Bitcoin" loading="lazy" width="225" height="225">
+    <span class="btc-badge small"><img src="img/logos/bitcoin-coin.webp" alt="" loading="lazy" width="122" height="126"><span>We accept Bitcoin</span></span>
     <div>Demo preview by <a href="https://auratics.app">Auratics</a> · not the official website</div>
   </div>
 </footer>
