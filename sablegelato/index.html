@@ -127,7 +127,10 @@ section{position:relative}
 @media (max-width:899px){.strip{grid-template-columns:1fr}}
 
 /* about */
-.about .wrap{display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(32px,6vw,96px); align-items:start}
+.about{padding-top:clamp(40px,5vw,72px)}
+.about-head{margin-bottom:clamp(24px,3.5vw,44px)}
+.about-head .label{color:var(--muted); margin-bottom:14px}
+.about-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(32px,6vw,96px); align-items:start}
 .about .portrait{position:sticky; top:calc(var(--ribbon) + var(--head) + 24px)}
 .frame{overflow:hidden; border-radius:4px; aspect-ratio:3/4; background:var(--paper-2)}
 .frame img{width:100%; height:115%; object-fit:cover; will-change:transform}
@@ -146,7 +149,7 @@ details summary i::before,details summary i::after{content:''; position:absolute
 details summary i::after{transform:rotate(90deg)}
 details[open] summary i::after{transform:rotate(0)}
 details .more{padding:0 0 22px}
-@media (max-width:899px){.about .wrap{grid-template-columns:1fr} .about .portrait{position:relative; top:0; max-width:420px}}
+@media (max-width:899px){.about-grid{grid-template-columns:1fr} .about .portrait{position:relative; top:0; max-width:420px}}
 @media (max-width:480px){.stats{grid-template-columns:1fr 1fr 1fr} .stat b{font-size:2.3rem}}
 
 /* gelato */
@@ -410,12 +413,12 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
 
 <section class="sec about" id="about">
   <div class="wrap">
+    <div class="sec-head about-head" data-r><div><div class="label">Micro emotional gelateria</div><h2>About me</h2></div></div>
+    <div class="about-grid">
     <div class="portrait" data-r>
       <figure class="sketch-main"><img src="img/sketch-1000.webp" alt="Drawing of Sablé Gelato with Alessandro Cesari: “I don't need industry for an excellent icecream much less compromises”, Ice Cream Maker and Chocolate Maker" loading="lazy" width="1000" height="1415"></figure>
     </div>
     <div>
-      <div class="label muted" data-r>Micro emotional gelateria</div>
-      <h2 data-r style="margin:14px 0 34px">About me</h2>
       <p class="big-p" data-r>I started my career in ice cream 8 years ago in the 2015, and when i have open my Small Shop in the 2020 i have decide work with my philosophy, immediately had the idea of not using the industry and of producing everything I could, from dried fruit pastes to my bean to bar chocolate, selecting directly farmers and plantations, having a direct relationship with those who work the land, so as to be able to enhance the work of each person, without intermediaries!</p>
       <div class="stats" data-r>
         <div class="stat"><b>5<small style="font-size:.45em">am</small></b><span>every day at 5 in the morning I get up to make it fresh</span></div>
@@ -429,6 +432,7 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
         </div>
       </details>
       <figure class="solo" data-r><img src="img/counter-bw-700.webp" alt="The Sablé Gelato counter, in black and white" loading="lazy" width="700" height="863"></figure>
+    </div>
     </div>
   </div>
 </section>
