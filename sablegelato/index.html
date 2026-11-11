@@ -24,7 +24,7 @@
   --gutter:clamp(16px, 4vw, 56px); --max:1240px; --ribbon:30px; --head:76px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; scroll-padding-top:calc(var(--ribbon) + var(--head) + 8px); -webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
 html,body{overflow-x:clip}
 body{margin:0; background:var(--paper); color:var(--ink); font:400 1.0625rem/1.7 var(--serif)}
 img,video{display:block; max-width:100%}
@@ -131,6 +131,8 @@ section{position:relative}
 
 /* about */
 .about{padding-top:clamp(40px,5vw,72px)}
+.sec[id]{scroll-margin-top:calc(var(--ribbon) + var(--head) + 18px - clamp(72px,10vw,140px))}
+.sec.about[id]{scroll-margin-top:calc(var(--ribbon) + var(--head) + 18px - clamp(40px,5vw,72px))}
 .about-head{margin-bottom:clamp(24px,3.5vw,44px)}
 .about-head .label{color:var(--muted); margin-bottom:14px}
 .about-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(32px,6vw,96px); align-items:start}
@@ -209,7 +211,8 @@ details .more{padding:0 0 22px}
 .snd svg{width:20px; height:20px}
 .snd .on{display:none} .snd[aria-pressed="true"] .on{display:inline} .snd[aria-pressed="true"] .off{display:none}
 .credit{margin-top:26px; font:500 .68rem/1.4 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:rgba(245,240,230,.5)}
-.aff h2{margin-bottom:30px}
+.aff-head{display:block!important; margin-bottom:clamp(28px,4vw,48px)}
+.aff-head h2{margin-top:16px}
 .aff .q{font:400 clamp(1.6rem,3vw,2.5rem)/1.2 var(--display); text-transform:uppercase; margin:0 0 26px; color:var(--gold-soft)}
 .roasters{margin-top:40px; border-top:1px solid rgba(245,240,230,.25); padding-top:22px}
 .roasters ul{list-style:none; padding:0; margin:14px 0 0; display:flex; flex-wrap:wrap; gap:10px}
@@ -267,6 +270,8 @@ details.on-dark{border-color:rgba(245,240,230,.2); margin-top:8px}
 .org img{max-height:68px}
 .guides{margin:30px 0 0; font-size:1.02rem}
 .guides .label{color:var(--muted); margin-right:12px}
+.press ul.press-logos{display:grid; justify-content:stretch}
+.press ul.press-logos li{white-space:normal; opacity:1}
 .press-logos{grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); margin-top:26px}
 .press-logos li{background:#fff; height:96px}
 .press-logos img{max-height:56px}
@@ -573,14 +578,13 @@ footer a{text-decoration:none; border-bottom:1px solid rgba(245,240,230,.3)}
 </section>
 
 <section class="sec dark aff" id="affogato">
+  <div class="wrap aff-head" data-r><div class="label">Where quality coffee meets true artisan gelato</div><h2>Specialty affogato</h2></div>
   <div class="wrap">
     <div class="vid" id="vid" data-r>
       <video muted loop playsinline preload="none" poster="img/poster-aff.webp" data-src="video/affogato.mp4" aria-label="Video: a specialty affogato being made at Sablé"></video>
       <button class="snd" id="snd" type="button" aria-label="Turn sound on" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M17 9l5 6M22 9l-5 6"/></svg></button>
     </div>
     <div>
-      <div class="label" data-r>Where quality coffee meets true artisan gelato</div>
-      <h2 data-r style="margin-top:16px">Specialty affogato</h2>
       <p class="q" data-r>In my gelato shop, affogato is not just a dessert. It is an encounter.</p>
       <p data-r>It comes from the idea that true artisan gelato — made with living ingredients, without industrial shortcuts — can speak with a coffee extracted with the same care, the same obsession for detail, the same respect for origin. This is why I call it a specialty affogato.</p>
       <details class="on-dark" data-r>
