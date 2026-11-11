@@ -733,6 +733,8 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); count(e.target); } }), {rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('[data-r]').forEach(el => io.observe(el));
+/* everything in the first screen shows on load, even if it sits near the bottom edge */
+requestAnimationFrame(() => document.querySelectorAll('.hero [data-r]').forEach(el => { el.classList.add('in'); io.unobserve(el); }));
 
 function count(root){
   if (reduce) return;
