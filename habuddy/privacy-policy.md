@@ -43,7 +43,7 @@ Your email is never shown to other people. Friends see your name and profile pho
 
 ## How long we keep it
 
-We keep your data until you delete it or your account. On a free account, check-in photos are deleted 30 days after the check-in; the check-in itself stays. Premium keeps them for as long as you have Premium. A photo you remove, or a habit you delete, is deleted for good, and removing yourself from a shared habit deletes your check-ins and photos in it.
+We keep your data until you delete it or your account. A photo you remove, or a habit you delete, is deleted for good, and removing yourself from a shared habit deletes your check-ins and photos in it.
 
 ## Your choices
 
