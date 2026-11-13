@@ -25,7 +25,7 @@ Your habits and photos stay yours. You allow us to store them and show them to t
 
 ## Premium
 
-Premium is a subscription, sold through the App Store or Google Play and billed to your store account. It renews automatically until you cancel, at least 24 hours before the current period ends, in your store account's settings. Refunds are handled by the store. If Premium ends, you keep your habits, but you cannot add more than the free limit, and check-in photos older than 30 days are deleted.
+Premium is a subscription, sold through the App Store or Google Play and billed to your store account. It renews automatically until you cancel, at least 24 hours before the current period ends, in your store account's settings. Refunds are handled by the store. If Premium ends, you keep your habits, but you cannot add more than the free limit or see weeks before the current one; your check-ins and photos are kept.
 
 ## The service
 
