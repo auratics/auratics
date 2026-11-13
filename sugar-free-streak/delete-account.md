@@ -30,6 +30,8 @@ email within 30 days.
 - Your account: its ID, your email address and your password hash.
 - Every log backed up with it: sugar and beaten cravings, with their days and
   times.
+- Your name and status in every friend challenge you are in. A challenge
+  you were the last member of is deleted too.
 - If you used Portföy Takip with the same account, its portfolio records too.
 
 ## What is kept
