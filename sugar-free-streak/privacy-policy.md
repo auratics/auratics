@@ -51,10 +51,10 @@ The app asks, before anything you log leaves the phone, whether you want your
 logs backed up. "Keep them on this phone only" is a choice of equal weight, and
 you can change your answer in Settings at any time.
 
-**What we store with backup on, on Supabase in Frankfurt, Germany:** for each
-day you had sugar or beat a craving, which one it was, the calendar day, the
-time, and when it reached our server. Your rule, your challenge length and
-your "yes" answers stay on the phone.
+**What we store with backup on, on Supabase in Frankfurt, Germany:** your
+answer to the daily question and any craving you beat, each with the calendar
+day, the time and when it reached our server; and the rule you chose and your
+challenge length.
 
 **What for:** only to keep a copy of your logs and to show the same streak on
 every phone you sign in on. Every account can read only its own logs.
