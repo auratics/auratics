@@ -1,0 +1,29 @@
+# GitHub Pages builds this site with its default Jekyll settings; this file
+# only adds the sitemap for Google (auratics.app/sitemap.xml). New pages are
+# listed by themselves. Pages that are not for search go in `defaults` below.
+url: https://auratics.app
+plugins:
+  - jekyll-sitemap
+
+defaults:
+  # KortPro's old legal addresses, now redirects to kortpro.app.
+  - scope: { path: "kortpro" }
+    values: { sitemap: false }
+  # Not public yet / personal invite links.
+  - scope: { path: "sablegelato" }
+    values: { sitemap: false }
+  - scope: { path: "habuddy/invite" }
+    values: { sitemap: false }
+  # Account deletion forms: there for the stores, not for search.
+  - scope: { path: "delete-data.md" }
+    values: { sitemap: false }
+  - scope: { path: "fasting-tracker/delete-data.md" }
+    values: { sitemap: false }
+  - scope: { path: "habuddy/delete-account.md" }
+    values: { sitemap: false }
+  - scope: { path: "maas-metre/delete-account.md" }
+    values: { sitemap: false }
+  - scope: { path: "portfoy-takip/delete-account.md" }
+    values: { sitemap: false }
+  - scope: { path: "sugar-free-streak/delete-account.md" }
+    values: { sitemap: false }
