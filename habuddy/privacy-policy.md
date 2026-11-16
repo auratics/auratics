@@ -5,7 +5,7 @@ title: Privacy Policy
 
 # Habuddy Privacy Policy
 
-Last updated: November 6, 2026
+Last updated: November 17, 2026
 
 This policy applies to the **Habuddy** app, previously published as **Habitual**. The app is published on the App Store and Google Play under the developer name **auratics**.
 
@@ -19,8 +19,8 @@ Habuddy is a habit tracker you can use alone or with friends. This page explains
 - **Your account:** your email address, and your sign-in with Apple or Google if you use one. If you sign in with email, your password is stored in hashed form. Older versions of the app could also be used as a guest, with an anonymous ID and no email.
 - **Your profile:** the name you choose and your profile photo, if you add one.
 - **Your habits:** their names, notes, icons, schedules and reminder times, and each day you check in.
-- **Check-in photos:** any photo you add to a check-in. Location and other metadata are removed on your phone before it is sent.
-- **Friends and shared habits:** who you are friends with, the habits you share, cheers, nudges, and anyone you have blocked.
+- **Check-in photos:** any photo you add to a check-in, its caption, and the comments and likes people leave on it. Location and other metadata are removed on your phone before the photo is sent.
+- **Friends and shared habits:** who you are friends with, the habits you share, nudges, and anyone you have blocked.
 - **Reports:** if you report a photo or a person, or someone reports yours, the report and its outcome.
 - **Notifications:** a token that lets us send notifications to your phone.
 - **Purchases:** whether you have Premium, and which plan. Apple or Google handle the payment; we never see your card.
@@ -30,7 +30,7 @@ We do not sell your data, show ads, or track you across other companies' apps.
 
 ## Who can see what
 
-Your email is never shown to other people. Friends see your name and profile photo, and so does anyone you send an invite to, before they accept it. People in a habit you share also see that habit's check-ins and photos. Everything else is visible only to you. Your photos are private files, reachable only by the people above.
+Your email is never shown to other people. Friends see your name and profile photo, and so does anyone you send an invite to, before they accept it. People in a habit you share also see that habit's check-ins, photos, captions and comments. Everything else is visible only to you. Your photos are private files, reachable only by the people above.
 
 ## Who processes it for us
 
@@ -43,7 +43,7 @@ Your email is never shown to other people. Friends see your name and profile pho
 
 ## How long we keep it
 
-We keep your data until you delete it or your account. A photo you remove, or a habit you delete, is deleted for good, and removing yourself from a shared habit deletes your check-ins and photos in it.
+We keep your data until you delete it or your account. A photo you remove, with its caption and comments, or a habit you delete, is deleted for good, and removing yourself from a shared habit deletes your check-ins and photos in it.
 
 ## Your choices
 
