@@ -6,22 +6,35 @@
 <meta name="robots" content="noindex">
 <title>You're invited to Habuddy</title>
 <meta name="description" content="Do your habits together. Open your invite in Habuddy.">
+<link rel="icon" href="../assets/favicon.png?v=2">
 <style>
-  :root { color-scheme: light; }
-  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #DFEDF6; color: #1E3242; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  main { width: min(100%, 420px); box-sizing: border-box; padding: 32px 20px; text-align: center; }
-  h1 { margin: 0 0 8px; font-size: 34px; line-height: 40px; letter-spacing: -0.8px; font-weight: 700; }
-  p { margin: 0 0 20px; font-size: 16px; line-height: 23px; color: #3D5B70; }
-  a.button { display: block; margin-top: 10px; padding: 17px; border-radius: 18px; background: #27455C; color: #FFFFFF; font-size: 16.5px; font-weight: 600; text-decoration: none; }
-  a.secondary { background: #FFFFFF; color: #27455C; }
-  .hint { font-size: 14px; margin: 20px 0 0; }
-  [hidden] { display: none; }
+  @font-face { font-family: "Jakarta"; src: url(../assets/home/fonts/PlusJakartaSans_500Medium.ttf) format("truetype"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: "Jakarta"; src: url(../assets/home/fonts/PlusJakartaSans_700Bold.ttf) format("truetype"); font-weight: 700; font-display: swap; }
+  @font-face { font-family: "Jakarta"; src: url(../assets/home/fonts/PlusJakartaSans_800ExtraBold.ttf) format("truetype"); font-weight: 800; font-display: swap; }
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #C3D1DC;
+    font-family: "Jakarta", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased;
+    background: radial-gradient(700px 500px at 80% 0%, rgba(120,170,210,.2), transparent 70%), radial-gradient(600px 500px at 0% 100%, rgba(70,120,170,.16), transparent 70%), #0E1820; }
+  main { width: min(100%, 420px); padding: 40px 20px; text-align: center; }
+  .icon { width: 88px; height: 88px; border-radius: 21px; margin: 0 auto 28px; display: block; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+  .kicker { margin: 0 0 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #A8CCE6; }
+  h1 { margin: 0 0 12px; font-size: 36px; line-height: 1.05; letter-spacing: -0.035em; font-weight: 800; color: #F2F6FA; }
+  h1 em { font-style: normal; color: #A8CCE6; }
+  p { margin: 0 0 26px; font-size: 16.5px; line-height: 1.55; }
+  a.button { display: block; margin-top: 10px; padding: 17px; border-radius: 18px; background: #E6EFF6; color: #0E1820; font-size: 16.5px; font-weight: 700; text-decoration: none; }
+  a.secondary { background: rgba(255,255,255,.05); color: #F2F6FA; border: 1px solid rgba(255,255,255,.12); }
+  a.secondary:hover { border-color: #A8CCE6; }
+  .hint { font-size: 14px; margin: 22px 0 0; color: #9DB0C1; }
+  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
 <main>
-  <h1>Habits stick better together</h1>
-  <p>You’re invited to do a habit together on Habuddy.</p>
+  <img class="icon" src="../assets/icon-192.png?v=2" alt="Habuddy">
+  <p class="kicker">You're invited</p>
+  <h1>Habits stick better <em>together.</em></h1>
+  <p>Someone wants to do a habit with you on Habuddy. Check in with a photo, see each other's week, keep the streak alive.</p>
   <a class="button" id="open" href="habuddy://" hidden>Open in Habuddy</a>
   <a class="button secondary" href="https://apps.apple.com/app/id6800276408">Get it on the App Store</a>
   <a class="button secondary" href="https://play.google.com/store/apps/details?id=com.auratics.habitual">Get it on Google Play</a>
