@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.auratics.habitual",
+      "sha256_cert_fingerprints": [
+        "C7:1E:E1:D0:23:B1:40:6D:1B:B5:D4:D7:B8:13:9B:B5:F4:35:6F:C3:D1:9A:3F:35:70:4B:93:0D:2B:81:CF:D5"
+      ]
+    }
+  }
+]
