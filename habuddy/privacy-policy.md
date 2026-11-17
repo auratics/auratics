@@ -7,7 +7,7 @@ title: Privacy Policy
 
 Last updated: November 17, 2026
 
-This policy applies to the **Habuddy** app, previously published as **Habitual**. The app is published on the App Store and Google Play under the developer name **auratics**.
+This policy applies to the **Habuddy** app. The app is published on the App Store and Google Play under the developer name **auratics**.
 
 **Data controller:** Feyza Can, trading as auratics\
 **Contact:** support@auratics.app

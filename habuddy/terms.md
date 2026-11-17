@@ -7,7 +7,7 @@ title: Terms of Use
 
 Last updated: November 6, 2026
 
-These terms apply to the **Habuddy** app, previously published as **Habitual**, published on the App Store and Google Play under the developer name **auratics**. By using the app you agree to them.
+These terms apply to the **Habuddy** app, published on the App Store and Google Play under the developer name **auratics**. By using the app you agree to them.
 
 ## Your account
 

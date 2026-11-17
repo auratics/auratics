@@ -5,7 +5,7 @@ title: Delete your account
 
 # Habuddy: delete your account and data
 
-This page explains how to delete your account and data in the **Habuddy** app, previously published as **Habitual**, developed by **auratics**.
+This page explains how to delete your account and data in the **Habuddy** app, developed by **auratics**.
 
 ## In the app
 
