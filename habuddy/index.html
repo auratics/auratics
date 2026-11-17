@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habuddy — Habits stick better with friends</title>
+  <meta name="description" content="Habuddy is a habit tracker you do with friends. Check in with a photo, see everyone's week, nudge whoever is behind and keep the streak alive together.">
+  <meta name="theme-color" content="#0E1820">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Habuddy — Habits stick better with friends">
+  <meta property="og:description" content="Photo check-ins, nudges, streaks and a weekly scoreboard. A habit tracker you do with friends.">
+  <meta property="og:image" content="https://auratics.app/habuddy/assets/home/img/share.jpg">
+  <meta property="og:url" content="https://auratics.app/habuddy/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/home/fonts/PlusJakartaSans_800ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="assets/home/home.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script type="module" src="assets/home/js/hero.js"></script>
+  <script type="module" src="assets/home/js/page.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <a class="brand" href="./">
+        <img src="assets/icon-192.png" alt="">
+        <span>Habuddy</span>
+      </a>
+      <nav><a href="#get">Get the app</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <p class="kicker">Habits, together</p>
+          <h1>Habits stick better <em>with friends.</em></h1>
+          <p class="lead">Pick a habit, invite your people with one link and check in every day with a photo. Everyone sees the week fill up, and nobody wants to be the empty square.</p>
+          <div class="badges">
+            <a href="https://apps.apple.com/app/id6800276408" aria-label="Download on the App Store">
+              <img src="assets/home/img/appstore-badge.svg" alt="Download on the App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.auratics.habitual" aria-label="Get it on Google Play">
+              <img src="assets/home/img/googleplay-badge.png" alt="Get it on Google Play">
+            </a>
+          </div>
+          <ul class="facts-inline">
+            <li>Free to start</li>
+            <li>No ads</li>
+            <li>iPhone and Android</li>
+          </ul>
+        </div>
+        <div class="art" data-screen="assets/home/img/week-hd.webp">
+          <canvas class="scene" aria-hidden="true"></canvas>
+          <div class="phone hero-phone">
+            <img src="assets/home/img/week.webp" alt="A habit called Move 30 minutes: nine friends in a weekly grid, each day a round photo, and dashed bells on Saturday for the ones not in yet.">
+          </div>
+          <div class="toast" aria-hidden="true">
+            <img data-toast-face src="assets/home/img/faces/jessi.webp" alt="">
+            <div>
+              <b data-toast-title>Jessi checked in</b>
+              <span data-toast-body>5K before coffee. Worth it.</span>
+            </div>
+            <i>now</i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Photo check-ins</span><i></i><span>Nudges</span><i></i><span>Streaks</span><i></i><span>Weekly scoreboard</span><i></i><span>Captions and comments</span><i></i><span>Reminders</span><i></i><span>One link to invite</span><i></i>
+        <span>Photo check-ins</span><i></i><span>Nudges</span><i></i><span>Streaks</span><i></i><span>Weekly scoreboard</span><i></i><span>Captions and comments</span><i></i><span>Reminders</span><i></i><span>One link to invite</span><i></i>
+      </div>
+    </div>
+
+    <section class="feature">
+      <div class="wrap">
+        <div class="copy reveal">
+          <p class="kicker">Snap it</p>
+          <h2>Every check&#8209;in <em>is a photo.</em></h2>
+          <p>Take a photo when you do the thing: a run, a stretch, a page of your book. Add a caption if you like. Your crew gets it as a notification, photo and all.</p>
+          <p>Every photo is checked for inappropriate content before anyone else sees it.</p>
+        </div>
+        <div class="phone tilt reveal">
+          <img src="assets/home/img/photo.webp" alt="A check-in photo of battle ropes in a gym, captioned 5K before coffee. Worth it., with comments from friends under it." loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="feature flip">
+      <div class="wrap">
+        <div class="copy reveal">
+          <p class="kicker">See the week</p>
+          <h2>One grid, <em>one row each.</em></h2>
+          <p>Everyone in the habit has a row. Each day is a square that fills with that day's photo, so you see at a glance who showed up and who still has to.</p>
+          <p>Free shares a habit with one buddy. Premium brings the whole crew and every past week.</p>
+        </div>
+        <div class="phone tilt reveal">
+          <img src="assets/home/img/week.webp" alt="The weekly grid of a shared habit: a row per person, round photos on the days they checked in." loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <div class="demo" id="try">
+      <div class="wrap">
+        <div class="demo-card reveal" data-demo>
+          <div class="demo-copy">
+            <p class="kicker">Try it</p>
+            <h2>Saturday. <em>Who's not in yet?</em></h2>
+            <p>Tap your empty square to check in. Tap a bell to nudge a friend who hasn't.</p>
+            <p class="demo-status" data-status aria-live="polite">Two of you are still out.</p>
+          </div>
+          <div class="demo-grid" role="group" aria-label="This week, Monday to Sunday">
+            <div class="demo-days" aria-hidden="true"><span></span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span class="today">S</span><span>S</span></div>
+            <div class="demo-row me" data-row="you">
+              <img src="assets/home/img/faces/mia.webp" alt="You">
+              <i style="--p:url(/habuddy/assets/home/img/moves/move-1.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-2.webp)"></i><i class="empty"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-3.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-4.webp)"></i>
+              <button type="button" class="slot" data-checkin aria-label="Check in today"><span>+</span></button><i class="later"></i>
+            </div>
+            <div class="demo-row">
+              <img src="assets/home/img/faces/ava.webp" alt="Ava">
+              <i style="--p:url(/habuddy/assets/home/img/moves/move-5.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-7.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-8.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-9.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-12.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-14.webp)"></i><i class="later"></i>
+            </div>
+            <div class="demo-row" data-row="liam">
+              <img src="assets/home/img/faces/liam.webp" alt="Liam">
+              <i style="--p:url(/habuddy/assets/home/img/moves/move-15.webp)"></i><i class="empty"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-16.webp)"></i><i class="empty"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-17.webp)"></i>
+              <button type="button" class="bell" data-nudge="Liam" aria-label="Nudge Liam"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a5 5 0 0 0-5 5v3.6L5.5 15h13L17 11.6V8a5 5 0 0 0-5-5Zm-2 14a2 2 0 0 0 4 0"/></svg></button><i class="later"></i>
+            </div>
+            <div class="demo-row">
+              <img src="assets/home/img/faces/zoe.webp" alt="Zoe">
+              <i style="--p:url(/habuddy/assets/home/img/moves/move-18.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-19.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-20.webp)"></i><i class="empty"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-1.webp)"></i><i style="--p:url(/habuddy/assets/home/img/moves/move-2.webp)"></i><i class="later"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="feature">
+      <div class="wrap">
+        <div class="copy reveal">
+          <p class="kicker">Nudge and cheer</p>
+          <h2>Not in yet? <em>One tap.</em></h2>
+          <p>A bell sits on the day of everyone who hasn't checked in. Tap it and they get a push: <strong>"Mia nudged you 👋"</strong>. Once a day per person, so it stays friendly.</p>
+          <p>Like a photo, leave a comment, and the comment that gets someone out the door shows up on their phone.</p>
+        </div>
+        <div class="phone tilt reveal">
+          <img src="assets/home/img/comments.webp" alt="A photo of a city marathon shared by Zoe, with comments: This is my sign to stop scrolling and go, and Okay, I'm going tomorrow. Promise." loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="feature flip">
+      <div class="wrap">
+        <div class="copy reveal">
+          <p class="kicker">Friendly competition</p>
+          <h2>Who shows up <em>the most?</em></h2>
+          <p>A scoreboard for the week, for all time, for the current streak and the best one. A little competition goes a long way.</p>
+        </div>
+        <div class="phone tilt reveal">
+          <img src="assets/home/img/scoreboard.webp" alt="The habit's scoreboard for this week: Ava first with 6 check-ins, Ella and Mia with 5." loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="facts">
+      <div class="wrap">
+        <ul>
+          <li class="reveal">
+            <h3>Private by default</h3>
+            <p>Only the people in a habit see its check-ins and photos. Your email is never shown to anyone.</p>
+          </li>
+          <li class="reveal">
+            <h3>Reminders that know</h3>
+            <p>Set a time for each habit. Already checked in today? The reminder stays quiet.</p>
+          </li>
+          <li class="reveal">
+            <h3>Photos checked</h3>
+            <p>Each photo is checked before others see it, and anything can be reported from its menu.</p>
+          </li>
+          <li class="reveal">
+            <h3>Free to start</h3>
+            <p>One habit with one buddy, free. Premium adds unlimited habits, people and past weeks.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta" id="get">
+      <div class="wrap">
+        <img class="cta-icon" src="assets/home/img/icon.png" alt="">
+        <h2>Bring a buddy. <em>Start a habit.</em></h2>
+        <p>Habuddy is free on iPhone and Android.</p>
+        <div class="badges">
+          <a href="https://apps.apple.com/app/id6800276408" aria-label="Download on the App Store">
+            <img src="assets/home/img/appstore-badge.svg" alt="Download on the App Store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.auratics.habitual" aria-label="Get it on Google Play">
+            <img src="assets/home/img/googleplay-badge.png" alt="Get it on Google Play">
+          </a>
+        </div>
+        <p class="formerly">Previously published as Habitual.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <nav>
+        <a href="privacy-policy">Privacy policy</a>
+        <a href="terms">Terms of use</a>
+        <a href="support">Support</a>
+        <a href="delete-account">Delete your account</a>
+      </nav>
+      <p>© 2026 auratics</p>
+    </div>
+  </footer>
+</body>
+</html>
