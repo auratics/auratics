@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["8JCMB3FW6D.com.auratics.habitual"],
+        "components": [
+          { "/": "/habuddy/invite*", "comment": "Habuddy invites open in the app" }
+        ]
+      }
+    ]
+  }
+}

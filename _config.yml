@@ -5,6 +5,10 @@ url: https://auratics.app
 plugins:
   - jekyll-sitemap
 
+# App link files live under .well-known, which Jekyll skips by default.
+include:
+  - .well-known
+
 defaults:
   # KortPro's old legal addresses, now redirects to kortpro.app.
   - scope: { path: "kortpro" }
