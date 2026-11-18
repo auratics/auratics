@@ -410,11 +410,11 @@ h1 em {
   --app-border: #26314f;
 }
 .habuddy {
-  --app-bg: linear-gradient(160deg, #f4f8fb, #dfedf6);
-  --app-text: #1e3242;
-  --app-muted: #4f6878;
-  --app-accent: #27455c;
-  --app-border: #dfedf6;
+  --app-bg: linear-gradient(160deg, #2c4257, #0d1823 70%);
+  --app-text: #eef3f7;
+  --app-muted: #a3b4c3;
+  --app-accent: #a9cbe6;
+  --app-border: #2a3d50;
 }
 
 footer {
