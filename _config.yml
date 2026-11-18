@@ -16,9 +16,13 @@ defaults:
   # Not public yet.
   - scope: { path: "sablegelato" }
     values: { sitemap: false }
-  # Apps not announced yet (2026-11-15): their pages stay up for the stores.
-  - scope: { path: "habuddy" }
+  # Habuddy is out (2026-11-18): its pages are listed, but not the invite
+  # links or the deletion form.
+  - scope: { path: "habuddy/invite" }
     values: { sitemap: false }
+  - scope: { path: "habuddy/delete-account.md" }
+    values: { sitemap: false }
+  # Apps not announced yet (2026-11-15): their pages stay up for the stores.
   - scope: { path: "sugar-free-streak" }
     values: { sitemap: false }
   - scope: { path: "portfoy-takip" }
