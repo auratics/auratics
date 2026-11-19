@@ -37,20 +37,55 @@
   <h1>Habits stick better <em>together.</em></h1>
   <p>Someone wants to do a habit with you on Habuddy. Check in with a photo, see each other's week, keep the streak alive.</p>
   <a class="button" id="open" href="habuddy://" hidden>Open in Habuddy</a>
-  <a class="button secondary" href="https://apps.apple.com/app/id6800276408">Get it on the App Store</a>
-  <a class="button secondary" href="https://play.google.com/store/apps/details?id=com.auratics.habitual">Get it on Google Play</a>
+  <a class="button secondary" id="appstore" href="https://apps.apple.com/app/id6800276408">Get it on the App Store</a>
+  <a class="button secondary" id="play" href="https://play.google.com/store/apps/details?id=com.auratics.habitual">Get it on Google Play</a>
   <p class="hint" id="after" hidden>Just installed it? Come back to this link and tap Open in Habuddy.</p>
 </main>
 <script>
   // Only ever a well-formed code goes anywhere: the page takes it from the address.
   var code = (new URLSearchParams(location.search).get('c') || '').toUpperCase();
+  var ua = navigator.userAgent;
+  var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var android = /Android/.test(ua);
+  var appStore = document.getElementById('appstore');
+  var play = document.getElementById('play');
+
+  // Each phone sees its own store only; a computer sees both.
+  if (ios) play.hidden = true;
+  if (android) appStore.hidden = true;
+
   if (/^[A-Z2-9]{8}$/.test(code)) {
-    var target = 'habuddy://invite/' + code;
     var open = document.getElementById('open');
-    open.href = target;
+    var scheme = 'habuddy://invite/' + code;
     open.hidden = false;
     document.getElementById('after').hidden = false;
-    location.href = target;
+
+    if (android) {
+      // Chrome and Samsung Internet open the app when it is there and go
+      // straight to Google Play when it is not, with no error in between.
+      var intent = 'intent://invite/' + code +
+        '#Intent;scheme=habuddy;package=com.auratics.habitual;S.browser_fallback_url=' +
+        encodeURIComponent(play.href) + ';end';
+      open.href = intent;
+      location.href = intent;
+    } else {
+      open.href = scheme;
+      // Not tried on its own as the page opens: without the app, the browser
+      // shows an error before anyone has tapped anything. On a tap, a page
+      // still in front after a moment means the app is not there, so the
+      // App Store takes over.
+      open.addEventListener('click', function (event) {
+        event.preventDefault();
+        var left = false;
+        var away = function () { left = true; };
+        document.addEventListener('visibilitychange', away, { once: true });
+        window.addEventListener('pagehide', away, { once: true });
+        location.href = scheme;
+        setTimeout(function () {
+          if (!left && !document.hidden && ios) location.href = appStore.href;
+        }, 1500);
+      });
+    }
   }
 </script>
 </body>
