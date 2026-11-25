@@ -13,19 +13,22 @@ It helps if you include your phone model and the version of the app.
 ## Frequently asked questions
 
 **Do I need an account?**
-No. Fast Tracker works without an account, and your fasts stay on your phone.
-An account is only for Backup and sync.
+Yes, since 25 November 2026: you sign in with Google, or Apple on iPhone, when
+you first open the app. If you installed it before then, signing in stays
+optional. Signing in does not upload your fasts; that only happens if you turn
+on Backup and sync.
 
 **I started fasting earlier. Can I set the start time?**
-Yes. Before you tap **Start fasting**, choose how many hours ago you started,
-or tap **Specify time** to pick the exact time.
+Yes. Before you tap **Start fasting**, tap **Specify time** and pick when you
+started.
 
 **How do I fix a fast I already ended?**
-Open History and tap the fast. You can change its start, its end and its
-goal, then tap **Save**.
+Open History and tap the fast. You can change its start and its end, and
+with **Change goal** its goal, then tap **Save**.
 
 **I forgot to log a fast. Can I add it?**
-Yes. On the Timer screen, tap **Add fasting record**.
+Yes. On the Timer screen, tap **Add fasting record**, or in History tap the
+day it ended on.
 
 **What do the colours in the calendar mean?**
 Days with a fast of 12 hours or more are green. The darker the green, the

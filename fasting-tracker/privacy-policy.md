@@ -5,7 +5,7 @@ title: Privacy Policy
 
 # Fast Tracker Privacy Policy
 
-Last updated: 21 October 2026
+Last updated: 25 November 2026
 
 This policy applies to the **Intermittent Fasting Tracker** app for Android
 and iOS, named Fast Tracker on the home screen and published in the app
@@ -15,12 +15,13 @@ stores as **auratics**.
 **Contact:** support@auratics.app
 
 **In short**
-- Fast Tracker works without an account, and then your fasts stay on your
-  phone.
-- If you turn on **Backup and sync**, signing in with Google or Apple, and
-  agree, a copy of your fasts is kept on our server in the European Union so
-  you can restore it and use it on another phone. You can delete it at any
-  time.
+- You sign in with Google or Apple when you first open the app. We keep
+  your account (an ID and its email address) on our server in the European
+  Union. If you installed the app before 25 November 2026, signing in stays
+  optional.
+- Your fasts stay on your phone. Only if you turn on **Backup and sync** and
+  agree is a copy kept on our server, so you can restore it and use it on
+  another phone. You can delete it at any time.
 - The app is free because it shows ads from Google AdMob. In the European
   Economic Area, the United Kingdom and Switzerland, you decide whether those
   ads are personalised.
@@ -37,14 +38,20 @@ stores as **auratics**.
 Without Backup and sync, none of this is sent to us or to anyone else, and
 uninstalling the app deletes it.
 
-## 2. Backup and sync (optional)
+## 2. Your account and Backup and sync
 
-Backup and sync is off until you turn it on in Settings. It asks for your
-consent first, and only then signs you in.
+**Your account.** When you first open Fast Tracker, you sign in with Google
+or Apple. We store your account on Supabase in Frankfurt, Germany: an account
+ID and the email address that Google or Apple gives us (with Apple, this can
+be a private relay address). We use it only to identify your account; it is
+never used for ads or shared. If you installed the app before 25 November
+2026, you are not asked to sign in, and without signing in we store nothing
+about you.
 
-**What we store, on Supabase in Frankfurt, Germany:**
-- your account: an account ID and the email address that Google or Apple
-  gives us (with Apple, this can be a private relay address);
+**Backup and sync** is off until you turn it on. It asks for your consent
+first, right after you sign in or later in Settings.
+
+**What Backup and sync adds, on the same server:**
 - your fasts: when each started and ended, its goal, and when it last changed;
 - for a fast you delete, only its ID and when it was deleted, so your other
   phones delete it too;
@@ -59,7 +66,8 @@ signed in to Fast Tracker, under their own privacy policies:
 [Google](https://policies.google.com/privacy) and
 [Apple](https://www.apple.com/legal/privacy/).
 
-**Signing out** stops backup and leaves your fasts on the phone. **Deleting
+**Signing out** stops backup and leaves your fasts on the phone; if your
+install has to sign in, the app then asks you to sign in again. **Deleting
 your account** (section 9) removes the account and every fast stored with it.
 
 ## 3. Your health
@@ -113,8 +121,8 @@ Google uses data from apps that use its services:
 | Google (AdMob) | Ads | As described in section 5 | United States |
 | Expo (650 Industries, Inc.) | Downloading app updates | Device type, app version and a random installation ID | United States |
 | GitHub, Inc. (GitHub Pages) | Checking whether a newer version of the app is available | Nothing beyond the request itself; the comparison happens on your phone | United States |
-| Supabase, Inc. | Backup and sync, only if you turn it on | As described in section 2 | Germany (Frankfurt) |
-| Google or Apple | Signing in, only if you turn on Backup and sync | That you are signing in to Fast Tracker | United States |
+| Supabase, Inc. | Your account, and Backup and sync if you turn it on | As described in section 2 | Germany (Frankfurt) |
+| Google or Apple | Signing in | That you are signing in to Fast Tracker | United States |
 
 Like any request over the internet, each of these also reaches the provider
 with your IP address. Without Backup and sync, none of them receives your
@@ -122,6 +130,7 @@ fasts.
 
 ## 7. Legal bases (EEA and UK)
 
+- **Your account:** providing the app you asked for (GDPR Article 6(1)(b)).
 - **Backup and sync:** your explicit consent (GDPR Articles 6(1)(a) and
   9(2)(a)). You can withdraw it at any time by deleting your account.
 - **Personalised ads:** your consent. You can withdraw it at any time in the

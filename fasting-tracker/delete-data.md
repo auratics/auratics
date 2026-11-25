@@ -8,9 +8,9 @@ title: Deleting your data
 This page explains how to delete your data from **Intermittent Fasting
 Tracker** (Fast Tracker on the home screen), an app by **auratics**.
 
-Fast Tracker works without an account, and then your fasts and settings are
-stored only on your phone. If you turned on **Backup and sync**, a copy of your
-fasts is also kept with your account on our server.
+Your fasts and settings are stored on your phone. If you signed in, your
+account (an ID and its email address) is kept on our server, and if you also
+turned on **Backup and sync**, a copy of your fasts is kept with it.
 
 ## Delete one fast
 
@@ -50,7 +50,7 @@ ID.
 
 ## Questions
 
-Without an account, we hold no data about you. If you have a question, write
+If you never signed in, we hold no data about you. If you have a question, write
 to **support@auratics.app**.
 
 ---
