@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ders Paneli</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one phone-width app column; role switch on top, the chosen role's screen below. */
+:root {
+  /* Club theme: a new club changes only this block and its logo. */
+  color-scheme: light;
+  --bg: #eceadf;
+  --surface: #f8f6ef;
+  --surface-2: #f1efe6;
+  --line: #dcd8c8;
+  --fg: #17261f;
+  --muted: #5f6b63;
+  --court: #1f5a45;
+  --court-soft: rgba(31, 90, 69, 0.1);
+  --ball: #c24642;
+  --ball-ink: #ffffff;
+  --ok: #17845b;
+  --ok-soft: rgba(23, 132, 91, 0.12);
+  --warn: #b45309;
+  --warn-soft: rgba(180, 83, 9, 0.12);
+  --bad: #c2362c;
+  --bad-soft: rgba(194, 54, 44, 0.1);
+  --shadow: 0 10px 30px rgba(15, 29, 51, 0.08);
+  --display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+.avail { font-size: 12px; }
+.avail th { text-align: center; padding: 4px 2px; white-space: nowrap; }
+.avail tbody th { text-align: right; color: var(--muted); font-weight: 600; padding-right: 6px; }
+.avail td { padding: 2px; border: 0; }
+.cell { display: grid; place-items: center; width: 100%; min-width: 48px; height: 30px; border-radius: 7px; border: 1px dashed var(--line); background: transparent; font: 600 11px var(--body); color: var(--muted); cursor: pointer; }
+.cell.free { background: var(--court-soft); border: 1px solid var(--court); color: var(--court); }
+.cell.busy { background: var(--surface-2); border: 1px solid var(--line); color: var(--fg); cursor: default; }
+.avail.week { table-layout: fixed; width: 100%; }
+.avail.week th { font-size: 10px; line-height: 1.2; }
+.avail.week th.today { color: var(--ball); }
+.avail.week thead th:first-child, .avail.week tbody th { width: 26px; }
+.avail.week .cell { min-width: 0; height: 28px; font-size: 9.5px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; position: relative; padding: 0 2px; }
+.cell.gone { border-style: solid; border-color: transparent; background: rgba(0, 0, 0, .025); cursor: default; }
+.cell.past { opacity: .6; cursor: pointer; }
+button.cell.busy, button.cell.booked { cursor: pointer; }
+.cell.cxl { background: transparent; border: 1px dashed var(--line); color: var(--muted); text-decoration: line-through; cursor: pointer; }
+.cell .due { position: absolute; top: 2px; right: 2px; width: 6px; height: 6px; border-radius: 50%; background: var(--bad); }
+.legend .due-key { width: 8px; height: 8px; border-radius: 50%; background: var(--bad); border: 0; }
+.wk-nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.wk-nav .btn { font-size: 12px; padding: 6px 10px; }
+.wk-nav .btn:disabled { opacity: .4; cursor: default; }
+.wk-nav b { font-size: 13px; text-align: center; }
+.err { font-size: 13px; color: var(--bad); background: var(--bad-soft); border-radius: 10px; padding: 8px 12px; font-weight: 600; }
+.detail { display: grid; gap: 8px; }
+.lesson.tappable { cursor: pointer; }
+.lesson.tappable:hover { border-color: var(--court); }
+.lesson.tappable:focus-visible { outline: 2px solid var(--court); outline-offset: 2px; }
+.coach-ava { width: 40px; height: 40px; border-radius: 50%; background: var(--court); color: #fff; display: grid; place-items: center; font: 800 20px var(--display); flex: 0 0 auto; }
+.slot:disabled { opacity: .5; cursor: default; }
+.prog { display: grid; grid-template-columns: 92px 1fr; gap: 10px 12px; align-items: start; max-height: 52vh; overflow-y: auto; }
+.prog-day { display: grid; line-height: 1.2; padding-top: 6px; }
+.prog-day b { font-family: var(--display); font-size: 18px; }
+.prog-day span { font-size: 12px; color: var(--muted); }
+.prog-hours { display: flex; flex-wrap: wrap; gap: 6px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.hour { font: 700 14px var(--body); padding: 8px 12px; border-radius: 10px; border: 1px solid var(--court); background: var(--court-soft); color: var(--court); cursor: pointer; }
+.hour:hover { background: var(--court); color: #fff; }
+.hour:focus-visible { outline: 2px solid var(--court); outline-offset: 2px; }
+.pay-row { display: inline-flex; align-items: center; gap: 8px; }
+.btn.mini { font-size: 12px; padding: 5px 9px; border-radius: 9px; }
+.pay-btn { border: 0; background: none; padding: 0; cursor: pointer; }
+.pay-btn:focus-visible { outline: 2px solid var(--court); outline-offset: 2px; border-radius: 999px; }
+.detail > div { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.detail > div > span:first-child { color: var(--muted); }
+.detail b { text-align: right; }
+.note-field { display: grid; gap: 6px; font-size: 13px; font-weight: 600; }
+.note-field textarea { font: 15px var(--body); padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); resize: vertical; }
+.note-field textarea:focus { outline: 2px solid var(--court); outline-offset: 1px; }
+.cell.booked { background: rgba(194, 70, 66, .12); border: 1px solid var(--ball); color: var(--ball); cursor: default; }
+button.cell:focus-visible { outline: 2px solid var(--court); outline-offset: 1px; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.45;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+.app { max-width: 460px; margin: 0 auto; display: grid; gap: 14px; }
+.proto { font-size: 12px; color: var(--muted); text-align: center; }
+.proto b { color: var(--fg); }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand > div:not(.brand-mark) { flex: 1; min-width: 0; }
+.bell { position: relative; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--court); display: grid; place-items: center; cursor: pointer; flex: 0 0 auto; }
+.bell:focus-visible { outline: 2px solid var(--court); outline-offset: 2px; }
+.badge { position: absolute; top: -6px; right: -6px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--ball); color: var(--ball-ink); font: 700 11px var(--body); display: grid; place-items: center; border: 2px solid var(--bg); }
+.note-item { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.note-item:last-child { border-bottom: 0; }
+.note-item.unread .txt { font-weight: 600; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ball); display: inline-block; margin-right: 6px; }
+.brand-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--court); display: grid; place-items: center; }
+.brand-mark span { width: 14px; height: 14px; border-radius: 50%; background: var(--ball); box-shadow: inset -3px -2px 0 rgba(0,0,0,.15); }
+.brand h1 { font-family: var(--display); font-size: 26px; letter-spacing: .5px; margin: 0; line-height: 1; }
+.brand p { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
+.roles { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px; gap: 4px; }
+.roles button { border: 0; background: transparent; color: var(--muted); font: 600 13px var(--body); padding: 9px 4px; border-radius: 9px; cursor: pointer; }
+.roles button[aria-pressed="true"] { background: var(--court); color: #fff; }
+.roles button:focus-visible, .btn:focus-visible, .seg button:focus-visible, .chip-btn:focus-visible { outline: 2px solid var(--court); outline-offset: 2px; }
+.screen { display: grid; gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: grid; gap: 12px; }
+.card h2 { font-family: var(--display); font-size: 20px; letter-spacing: .3px; margin: 0; text-wrap: balance; }
+.card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin: 0; }
+.row { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.row > .grow { flex: 1; min-width: 0; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.tiny { font-size: 12px; }
+.hello { display: grid; gap: 2px; }
+.hello strong { font-family: var(--display); font-size: 24px; }
+/* Package meter: the month's 8 hours as 8 court tiles. */
+.meter { display: grid; grid-template-columns: repeat(8, 1fr); gap: 5px; }
+.meter i { height: 30px; border-radius: 6px; display: block; border: 1px solid var(--line); }
+.m-done { background: var(--court); border-color: var(--court) !important; }
+.m-burn { background: repeating-linear-gradient(45deg, var(--bad-soft) 0 5px, transparent 5px 10px); border-color: var(--bad) !important; }
+.m-plan { background: var(--court-soft); border-color: var(--court) !important; }
+.m-free { background: var(--surface-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--line); display: inline-block; }
+.stat-line { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.big { font-family: var(--display); font-size: 34px; line-height: 1; font-variant-numeric: tabular-nums; }
+.lesson { display: grid; grid-template-columns: 54px 1fr auto; gap: 12px; align-items: center; padding: 12px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line); }
+.when { text-align: center; border-right: 1px solid var(--line); padding-right: 10px; }
+.when b { display: block; font-family: var(--display); font-size: 22px; line-height: 1; font-variant-numeric: tabular-nums; }
+.when span { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
+.lesson .t { font-weight: 600; }
+.lesson .s { font-size: 12px; color: var(--muted); }
+.lesson.cancelled { opacity: .7; }
+.lesson.cancelled .t { text-decoration: line-through; }
+.pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.p-ok { background: var(--ok-soft); color: var(--ok); }
+.p-warn { background: var(--warn-soft); color: var(--warn); }
+.p-bad { background: var(--bad-soft); color: var(--bad); }
+.p-info { background: var(--court-soft); color: var(--court); }
+.p-ball { background: var(--ball); color: var(--ball-ink); }
+.btn { border: 1px solid var(--line); background: var(--surface); color: var(--fg); font: 600 13px var(--body); padding: 8px 12px; border-radius: 10px; cursor: pointer; }
+.btn:hover { border-color: var(--court); }
+.btn.primary { background: var(--court); border-color: var(--court); color: #fff; }
+.btn.danger { color: var(--bad); }
+.btn.danger.solid { background: var(--bad); border-color: var(--bad); color: #fff; }
+.btn.block { width: 100%; padding: 12px; font-size: 14px; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.rule { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; font-size: 13px; }
+.rule .ico { width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; font-weight: 700; font-size: 13px; }
+.seg { display: inline-grid; grid-auto-flow: column; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 3px; gap: 3px; }
+.seg button { border: 0; background: transparent; color: var(--muted); font: 600 13px var(--body); padding: 6px 12px; border-radius: 7px; cursor: pointer; font-variant-numeric: tabular-nums; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--fg); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.setting { display: grid; gap: 6px; }
+.setting + .setting { border-top: 1px solid var(--line); padding-top: 12px; }
+.kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.kpi { background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px; display: grid; gap: 2px; }
+.kpi b { font-family: var(--display); font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums; }
+.kpi span { font-size: 12px; color: var(--muted); }
+.days { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; }
+.days button { flex: 0 0 auto; border: 1px solid var(--line); background: var(--surface-2); color: var(--fg); border-radius: 10px; padding: 6px 10px; font: 600 12px var(--body); cursor: pointer; text-align: center; min-width: 52px; }
+.days button b { display: block; font-family: var(--display); font-size: 18px; }
+.days button[aria-pressed="true"] { background: var(--court); border-color: var(--court); color: #fff; }
+.court-col { display: grid; gap: 8px; }
+.court-col h4 { margin: 4px 0 0; font-size: 12px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 600; padding: 6px 6px 8px; border-bottom: 1px solid var(--line); }
+td { padding: 9px 6px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+tr:last-child td { border-bottom: 0; }
+.att { display: inline-grid; grid-auto-flow: column; gap: 6px; }
+.chip-btn { border: 1px solid var(--line); background: var(--surface); color: var(--muted); border-radius: 999px; padding: 5px 10px; font: 600 12px var(--body); cursor: pointer; }
+.chip-btn.on-ok { background: var(--ok-soft); color: var(--ok); border-color: var(--ok); }
+.chip-btn.on-bad { background: var(--bad-soft); color: var(--bad); border-color: var(--bad); }
+.log { display: grid; gap: 8px; }
+.log div { font-size: 12px; color: var(--muted); display: grid; grid-template-columns: 8px 1fr; gap: 8px; }
+.log div::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--court); margin-top: 6px; }
+/* Bottom sheet for confirmations (the viewer has no confirm dialogs). */
+.scrim { position: fixed; inset: 0; background: rgba(5, 12, 24, .45); display: grid; align-items: end; justify-items: center; z-index: 20; padding: 0 max(12px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+.sheet { width: 100%; max-width: 460px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 18px; display: grid; gap: 12px; box-shadow: var(--shadow); }
+.sheet h2 { font-family: var(--display); font-size: 22px; margin: 0; }
+.verdict { border-radius: 12px; padding: 12px; font-size: 14px; display: grid; gap: 4px; }
+.v-ok { background: var(--ok-soft); }
+.v-bad { background: var(--bad-soft); }
+.verdict b { font-size: 15px; }
+.v-ok b { color: var(--ok); }
+.v-bad b { color: var(--bad); }
+.sheet .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.slot { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); cursor: pointer; text-align: left; color: var(--fg); font: inherit; width: 100%; }
+.slot:hover { border-color: var(--court); }
+.toast { position: fixed; z-index: 30; left: 12px; right: 12px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); margin: 0 auto; max-width: 440px;
+  display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 16px; background: var(--court); color: #fff;
+  font-size: 13.5px; font-weight: 600; line-height: 1.35; text-wrap: balance; box-shadow: 0 12px 28px rgba(19, 58, 45, .35), 0 0 0 1px rgba(255, 255, 255, .08) inset;
+  animation: toast-in .28s cubic-bezier(.2, .9, .3, 1.2); }
+.toast .ti { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; background: rgba(255, 255, 255, .18); display: grid; place-items: center; }
+.toast .ti svg { display: block; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .toast { animation: none; } }
+.empty { font-size: 13px; color: var(--muted); padding: 8px 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .sheet { animation: up .18s ease-out; }
+  @keyframes up { from { transform: translateY(16px); opacity: .6; } to { transform: none; opacity: 1; } }
+}
+/* Yeşil üst alan: kulübün ana rengiyle uygulama başlığı ve selam. Kenardan kenara uzanır. */
+body { --pad-x: 16px; --pad-top: 20px; }
+.brand { margin: calc(-1 * var(--pad-top)) calc(-1 * var(--pad-x)) 0; padding: calc(var(--pad-top) + 12px) var(--pad-x) 18px; color: #fff;
+  background: var(--court); border-radius: 0 0 26px 26px; }
+.brand h1 { color: #fff; font-size: 26px; }
+.brand p { color: rgba(255, 255, 255, .72); }
+#logo { width: 44px; height: 44px; border-radius: 50%; background: #f8f6ef; overflow: hidden; box-shadow: 0 0 0 2px rgba(255, 255, 255, .25); flex: 0 0 auto; }
+#logo img { width: 100% !important; height: 100% !important; }
+.brand .bell { background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .22); color: #fff; }
+.brand .bell:focus-visible { outline-color: #fff; }
+.brand .badge { border-color: var(--court); }
+.app:has(#screen > .hello:first-child) .brand { border-radius: 0; padding-bottom: 4px; }
+#screen > .hello:first-child { margin: -14px calc(-1 * var(--pad-x)) 4px; padding: 6px var(--pad-x) 24px; background: var(--court); color: #fff; border-radius: 0 0 26px 26px; }
+#screen > .hello:first-child span { color: rgba(255, 255, 255, .72) !important; }
+#screen > .hello:first-child strong { font-size: 27px; }
+.card { border-color: rgba(220, 216, 200, .75); box-shadow: 0 1px 2px rgba(23, 38, 31, .04), 0 8px 20px rgba(23, 38, 31, .05); }
+.app > .roles { margin-top: 6px; }
+.app > .proto { margin-top: 2px; }
+/* Bilgisayarda iPhone çerçevesi içinde gösterilir; telefonda çerçeve yoktur, ekranın kendisi olur. */
+.device, .device-screen, .device-scroll { display: contents; }
+.ip-status, .ip-home, .ip-key { display: none; }
+@media (min-width: 760px) and (min-height: 640px) {
+  html, body { height: 100%; }
+  body { margin: 0; padding: 24px; overflow: hidden; display: grid; place-items: center;
+    background: radial-gradient(circle at 80% 0%, #2a7458, #1f5a45 45%, #133a2d); }
+  .device { display: block; position: relative; width: 412px; height: 866px; zoom: var(--ip-zoom, 1); padding: 11px;
+    border-radius: 68px; background: #0a0a0b;
+    box-shadow: 0 0 0 2px #6f757b, 0 0 0 4px #2b2f33, 0 0 0 5px #8a9096, 0 50px 90px rgba(0, 0, 0, .5); }
+  .ip-key { display: block; position: absolute; width: 4px; border-radius: 2px; background: linear-gradient(90deg, #5d6369, #8a9096); }
+  .ip-key.action { left: -8px; top: 15%; height: 4%; }
+  .ip-key.up { left: -8px; top: 23%; height: 8%; }
+  .ip-key.down { left: -8px; top: 33%; height: 8%; }
+  .ip-key.power { right: -8px; left: auto; top: 27%; height: 12%; }
+  .device-screen { display: block; position: relative; height: 100%; overflow: hidden; border-radius: 57px; background: var(--ip-bg, #fff); transform: translateZ(0); }
+  .device-scroll { display: block; height: 100%; overflow-y: auto; scrollbar-width: none; }
+  .device-scroll::-webkit-scrollbar { display: none; }
+  .ip-status { display: grid; grid-template-columns: 1fr 126px 1fr; align-items: center; position: absolute; z-index: 30; inset: 0 0 auto; height: 54px; padding: 0 28px 0 34px;
+    font: 600 16px/1 -apple-system, "SF Pro Text", system-ui, sans-serif; color: var(--ip-ink, #111); background: var(--ip-bar, transparent); }
+  .ip-status .island { justify-self: center; width: 122px; height: 35px; border-radius: 20px; background: #000; margin-top: 2px; }
+  .ip-status .icons { justify-self: end; display: flex; gap: 6px; align-items: center; }
+  .ip-status svg { display: block; fill: currentColor; }
+  .ip-home { display: block; position: absolute; z-index: 30; left: 50%; bottom: 8px; transform: translateX(-50%); width: 136px; height: 5px; border-radius: 3px; background: var(--ip-ink, #111); opacity: .85; }
+}
+@media (min-width: 760px) and (min-height: 640px) {
+  :root { --ip-bg: var(--bg); --ip-bar: var(--court); --ip-ink: #fff; }
+  .device-scroll { --pad-x: 14px; --pad-top: 58px; }
+  .ip-home { background: var(--fg); }
+  .device-scroll { padding: 58px 14px 36px; }
+  .sheet { max-height: calc(100% - 70px); overflow-y: auto; }
+  .scrim { padding-bottom: 26px; }
+  .toast { bottom: 30px; left: 10px; right: 10px; }
+}
+</style>
+
+<div class="device"><span class="ip-key action"></span><span class="ip-key up"></span><span class="ip-key down"></span><span class="ip-key power"></span>
+<div class="device-screen"><div class="ip-status" aria-hidden="true"><span>14:00</span><span class="island"></span><span class="icons"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .4 10.4 10.4 0 0 0 .8 3.3L2 4.6a8.6 8.6 0 0 1 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3A6.7 6.7 0 0 0 8 4a6.7 6.7 0 0 0-4.6 1.8l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.5c-.4 0-.8.2-1.1.4L8 11l1.1-1.3c-.3-.2-.7-.4-1.1-.4Z"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="17" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2Z" opacity=".5"/></svg></span></div><span class="ip-home" aria-hidden="true"></span><div class="device-scroll" id="scroller">
+<div class="app">
+  <header class="brand">
+    <div class="brand-mark" id="logo" aria-hidden="true"><span></span></div>
+    <div>
+      <h1>Prime Tenis</h1>
+      <p>Program, paket ve iptaller tek yerde</p>
+    </div>
+    <button class="bell" id="bell" aria-label="Bildirimler">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+      <span class="badge" id="badge" hidden></span>
+    </button>
+  </header>
+  <main id="screen" class="screen"></main>
+  <nav class="roles" aria-label="Görünüm">
+    <button id="role-veli" data-role="veli" aria-pressed="true">Veli / Öğrenci</button>
+    <button id="role-hoca" data-role="hoca" aria-pressed="false">Hoca</button>
+    <button id="role-yonetici" data-role="yonetici" aria-pressed="false">Yönetici</button>
+  </nav>
+  <div class="proto"><a href="index.html" style="color:var(--court);font-weight:600;text-decoration:none">← Prime Tenis sitesine dön</a> · <b>Prototip</b> · örnek veriler · bugün 25 Kasım Çarşamba, saat 14:00 varsayılıyor</div>
+</div>
+<div id="layer"></div>
+</div></div></div>
+
+<script>
+// ---- Example data (a prototype: nothing here is the club's real data) ----
+const NOW = new Date(2026, 10, 25, 14, 0);
+const DAY = ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt'];
+const DAYLONG = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
+const MONTH = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
+const d = (day, h, m = 0) => new Date(2026, 10, day, h, m);
+
+// ---- Shared between the three logins (this browser only) ----
+// The coach marks free hours; a student books one; the coach then sees it.
+// In the real product this lives in the database; here, in the browser.
+const STORE = 'prime-ders-paneli-v1';
+// Hoca takvimi Pazartesi–Pazar haftası gösterir. Gün numaraları Kasım'a göre; 31 = 1 Aralık (Date taşar).
+const WEEK0 = 23; // 23 Kasım Pazartesi
+// Velinin seçebileceği hocalar. Onur Hoca'nın boş saatleri onun ekranından işaretlenir; Arife Hoca'nınki örnek.
+const COACHES = [
+  { name: 'Onur Hoca', court: 'Kort 2', about: 'Çocuk ve yetişkin özel ders' },
+  { name: 'Arife Hoca', court: 'Kort 1', about: 'Çocuk grupları ve yetişkin ders' },
+];
+const ARIFE_FREE = ['26-10', '27-11', '27-12', '28-15', '29-12', '31-17', '32-9', '33-10'];
+const coachOf = (name) => COACHES.find((c) => c.name === name) || COACHES[0];
+const bookingCoach = (b) => b.coach || 'Onur Hoca';
+const AV_HOURS = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+const SEED = { free: ['27-15', '27-16', '28-9', '28-14', '29-11', '29-13', '30-10', '30-18', '31-16', '32-10', '33-17'], bookings: [], cancels: [], coachCancels: [], payments: {}, read: {} };
+function loadShared() { try { return JSON.parse(localStorage.getItem(STORE)) || structuredClone(SEED); } catch { return structuredClone(SEED); } }
+function saveShared() { try { localStorage.setItem(STORE, JSON.stringify(shared)); } catch {} }
+const shared = Object.assign(structuredClone(SEED), loadShared());
+const keyAt = (k) => { const [day, h] = k.split('-').map(Number); return d(day, h); };
+
+const state = {
+  role: ({ hoca: 'hoca', ogrenci: 'veli', yonetici: 'yonetici' })[new URLSearchParams(location.search).get('rol')] || 'veli',
+  rules: { cancelHours: 24, carryOver: 'none' },
+  adminDay: 26,
+  hocaWeek: 0,
+  log: ['Ayşe Kaya, Deniz için 30 Kasım dersini planladı.', 'Onur Hoca 22 Kasım yoklamasını aldı.'],
+  // Deniz Kaya (9 yaş), çocuk özel ders paketi, Kasım: 8 saat. Velisi Ayşe Kaya uygulamayı kullanıyor.
+  student: { name: 'Deniz Kaya', parent: 'Ayşe Kaya', pkg: 'Çocuk özel ders', hours: 8, paid: true, ends: d(30, 23, 59) },
+  lessons: [
+    { id: 3, at: d(11, 17), coach: 'Onur Hoca', court: 'Kort 1', status: 'burned', note: 'Geç iptal (3 saat kala)', cancelBy: 'Ayşe Kaya (veli)', cancelAt: d(11, 14) },
+    { id: 4, at: d(15, 11), coach: 'Onur Hoca', court: 'Kort 2', status: 'cancelled', note: 'Hoca iptali: Yağmur nedeniyle kortlar ıslak · saat pakete döndü', cancelBy: 'Onur Hoca', cancelNote: 'Yağmur nedeniyle kortlar ıslak.', cancelAt: d(15, 8, 30) },
+    { id: 5, at: d(18, 17), coach: 'Onur Hoca', court: 'Kort 2', status: 'done' },
+    { id: 6, at: d(22, 11), coach: 'Onur Hoca', court: 'Kort 1', status: 'done' },
+    { id: 7, at: d(26, 17), coach: 'Onur Hoca', court: 'Kort 2', status: 'planned' },
+    { id: 8, at: d(28, 11), coach: 'Onur Hoca', court: 'Kort 2', status: 'planned' },
+  ],
+  // The whole academy's week, for the admin and the coach.
+  schedule: [
+    { day: 25, h: 17, type: 'Yetişkin özel', who: 'Ece Yılmaz', coach: 'Arife Hoca', court: 'Kort 1' },
+    { day: 25, h: 18, type: 'Yetişkin özel', who: 'Can Demir', coach: 'Onur Hoca', court: 'Kort 2' },
+    { day: 25, h: 19, type: 'Performans dersi', who: '6 kişi', coach: 'Onur Hoca', court: 'Kort 1' },
+    { day: 26, h: 16, type: 'Çocuk özel', who: 'Mert Aydın', coach: 'Arife Hoca', court: 'Kort 1' },
+    { day: 26, h: 17, type: 'Çocuk özel', who: 'Deniz Kaya', coach: 'Onur Hoca', court: 'Kort 2', denizId: 7 },
+    { day: 26, h: 18, type: 'Grup (4 kişi)', who: 'Kids seviye 2', coach: 'Arife Hoca', court: 'Kort 1' },
+    { day: 26, h: 19, type: 'Yetişkin özel', who: 'Burak Şen', coach: 'Onur Hoca', court: 'Kort 2' },
+    { day: 27, h: 17, type: 'Yetişkin özel', who: 'Selin Ak', coach: 'Onur Hoca', court: 'Kort 2' },
+    { day: 27, h: 18, type: 'Grup (4 kişi)', who: 'Kids seviye 2', coach: 'Arife Hoca', court: 'Kort 1' },
+    { day: 28, h: 10, type: 'Yetişkin özel', who: 'Ela Koç', coach: 'Onur Hoca', court: 'Kort 1' },
+    { day: 28, h: 11, type: 'Çocuk özel', who: 'Deniz Kaya', coach: 'Onur Hoca', court: 'Kort 2', denizId: 8 },
+    { day: 28, h: 12, type: 'Performans dersi', who: '5 kişi', coach: 'Arife Hoca', court: 'Kort 1' },
+    { day: 29, h: 10, type: 'Grup (4 kişi)', who: 'Kids seviye 2', coach: 'Onur Hoca', court: 'Kort 2' },
+    { day: 29, h: 16, type: 'Ücretsiz deneme dersi', who: 'Yeni öğrenci', coach: 'Arife Hoca', court: 'Kort 1' },
+  ],
+  roster: [
+    { name: 'Deniz Kaya', pkg: 'Çocuk özel', left: 5, pay: 'paid' },
+    { name: 'Ece Yılmaz', pkg: 'Yetişkin özel', left: 2, pay: 'paid' },
+    { name: 'Mert Aydın', pkg: 'Çocuk özel', left: 4, pay: 'due' },
+    { name: 'Selin Ak', pkg: 'Yetişkin özel', left: 1, pay: 'paid' },
+    { name: 'Burak Şen', pkg: 'Yetişkin özel', left: 5, pay: 'late' },
+    { name: 'Kids seviye 2', pkg: 'Grup · 4 kişi', left: 3, pay: 'due' },
+    { name: 'Can Demir', pkg: 'Yetişkin özel', left: 4, pay: 'paid' },
+    { name: 'Ela Koç', pkg: 'Yetişkin özel', left: 6, pay: 'due' },
+  ],
+  attendance: {},
+};
+
+function applyBookings() {
+  for (const [name, pay] of Object.entries(shared.payments)) {
+    const r = state.roster.find((p) => p.name === name); if (r) r.pay = pay.status;
+    if (name === state.student.name) state.student.paid = pay.status === 'paid';
+  }
+  for (const c of shared.coachCancels) {
+    const [day, h] = c.key.split('-').map(Number);
+    const slot = state.schedule.find((x) => x.coach === 'Onur Hoca' && x.day === day && x.h === h);
+    if (slot) { slot.cancelled = true; slot.cancelNote = c.note; }
+    const l = state.lessons.find((x) => +x.at === +keyAt(c.key) && x.status === 'planned');
+    if (l) { l.status = 'cancelled'; l.note = `Hoca iptali: ${c.note} · saat pakete döndü`; l.cancelBy = 'Onur Hoca'; l.cancelNote = c.note; l.cancelAt = NOW; }
+  }
+  for (const b of shared.bookings) {
+    const co = coachOf(bookingCoach(b));
+    state.lessons.push({ id: 'b' + co.name[0] + b.key, at: keyAt(b.key), coach: co.name, court: co.court, status: 'planned', label: 'Çocuk özel ders' });
+  }
+  for (const c of shared.cancels) {
+    const l = state.lessons.find((x) => x.id === c.lessonId);
+    if (l) { l.status = c.free ? 'cancelled' : 'burned'; l.note = c.free ? 'İptal edildi, saat pakete döndü' : 'Geç iptal, paketten düştü'; l.cancelBy = 'Ayşe Kaya (veli)'; l.cancelAt = NOW; }
+    if (l) l.cancelNote = c.note || '';
+    const slot = state.schedule.find((x) => x.denizId === c.lessonId);
+    if (slot) { slot.cancelled = true; slot.cancelNote = c.note || 'Veli iptal etti'; }
+  }
+}
+
+// Each login's notifications: a few examples, plus what the other logins did in this browser.
+function notificationsFor(role) {
+  const out = [];
+  for (const c of shared.cancels.slice().reverse()) {
+    const l = state.lessons.find((x) => x.id === c.lessonId);
+    if (!l) continue;
+    const when = `${dayLabel(l.at)} ${hm(l.at)}`;
+    if (role === 'veli') out.push({ id: 'cxv' + c.lessonId, tag: 'İptal', kind: c.free ? 'p-ok' : 'p-bad', t: `${when} dersi iptal edildi. ${c.free ? 'Saat paketinize döndü.' : 'Geç iptal: ders paketten düştü.'}`, when: 'Az önce' });
+    else out.push({ id: 'cx' + c.lessonId, tag: 'İptal', kind: c.free ? 'p-ok' : 'p-bad', t: `Ayşe Kaya, Deniz'in ${when} dersini iptal etti.${c.note ? ` Açıklama: “${c.note}”` : ''} ${c.free ? 'Saat pakete döndü, o saat artık boş.' : 'Geç iptal: ders paketten düştü.'}`, when: 'Az önce' });
+  }
+  for (const [name, pay] of Object.entries(shared.payments)) {
+    if (pay.status !== 'paid') continue;
+    if (role === 'veli' && name === state.student.name) out.push({ id: 'pay' + name + pay.made, tag: 'Ödeme', kind: 'p-ok', t: 'Kasım paketi ödemeniz alındı.', when: 'Az önce' });
+    if (role === 'yonetici') out.push({ id: 'pay' + name + pay.made, tag: 'Ödeme', kind: 'p-ok', t: `Onur Hoca, ${name} için Kasım paketini ödendi olarak işaretledi.`, when: 'Az önce' });
+  }
+  for (const c of shared.coachCancels.slice().reverse()) {
+    const at = keyAt(c.key); const when = `${dayLabel(at)} ${hm(at)}`;
+    if (role === 'veli' && c.who === 'Deniz Kaya') out.push({ id: 'cc' + c.key, tag: 'Hoca iptali', kind: 'p-info', t: `Onur Hoca ${when} dersini iptal etti: “${c.note}” Saat paketinize döndü.`, when: 'Az önce' });
+    if (role === 'yonetici') out.push({ id: 'cc' + c.key, tag: 'Hoca iptali', kind: 'p-info', t: `Onur Hoca, ${c.who} için ${when} dersini iptal etti: “${c.note}”`, when: 'Az önce' });
+  }
+  for (const b of shared.bookings.slice().reverse()) {
+    const when = `${dayLabel(keyAt(b.key))} ${hm(keyAt(b.key))}`;
+    if (role === 'veli') out.push({ id: 'bkv' + b.key, tag: 'Ders', kind: 'p-info', t: `${when} dersiniz ${bookingCoach(b)} ile ayrıldı.`, when: 'Az önce' });
+    else out.push({ id: 'bk' + b.key, tag: 'Yeni ders', kind: 'p-info', t: `Ayşe Kaya, Deniz için ${when} ders ayırdı.`, when: 'Az önce' });
+  }
+  const seeds = {
+    veli: [
+      { id: 'v1', tag: 'Hatırlatma', kind: 'p-info', t: 'Yarın 17:00 Onur Hoca ile dersiniz var · Kort 2.', when: 'Bugün 09:00' },
+      { id: 'v2', tag: 'Hoca iptali', kind: 'p-info', t: 'Onur Hoca 15 Kasım dersini iptal etti: “Yağmur nedeniyle kortlar ıslak.” Saat paketinize döndü, yeni bir gün seçebilirsiniz.', when: '15 Kas' },
+      { id: 'v3', tag: 'Ödeme', kind: 'p-ok', t: 'Kasım paketi ödemeniz alındı.', when: '1 Kas' },
+    ],
+    hoca: [
+      { id: 'h1', tag: 'Yeni ders', kind: 'p-info', t: 'Selin Ak, 29 Kasım 11:00 için ders ayırdı.', when: 'Dün 20:15' },
+      { id: 'h2', tag: 'Gelmedi', kind: 'p-bad', t: 'Burak Şen 22 Kasım dersine gelmedi; ders paketinden düştü.', when: '22 Kas' },
+    ],
+    yonetici: [
+      { id: 'y1', tag: 'Demo ders', kind: 'p-ball', t: 'Yeni demo ders başvurusu: Elif Yıldız · Çocuk · Hafta sonu · Yeni başlayan · 0532 *** ** 18', when: 'Bugün 11:20' },
+      { id: 'y2', tag: 'Ödeme', kind: 'p-warn', t: 'Mert Aydın\'ın Kasım paketi ödemesi bekleniyor.', when: 'Dün' },
+      { id: 'y3', tag: 'Gelmedi', kind: 'p-bad', t: 'Burak Şen 22 Kasım dersine gelmedi (Onur Hoca).', when: '22 Kas' },
+    ],
+  };
+  return out.concat(seeds[role] || []);
+}
+function unreadCount(role) { const read = shared.read[role] || []; return notificationsFor(role).filter((n) => !read.includes(n.id)).length; }
+function openNotifications() {
+  const role = state.role; const read = shared.read[role] || [];
+  const list = notificationsFor(role);
+  sheet(`
+    <h2>Bildirimler</h2>
+    <div>${list.map((n) => `<div class="note-item ${read.includes(n.id) ? '' : 'unread'}"><span class="pill ${n.kind}">${n.tag}</span><span class="small"><span class="txt">${read.includes(n.id) ? '' : '<span class="dot"></span>'}${esc(n.t)}</span><br><span class="tiny muted">${n.when}</span></span></div>`).join('') || '<p class="empty">Bildirim yok.</p>'}</div>
+    <button class="btn block" data-close-btn>Kapat</button>`);
+  $('[data-close-btn]').onclick = closeSheet;
+  shared.read[role] = list.map((n) => n.id); saveShared(); updateBadge();
+}
+function updateBadge() { const n = unreadCount(state.role); const b = $('#badge'); b.textContent = n; b.hidden = n === 0; }
+
+// ---- Helpers ----
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const hm = (dt) => `${String(dt.getHours()).padStart(2, '0')}:${String(dt.getMinutes()).padStart(2, '0')}`;
+const dayLabel = (dt) => `${dt.getDate()} ${MONTH[dt.getMonth()]} ${DAYLONG[dt.getDay()]}`;
+const hoursUntil = (dt) => (dt - NOW) / 36e5;
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast'; t.setAttribute('role', 'status');
+  t.innerHTML = '<span class="ti" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>';
+  const tx = document.createElement('span'); tx.textContent = msg; t.appendChild(tx);
+  // Bilgisayarda telefon çerçevesinin içinde, telefonda ekranın altında görünür.
+  const screenEl = document.querySelector('.device-screen');
+  (getComputedStyle(screenEl).display === 'block' ? screenEl : document.body).appendChild(t);
+  setTimeout(() => t.remove(), 3200);
+}
+function closeSheet() { $('#layer').innerHTML = ''; }
+function sheet(html) {
+  $('#layer').innerHTML = `<div class="scrim" data-close><div class="sheet" role="dialog" aria-modal="true">${html}</div></div>`;
+  $('#layer .scrim').addEventListener('click', (e) => { if (e.target.hasAttribute('data-close')) closeSheet(); });
+  const first = $('#layer .sheet button'); if (first) first.focus();
+}
+function addLog(text) { state.log.unshift(text); }
+
+// The month's 8 hours: what has been used, what was lost, what is booked.
+function packageCounts() {
+  const s = state.student;
+  const done = state.lessons.filter((l) => l.status === 'done').length;
+  const burned = state.lessons.filter((l) => l.status === 'burned').length;
+  const planned = state.lessons.filter((l) => l.status === 'planned').length;
+  const free = Math.max(0, s.hours - done - burned - planned);
+  return { done, burned, planned, free };
+}
+
+// ---- Veli / öğrenci ----
+function renderVeli() {
+  const s = state.student;
+  const c = packageCounts();
+  const tiles = [
+    ...Array(c.done).fill('m-done'), ...Array(c.burned).fill('m-burn'),
+    ...Array(c.planned).fill('m-plan'), ...Array(c.free).fill('m-free'),
+  ].map((k) => `<i class="${k}"></i>`).join('');
+  const upcoming = state.lessons.filter((l) => l.at > NOW).sort((a, b) => a.at - b.at);
+  const past = state.lessons.filter((l) => l.at <= NOW).sort((a, b) => b.at - a.at);
+  const rule = state.rules;
+  return `
+    <section class="hello"><span class="muted small">Merhaba ${esc(s.parent.split(' ')[0])} Hanım</span><strong>${esc(s.name)} · ${esc(s.pkg)}</strong></section>
+
+    <section class="card" aria-labelledby="pk">
+      <div class="stat-line"><h2 id="pk">Kasım paketi</h2><span class="pill ${s.paid ? 'p-ok' : 'p-warn'}">${s.paid ? 'Ödendi' : 'Ödeme bekliyor'}</span></div>
+      <div class="meter" aria-label="8 saatlik paket">${tiles}</div>
+      <div class="legend">
+        <span><i class="m-done"></i>Yapıldı ${c.done}</span>
+        <span><i class="m-plan"></i>Planlı ${c.planned}</span>
+        <span><i class="m-burn"></i>Yanan ${c.burned}</span>
+        <span><i class="m-free"></i>Planlanmamış ${c.free}</span>
+      </div>
+      <div class="row small"><span class="grow muted">Paket 30 Kasım'da biter. ${rule.carryOver === 'none' ? 'Kullanılmayan saatler devretmez.' : 'En fazla 1 saat Aralık\'a devreder.'}</span></div>
+      <div class="row"><span class="pill ${c.free > 0 ? 'p-info' : 'p-warn'}">${c.free > 0 ? `${c.free} saat planlanmamış` : 'Planlanmamış saat yok'}</span><span class="grow"></span><button class="btn primary" id="btn-book">Ders ayır</button></div>
+    </section>
+
+    <section class="card" aria-labelledby="up">
+      <h2 id="up">Yaklaşan dersler</h2>
+      ${upcoming.length ? upcoming.map((l) => lessonRow(l, true)).join('') : '<p class="empty">Planlı ders yok.</p>'}
+    </section>
+
+    <section class="card" aria-labelledby="rl">
+      <h2 id="rl">İptal kuralları</h2>
+      <div class="rule"><span class="ico" style="background:var(--ok-soft);color:var(--ok)">✓</span><span><b>${rule.cancelHours} saatten önce</b> iptal edersen saat paketine geri döner.</span></div>
+      <div class="rule"><span class="ico" style="background:var(--bad-soft);color:var(--bad)">!</span><span><b>${rule.cancelHours} saatten az</b> kala iptal ya da gelmeme: ders paketten düşer.</span></div>
+      <div class="rule"><span class="ico" style="background:var(--court-soft);color:var(--court)">i</span><span>Hoca ya da kulüp dersi iptal ederse <b>hakkın yanmaz</b>, saat paketine döner. İptal sebebi bildirimde yazar.</span></div>
+    </section>
+
+    <section class="card" aria-labelledby="ps">
+      <h2 id="ps">Geçmiş</h2>
+      ${past.map((l) => lessonRow(l, false)).join('')}
+    </section>`;
+}
+
+function lessonRow(l, actionable) {
+  const at = l.at;
+  let right = '';
+  if (actionable && l.status === 'planned') right = `<button class="btn danger" data-cancel="${l.id}">İptal et</button>`;
+  else if (l.status === 'done') right = '<span class="pill p-ok">Yapıldı</span>';
+  else if (l.status === 'burned') right = '<span class="pill p-bad">Düştü</span>';
+  else if (l.status === 'cancelled') right = '<span class="pill p-ok">İade edildi</span>';
+  const sub = l.note || `${l.coach} · ${l.court}`;
+  const info = l.status === 'cancelled' || l.status === 'burned';
+  return `<div class="lesson ${info ? 'cancelled tappable' : ''}" ${info ? `data-info="${l.id}" role="button" tabindex="0" aria-label="${dayLabel(at)} ${hm(at)} iptal detayı"` : ''}>
+      <div class="when"><b>${at.getDate()}</b><span>${DAY[at.getDay()]}</span></div>
+      <div style="min-width:0"><div class="t">${hm(at)} · ${esc(l.label || 'Çocuk özel ders')}</div><div class="s">${esc(sub)}</div></div>
+      <div>${right}</div>
+    </div>`;
+}
+
+function openCancel(rawId) {
+  const l = state.lessons.find((x) => String(x.id) === String(rawId)); if (!l) return;
+  const id = l.id;
+  const left = hoursUntil(l.at);
+  const free = left >= state.rules.cancelHours;
+  const leftText = left >= 48 ? `${Math.floor(left / 24)} gün ${Math.round(left % 24)} saat` : `${Math.round(left)} saat`;
+  sheet(`
+    <h2>${dayLabel(l.at)} · ${hm(l.at)} dersini iptal et</h2>
+    <div class="verdict ${free ? 'v-ok' : 'v-bad'}">
+      <b>${free ? 'Saat paketine geri döner' : 'Bu ders paketten düşer'}</b>
+      <span class="small">Derse ${leftText} var. Kural: ${state.rules.cancelHours} saat. ${free ? 'Hakkın korunur, Onur Hoca\'ya bildirim gider.' : 'Son dakika iptalinde kort ve hoca ayrılmış olur.'}</span>
+    </div>
+    <label class="note-field" for="st-note">Açıklama <span class="muted">(isteğe bağlı, hocaya gider)</span>
+      <textarea id="st-note" rows="2" placeholder="Örn. Deniz hastalandı."></textarea></label>
+    <div class="actions">
+      <button class="btn block" data-close-btn>Vazgeç</button>
+      <button class="btn block danger solid" id="confirm-cancel">İptal et</button>
+    </div>`);
+  $('[data-close-btn]').onclick = closeSheet;
+  $('#confirm-cancel').onclick = () => {
+    l.status = free ? 'cancelled' : 'burned';
+    l.note = free ? 'İptal edildi, saat pakete döndü' : `Geç iptal (${Math.round(left)} saat kala), paketten düştü`;
+    const note = $('#st-note').value.trim();
+    l.cancelBy = 'Ayşe Kaya (veli)'; l.cancelAt = NOW; l.cancelNote = note;
+    const slot = state.schedule.find((x) => x.denizId === id);
+    if (slot) { slot.cancelled = true; slot.cancelNote = note || 'Veli iptal etti'; }
+    shared.cancels.push({ lessonId: id, free, note, made: Date.now() }); saveShared();
+    addLog(`Ayşe Kaya, Deniz'in ${dayLabel(l.at)} ${hm(l.at)} dersini iptal etti (${free ? 'hak iade' : 'hak düştü'}).`);
+    closeSheet(); render();
+    toast(free ? 'İptal edildi. Saat paketine döndü.' : 'İptal edildi. Ders paketten düştü.');
+  };
+}
+
+// Cancelled or burned lesson: who cancelled, when, why, and what happened to the hour.
+function openLessonInfo(rawId) {
+  const l = state.lessons.find((x) => String(x.id) === String(rawId)); if (!l) return;
+  const returned = l.status === 'cancelled';
+  const by = l.cancelBy || (returned ? 'Ayşe Kaya (veli)' : 'Ayşe Kaya (veli)');
+  const why = l.cancelNote || (by.startsWith('Ayşe') ? (returned ? 'Veli zamanında iptal etti.' : 'Veli kurala göre geç iptal etti.') : '');
+  sheet(`
+    <h2>${dayLabel(l.at)} · ${hm(l.at)}</h2>
+    <div class="detail">
+      <div><span>Ders</span><b>${esc(l.label || 'Çocuk özel ders')}</b></div>
+      <div><span>Hoca · kort</span><b>${esc(l.coach)} · ${esc(l.court)}</b></div>
+      <div><span>İptal eden</span><b>${esc(by)}</b></div>
+      ${l.cancelAt ? `<div><span>İptal zamanı</span><b>${l.cancelAt.getDate()} ${MONTH[l.cancelAt.getMonth()]} ${hm(l.cancelAt)}</b></div>` : ''}
+      <div><span>Açıklama</span><b>${esc(why)}</b></div>
+      <div><span>Paket</span>${returned ? '<span class="pill p-ok">Saat paketine döndü</span>' : '<span class="pill p-bad">Paketten düştü</span>'}</div>
+    </div>
+    <button class="btn block" data-close-btn>Kapat</button>`);
+  $('[data-close-btn]').onclick = closeSheet;
+}
+
+// Booking: one of the coach's free hours, from the package's unplanned hours.
+function freeSlotsOf(coach) {
+  const list = coach === 'Onur Hoca' ? shared.free : ARIFE_FREE;
+  const taken = new Set(shared.bookings.filter((b) => bookingCoach(b) === coach).map((b) => b.key));
+  const busy = new Set(state.schedule.filter((x) => x.coach === coach).map((x) => `${x.day}-${x.h}`));
+  return list.filter((k) => !taken.has(k) && !busy.has(k) && keyAt(k) > NOW).sort((x, y) => keyAt(x) - keyAt(y));
+}
+
+// Step 1: choose a coach.
+function openPicker() {
+  const left = packageCounts().free;
+  sheet(`
+    <h2>Ders ayır</h2>
+    <p class="small muted" style="margin:0">${left > 0 ? `Paketinde ${left} saat planlanmamış.` : 'Paketinde planlanmamış saat kalmadı. Bir dersi zamanında iptal edersen saat geri döner.'}</p>
+    <div style="display:grid;gap:8px">${COACHES.map((co) => { const n = freeSlotsOf(co.name).length; return `
+      <button class="slot" data-coach="${co.name}" ${left > 0 ? '' : 'disabled'}>
+        <span class="coach-ava">${co.name[0]}</span>
+        <span style="flex:1;min-width:0"><b>${esc(co.name)}</b><br><span class="tiny muted">${esc(co.about)} · ${esc(co.court)}</span></span>
+        <span class="pill ${n ? 'p-info' : 'p-warn'}">${n ? `${n} boş saat` : 'Boş saat yok'}</span>
+      </button>`; }).join('')}</div>
+    <button class="btn block" data-close-btn>Vazgeç</button>`);
+  $('[data-close-btn]').onclick = closeSheet;
+  document.querySelectorAll('[data-coach]').forEach((b) => (b.onclick = () => openCoachProgram(b.dataset.coach)));
+}
+
+// Step 2: the coach's free hours, day by day.
+function openCoachProgram(coach) {
+  const slots = freeSlotsOf(coach);
+  const byDay = {};
+  for (const k of slots) { const at = keyAt(k); const dk = `${at.getMonth()}-${at.getDate()}`; (byDay[dk] = byDay[dk] || { at, keys: [] }).keys.push(k); }
+  sheet(`
+    <h2>${esc(coach)} · boş saatler</h2>
+    <p class="small muted" style="margin:0">Bir saate dokun. Paketindeki planlanmamış saatten düşer.</p>
+    <div class="prog">${Object.values(byDay).map((g) => `
+      <div class="prog-day"><b>${g.at.getDate()} ${MONTH[g.at.getMonth()]}</b><span>${DAYLONG[g.at.getDay()]}</span></div>
+      <div class="prog-hours">${g.keys.map((k) => `<button class="hour" data-slot="${k}">${hm(keyAt(k))}</button>`).join('')}</div>`).join('') || '<p class="empty">Bu hocanın şu an boş saati yok.</p>'}</div>
+    <div class="actions"><button class="btn block" id="pg-back">‹ Hocalar</button><button class="btn block" data-close-btn>Vazgeç</button></div>`);
+  $('[data-close-btn]').onclick = closeSheet;
+  $('#pg-back').onclick = openPicker;
+  document.querySelectorAll('[data-slot]').forEach((b) => (b.onclick = () => confirmBooking(b.dataset.slot, coach)));
+}
+
+// Second step: the parent confirms before the hour is taken from the package.
+function confirmBooking(key, coach = 'Onur Hoca') {
+  const co = coachOf(coach);
+  const at = keyAt(key);
+  const left = packageCounts().free;
+  const cutoff = new Date(at - state.rules.cancelHours * 36e5);
+  sheet(`
+    <h2>Ders ayrılsın mı?</h2>
+    <div class="detail">
+      <div><span>Gün</span><b>${dayLabel(at)}</b></div>
+      <div><span>Saat</span><b>${hm(at)}</b></div>
+      <div><span>Hoca · kort</span><b>${esc(co.name)} · ${esc(co.court)}</b></div>
+      <div><span>Paketten</span><b>1 saat düşer (${left} → ${left - 1} planlanmamış)</b></div>
+    </div>
+    <div class="verdict v-ok"><b>Son ücretsiz iptal: ${cutoff.getDate()} ${MONTH[cutoff.getMonth()]} ${hm(cutoff)}</b>
+      <span class="small">Dersten ${state.rules.cancelHours} saat öncesine kadar iptal edersen saat paketine geri döner. Sonrasında iptal ya da gelmeme paketten düşer.</span></div>
+    <div class="actions"><button class="btn block" id="bk-back">Geri</button><button class="btn block primary" id="bk-go">Evet, dersi ayır</button></div>`);
+  $('#bk-back').onclick = () => openCoachProgram(coach);
+  $('#bk-go').onclick = () => {
+    shared.bookings.push({ key, coach: co.name, who: 'Deniz Kaya', parent: 'Ayşe Kaya', made: Date.now() });
+    saveShared();
+    state.lessons.push({ id: 'b' + co.name[0] + key, at, coach: co.name, court: co.court, status: 'planned', label: 'Çocuk özel ders' });
+    addLog(`Ayşe Kaya, Deniz için ${dayLabel(at)} ${hm(at)} ${co.name} ile ders ayırdı.`);
+    closeSheet(); render(); toast(`Ders ayrıldı. ${co.name}'ya bildirildi.`);
+  };
+}
+
+// ---- Hoca ----
+const payPill = (pay) => pay === 'paid' ? '<span class="pill p-ok">Ödendi</span>' : pay === 'due' ? '<span class="pill p-warn">Ödeme bekliyor</span>' : pay === 'late' ? '<span class="pill p-bad">Ödeme gecikti</span>' : '';
+const rosterOf = (who) => state.roster.find((p) => p.name === who);
+function weekDays(offset) { return Array.from({ length: 7 }, (_, i) => WEEK0 + offset * 7 + i); }
+
+// The coach's lessons in a week. Other weeks repeat this week's group/private pattern (example data).
+let hocaCells = {};
+function hocaEntries(offset) {
+  const days = weekDays(offset);
+  const cur = state.schedule.filter((x) => x.coach === 'Onur Hoca');
+  const out = [];
+  for (const day of days) {
+    const wd = d(day, 12).getDay();
+    let list;
+    if (offset === 0) list = cur.filter((x) => x.day === day);
+    else list = cur.filter((x) => !x.denizId && d(x.day, 12).getDay() === wd).map((x) => ({ ...x, day, cancelled: false, cancelNote: '' }));
+    for (const x of list) out.push({ ...x, at: d(day, x.h), key: `${day}-${x.h}`, src: x });
+    if (offset !== 0) for (const l of state.lessons.filter((l) => l.coach === 'Onur Hoca' && l.at.getDate() === d(day, 12).getDate() && l.at.getMonth() === d(day, 12).getMonth() && !String(l.id).startsWith('b'))) {
+      out.push({ day, h: l.at.getHours(), at: l.at, key: `${day}-${l.at.getHours()}`, who: 'Deniz Kaya', type: 'Çocuk özel', court: l.court, lessonRef: l, cancelled: l.status === 'cancelled', cancelNote: l.note });
+    }
+    for (const bk of shared.bookings.filter((b) => bookingCoach(b) === 'Onur Hoca' && +b.key.split('-')[0] === day)) {
+      const h = +bk.key.split('-')[1];
+      const sc = shared.cancels.find((c) => c.lessonId === 'bO' + bk.key);
+      out.push({ day, h, at: keyAt(bk.key), key: bk.key, who: bk.who, type: 'Çocuk özel', court: 'Kort 2', booking: bk, isNew: true, cancelled: !!sc, cancelNote: sc ? (sc.note || 'Veli iptal etti') : '' });
+    }
+  }
+  for (const c of shared.coachCancels) { const e = out.find((x) => x.key === c.key); if (e) { e.cancelled = true; e.cancelNote = c.note; } }
+  return out;
+}
+
+function renderHoca() {
+  const mine = state.schedule.filter((x) => x.coach === 'Onur Hoca');
+  const today = mine.filter((x) => x.day === 25);
+  const weekCount = hocaEntries(0).filter((x) => !x.cancelled).length;
+  const off = state.hocaWeek;
+  const days = weekDays(off);
+  const entries = hocaEntries(off);
+  hocaCells = Object.fromEntries(entries.map((e) => [e.key, e]));
+  const first = d(days[0], 12), last = d(days[6], 12);
+  const range = first.getMonth() === last.getMonth() ? `${first.getDate()}–${last.getDate()} ${MONTH[first.getMonth()]}` : `${first.getDate()} ${MONTH[first.getMonth()]} – ${last.getDate()} ${MONTH[last.getMonth()]}`;
+  const students = ['Deniz Kaya', 'Burak Şen', 'Selin Ak', 'Can Demir', 'Ela Koç'].map(rosterOf);
+  return `
+    <section class="hello"><span class="muted small">25 Kasım Çarşamba</span><strong>Merhaba Onur Hoca</strong></section>
+
+    <section class="kpis" aria-label="Özet">
+      <div class="kpi"><b>${today.length}</b><span>Bugünkü ders</span></div>
+      <div class="kpi"><b>${weekCount}</b><span>Bu hafta toplam</span></div>
+    </section>
+
+    <section class="card" aria-labelledby="yk">
+      <h2 id="yk">Bugün · yoklama</h2>
+      <p class="tiny muted" style="margin:0">"Gelmedi" işaretlenen ders, kurala göre öğrencinin paketinden düşer ve veliye bildirim gider.</p>
+      ${today.map((x) => {
+        const key = `25-${x.h}`; const v = state.attendance[key];
+        return `<div class="lesson ${x.cancelled ? 'cancelled' : ''}">
+          <div class="when"><b>${x.h}:00</b><span>${esc(x.court)}</span></div>
+          <div style="min-width:0"><div class="t">${esc(x.who)}</div><div class="s">${esc(x.type)}</div></div>
+          ${x.cancelled ? '<span class="pill p-info">İptal</span>' : `<div class="att"><button class="chip-btn ${v === 'ok' ? 'on-ok' : ''}" data-att="${key}" data-v="ok">Geldi</button><button class="chip-btn ${v === 'no' ? 'on-bad' : ''}" data-att="${key}" data-v="no">Gelmedi</button></div>`}
+        </div>`;
+      }).join('')}
+    </section>
+
+    <section class="card" aria-labelledby="mu">
+      <div class="stat-line"><h2 id="mu">Takvimim</h2><button class="btn" id="av-reset" style="font-size:12px;padding:6px 10px">Örneğe dön</button></div>
+      <div class="wk-nav">
+        <button class="btn" data-wk="-1" ${off <= -2 ? 'disabled' : ''} aria-label="Önceki hafta">‹ Önceki</button>
+        <b>${range}${off === 0 ? ' · bu hafta' : ''}</b>
+        <button class="btn" data-wk="1" ${off >= 2 ? 'disabled' : ''} aria-label="Sonraki hafta">Sonraki ›</button>
+      </div>
+      <p class="tiny muted" style="margin:0">Derse dokun: detay ve iptal. Boş saate dokun: öğrencilere açılır.</p>
+      <div class="table-wrap"><table class="avail week">
+        <thead><tr><th></th>${days.map((n) => { const dt = d(n, 12); const isToday = dt.getDate() === 25 && dt.getMonth() === 10; return `<th class="${isToday ? 'today' : ''}">${DAY[dt.getDay()]}<br>${dt.getDate()}</th>`; }).join('')}</tr></thead>
+        <tbody>${AV_HOURS.map((h) => `<tr><th>${String(h).padStart(2, '0')}</th>${days.map((n) => {
+          const k = `${n}-${h}`; const e = hocaCells[k]; const past = d(n, h) < NOW;
+          if (e) {
+            const r = rosterOf(e.who); const due = r && r.pay !== 'paid';
+            const cls = e.cancelled ? 'cell cxl' : `cell ${due ? 'booked' : 'busy'}${past ? ' past' : ''}`;
+            return `<td><button class="${cls}" data-lesson="${k}" aria-label="${esc(e.who)}, ${DAY[d(n, 12).getDay()]} ${d(n, 12).getDate()} ${h}:00">${esc(e.who.split(' ')[0])}</button></td>`;
+          }
+          if (past) return '<td><span class="cell gone"></span></td>';
+          const on = shared.free.includes(k);
+          return `<td><button class="cell ${on ? 'free' : ''}" data-av="${k}" aria-pressed="${on}" aria-label="${DAY[d(n, 12).getDay()]} ${d(n, 12).getDate()}, ${h}:00">${on ? 'Boş' : ''}</button></td>`;
+        }).join('')}</tr>`).join('')}</tbody>
+      </table></div>
+      <div class="legend"><span><i style="background:var(--court-soft);border-color:var(--court)"></i>Boş (öğrenciler görür)</span><span><i style="background:var(--surface-2)"></i>Ders · ödendi</span><span><i style="background:rgba(194,70,66,.12);border-color:var(--ball)"></i>Ders · ödeme bekliyor</span></div>
+    </section>
+
+    <section class="card" aria-labelledby="og2">
+      <h2 id="og2">Öğrencilerim</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Öğrenci</th><th>Paket</th><th>Kalan</th></tr></thead>
+        <tbody>${students.map((p) => `<tr><td><b>${esc(p.name)}</b></td><td class="muted">${esc(p.pkg)}</td><td>${p.left} sa</td></tr>`).join('')}</tbody>
+      </table></div>
+    </section>`;
+}
+
+// The coach marks a package as paid (prototype: the coach is allowed to; in the product this is a club setting).
+function openPayment(name, back) {
+  const r = rosterOf(name); if (!r) return;
+  const done = () => (back || closeSheet)();
+  if (r.pay !== 'paid') {
+    sheet(`
+      <h2>Ödendi olarak işaretlensin mi?</h2>
+      <p class="small" style="margin:0">${esc(name)} · ${esc(r.pkg)} · Kasım paketi</p>
+      <div class="verdict v-ok"><b>Öğrenciye bildirim gider</b><span class="small">"Kasım paketi ödemeniz alındı." Emin misiniz?</span></div>
+      <div class="actions"><button class="btn block" id="pay-back">Vazgeç</button><button class="btn block primary" id="pay-go">Evet, ödendi</button></div>`);
+    $('#pay-back').onclick = done;
+    $('#pay-go').onclick = () => {
+      r.pay = 'paid'; if (name === state.student.name) state.student.paid = true;
+      shared.payments[name] = { status: 'paid', by: 'Onur Hoca', made: Date.now() }; saveShared();
+      addLog(`Onur Hoca, ${name} için Kasım paketini ödendi olarak işaretledi.`);
+      render(); done(); toast(`${name.split(' ')[0]}: ödendi. Öğrenciye bildirim gitti.`);
+    };
+  } else {
+    sheet(`
+      <h2>${esc(name)} · ödendi</h2>
+      <p class="small muted" style="margin:0">${esc(r.pkg)} · Kasım paketi ödendi olarak işaretli.</p>
+      <div class="actions"><button class="btn block" id="pay-undo">Ödenmedi yap</button><button class="btn block primary" id="pay-back">Tamam</button></div>`);
+    $('#pay-back').onclick = done;
+    $('#pay-undo').onclick = () => {
+      r.pay = 'due'; if (name === state.student.name) state.student.paid = false;
+      shared.payments[name] = { status: 'due', by: 'Onur Hoca', made: Date.now() }; saveShared();
+      render(); done(); toast(`${name.split(' ')[0]}: ödeme bekliyor olarak değiştirildi.`);
+    };
+  }
+}
+
+function openLessonDetail(key) {
+  const e = hocaCells[key]; if (!e) return;
+  const r = rosterOf(e.who);
+  const past = e.at < NOW;
+  const status = e.cancelled ? '<span class="pill p-info">İptal edildi</span>'
+    : e.lessonRef && e.lessonRef.status === 'burned' ? '<span class="pill p-bad">Paketten düştü</span>'
+    : past ? (state.attendance[key] === 'no' ? '<span class="pill p-bad">Gelmedi</span>' : '<span class="pill p-ok">Yapıldı</span>')
+    : '<span class="pill p-info">Planlı</span>';
+  sheet(`
+    <h2>${dayLabel(e.at)} · ${hm(e.at)}</h2>
+    <div class="detail">
+      <div><span>Öğrenci</span><b>${esc(e.who)}</b></div>
+      <div><span>Ders</span><b>${esc(e.type)}${e.isNew ? ' · yeni ayrıldı' : ''}</b></div>
+      <div><span>Kort</span><b>${esc(e.court)}</b></div>
+      ${r ? `<div><span>Paket</span><b>${esc(r.pkg)} · ${r.left} saat kaldı</b></div><div><span>Ödeme</span><span class="pay-row">${payPill(r.pay)}<button class="btn mini" id="pay-edit">${r.pay === 'paid' ? 'Değiştir' : 'Ödendi işaretle'}</button></span></div>` : ''}
+      <div><span>Durum</span>${status}</div>
+      ${e.cancelled && e.cancelNote ? `<div><span>İptal notu</span><b>${esc(e.cancelNote)}</b></div>` : ''}
+    </div>
+    ${!past && !e.cancelled ? `
+      <label class="note-field" for="cx-note">İptal notu <span class="muted">(öğrenciye/veliye gider)</span>
+        <textarea id="cx-note" rows="3" placeholder="Örn. Rahatsızlandım, bu dersi iptal ediyorum. Saatiniz paketinize döndü."></textarea></label>
+      <div class="verdict v-ok"><b>Öğrencinin hakkı yanmaz</b><span class="small">Hoca kaynaklı iptalde saat pakete döner, öğrenci yeni bir gün seçer.</span></div>
+      <div class="err" id="cx-err" hidden>Lütfen kısa bir iptal notu yazın.</div>
+      <div class="actions"><button class="btn block" data-close-btn>Vazgeç</button><button class="btn block danger solid" id="cx-go">Dersi iptal et</button></div>`
+    : '<button class="btn block" data-close-btn>Kapat</button>'}`);
+  $('[data-close-btn]').onclick = closeSheet;
+  const pe = $('#pay-edit'); if (pe) pe.onclick = () => openPayment(e.who, () => openLessonDetail(key));
+  const go = $('#cx-go'); if (!go) return;
+  go.onclick = () => {
+    const note = $('#cx-note').value.trim();
+    if (!note) { $('#cx-err').hidden = false; $('#cx-note').focus(); return; }
+    if (e.booking) shared.bookings = shared.bookings.filter((b) => !(b.key === key && bookingCoach(b) === 'Onur Hoca'));
+    shared.coachCancels.push({ key, who: e.who, note, made: Date.now() }); saveShared();
+    if (e.src) { e.src.cancelled = true; e.src.cancelNote = note; }
+    const l = state.lessons.find((x) => +x.at === +e.at && x.status === 'planned');
+    if (l) { l.status = 'cancelled'; l.note = `Hoca iptali: ${note} · saat pakete döndü`; }
+    addLog(`Onur Hoca, ${e.who} için ${dayLabel(e.at)} ${hm(e.at)} dersini iptal etti: “${note}”`);
+    closeSheet(); render(); toast('Ders iptal edildi, öğrenciye notun gitti.');
+  };
+}
+
+// ---- Yönetici ----
+function renderYonetici() {
+  const r = state.rules;
+  const dayBtns = [25, 26, 27, 28, 29].map((n) => {
+    const dt = d(n, 12);
+    return `<button data-day="${n}" aria-pressed="${state.adminDay === n}">${DAY[dt.getDay()]}<b>${n}</b></button>`;
+  }).join('');
+  const list = state.schedule.filter((x) => x.day === state.adminDay);
+  const courts = ['Kort 1', 'Kort 2'];
+  const lateCancels = state.lessons.filter((l) => l.status === 'burned').length;
+  const payDue = state.roster.filter((p) => p.pay !== 'paid').length;
+  const returned = state.lessons.filter((l) => l.status === 'cancelled').length;
+  return `
+    <section class="kpis" aria-label="Bu ay">
+      <div class="kpi"><b>${state.schedule.filter((x) => !x.cancelled).length}</b><span>Bu hafta planlı ders</span></div>
+      <div class="kpi"><b>${lateCancels}</b><span>Geç iptal (paketten düşen)</span></div>
+      <div class="kpi"><b>${returned}</b><span>Pakete dönen saat (zamanında ya da kulüp iptali)</span></div>
+      <div class="kpi"><b>${payDue}</b><span>Ödemesi bekleyen paket</span></div>
+    </section>
+
+    <section class="card" aria-labelledby="pg">
+      <div class="stat-line"><h2 id="pg">Program</h2></div>
+      <div class="days" role="group" aria-label="Gün seç">${dayBtns}</div>
+      ${courts.map((c) => {
+        const rows = list.filter((x) => x.court === c);
+        return `<div class="court-col"><h4>${c}</h4>${rows.length ? rows.map((x) => `
+          <div class="lesson ${x.cancelled ? 'cancelled' : ''}">
+            <div class="when"><b>${x.h}:00</b><span>${esc(x.coach.split(' ')[0])}</span></div>
+            <div style="min-width:0"><div class="t">${esc(x.who)}</div><div class="s">${esc(x.type)}</div></div>
+            <div>${x.cancelled ? '<span class="pill p-ok">İptal</span>' : ''}</div>
+          </div>`).join('') : '<p class="empty">Ders yok.</p>'}</div>`;
+      }).join('')}
+    </section>
+
+    <section class="card" aria-labelledby="kr">
+      <h2 id="kr">Kurallar</h2>
+      <div class="setting"><h3>Ücretsiz iptal süresi</h3>
+        <div class="seg" role="group" aria-label="İptal süresi">${[24, 48, 72].map((h) => `<button id="rule-${h}" data-rule="${h}" aria-pressed="${r.cancelHours === h}">${h} saat</button>`).join('')}</div>
+        <span class="tiny muted">Bundan az kala yapılan iptal paketten düşer. Veli ekranında anında görünür.</span></div>
+      <div class="setting"><h3>Ay sonunda kalan saatler</h3>
+        <div class="seg" role="group" aria-label="Devir">${[['none', 'Devretmez'], ['one', '1 saat devreder']].map(([k, t]) => `<button id="co-${k}" data-co="${k}" aria-pressed="${r.carryOver === k}">${t}</button>`).join('')}</div></div>
+    </section>
+
+    <section class="card" aria-labelledby="og">
+      <h2 id="og">Öğrenciler ve paketler</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Öğrenci</th><th>Paket</th><th>Kalan</th><th>Ödeme</th></tr></thead>
+        <tbody>${state.roster.map((p) => `<tr>
+          <td><b>${esc(p.name)}</b></td><td class="muted">${esc(p.pkg)}</td><td>${p.left} sa</td>
+          <td>${p.pay === 'paid' ? '<span class="pill p-ok">Ödendi</span>' : p.pay === 'due' ? '<span class="pill p-warn">Bekliyor</span>' : '<span class="pill p-bad">Gecikti</span>'}</td></tr>`).join('')}</tbody>
+      </table></div>
+    </section>
+
+    <section class="card" aria-labelledby="sh">
+      <h2 id="sh">Son hareketler</h2>
+      <div class="log">${state.log.slice(0, 6).map((t) => `<div><span>${esc(t)}</span></div>`).join('')}</div>
+    </section>`;
+}
+
+
+// ---- Render + events ----
+function render() {
+  document.querySelectorAll('.roles button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.role === state.role)));
+  const s = $('#screen');
+  s.innerHTML = state.role === 'veli' ? renderVeli() : state.role === 'hoca' ? renderHoca() : renderYonetici();
+  s.querySelectorAll('[data-info]').forEach((b) => { b.onclick = () => openLessonInfo(b.dataset.info); b.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLessonInfo(b.dataset.info); } }; });
+  s.querySelectorAll('[data-cancel]').forEach((b) => (b.onclick = () => openCancel(b.dataset.cancel)));
+  updateBadge();
+  const bk = $('#btn-book', s); if (bk) bk.onclick = openPicker;
+  s.querySelectorAll('[data-pay]').forEach((b) => (b.onclick = () => openPayment(b.dataset.pay)));
+  s.querySelectorAll('[data-lesson]').forEach((b) => (b.onclick = () => openLessonDetail(b.dataset.lesson)));
+  s.querySelectorAll('[data-wk]').forEach((b) => (b.onclick = () => { state.hocaWeek += Number(b.dataset.wk); render(); }));
+  s.querySelectorAll('[data-av]').forEach((b) => (b.onclick = () => {
+    const k = b.dataset.av; const i = shared.free.indexOf(k);
+    if (i >= 0) shared.free.splice(i, 1); else shared.free.push(k);
+    saveShared(); render();
+  }));
+  const rs = $('#av-reset', s); if (rs) rs.onclick = () => { shared.free = [...SEED.free]; shared.bookings = []; shared.cancels = []; shared.coachCancels = []; shared.payments = {}; shared.read = {}; saveShared(); location.reload(); };
+  s.querySelectorAll('[data-att]').forEach((b) => (b.onclick = () => {
+    state.attendance[b.dataset.att] = b.dataset.v;
+    if (b.dataset.v === 'no') { addLog(`Onur Hoca ${b.dataset.att.split('-')[1]}:00 dersi için "gelmedi" işaretledi; ders paketten düştü, veliye bildirildi.`); toast('Gelmedi: ders paketten düştü, veliye bildirildi.'); }
+    render();
+  }));
+  s.querySelectorAll('[data-day]').forEach((b) => (b.onclick = () => { state.adminDay = Number(b.dataset.day); render(); }));
+  s.querySelectorAll('[data-rule]').forEach((b) => (b.onclick = () => { state.rules.cancelHours = Number(b.dataset.rule); render(); toast(`Ücretsiz iptal süresi ${b.dataset.rule} saat oldu.`); }));
+  s.querySelectorAll('[data-co]').forEach((b) => (b.onclick = () => { state.rules.carryOver = b.dataset.co; render(); }));
+}
+document.querySelectorAll('.roles button').forEach((b) => (b.onclick = () => { state.role = b.dataset.role; closeSheet(); render(); window.scrollTo(0, 0); document.getElementById('scroller').scrollTop = 0; }));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSheet(); });
+// Signed in through giris.html: only that person's screen, as in the real thing.
+if (new URLSearchParams(location.search).get('rol')) {
+  document.querySelector('.roles').hidden = true;
+  document.querySelector('.brand p').textContent = { veli: 'Deniz\'in dersleri ve paketi', hoca: 'Dersleriniz, yoklama ve bildirimler', yonetici: 'Program, kurallar ve paketler' }[state.role];
+  const who = { veli: 'Ayşe Kaya (veli)', hoca: 'Onur Hoca', yonetici: 'Yönetici' }[state.role];
+  document.querySelector('.proto').innerHTML = `Giriş yapan: <b>${who}</b> · <a href="giris.html" style="color:var(--court);font-weight:600;text-decoration:none">Çıkış yap</a> · <a href="index.html" style="color:var(--court);font-weight:600;text-decoration:none">Siteye dön</a>`;
+}
+// ?gomme=1: sitedeki tanıtım görseli için, prototip satırı olmadan.
+if (new URLSearchParams(location.search).get('gomme')) document.querySelector('.proto').hidden = true;
+applyBookings();
+document.getElementById('bell').onclick = openNotifications;
+render();
+const lg = new Image(); lg.onload = () => { const m = document.getElementById('logo'); m.innerHTML = ''; lg.style.cssText = 'width:40px;height:40px;border-radius:50%;object-fit:cover'; m.style.background = 'none'; m.appendChild(lg); }; lg.src = 'gorseller/logo.jpg';
+</script>
+
+<script>
+// iPhone çerçevesini pencereye sığdır (ekran hep 390 px genişliğinde çizilir).
+const ipFit = () => document.documentElement.style.setProperty('--ip-zoom', Math.min(1, (innerHeight - 64) / 866, (innerWidth - 48) / 430).toFixed(3));
+ipFit(); addEventListener('resize', ipFit);
+</script>
+</html>

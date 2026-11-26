@@ -34,3 +34,6 @@ defaults:
     values: { sitemap: false }
   - scope: { path: "maas-metre/delete-account.md" }
     values: { sitemap: false }
+  # Prime Tenis prototipi: yalnızca kulübe gösterim için, arama dışı.
+  - scope: { path: "primeteniskulubu" }
+    values: { sitemap: false }
