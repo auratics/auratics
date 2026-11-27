@@ -5,7 +5,7 @@ title: Privacy Policy
 
 # Sugar Free Streak Privacy Policy
 
-Last updated: 13 November 2026
+Last updated: 27 November 2026
 
 This policy applies to the **Sugar Free Streak: Quit Sugar** app for Android
 and iOS, named Sugar Free on the home screen and published in the app stores
@@ -15,10 +15,11 @@ by **auratics**.
 **Contact:** support@auratics.app
 
 **In short**
-- You can start without signing up. The app gives you a guest account that
-  holds no name and no email.
-- What you log stays on your phone unless you turn on **Back up my logs**. With
-  it on, a copy is kept with your account on our server in the European Union.
+- To use the app you create an account with Apple, Google or an email
+  address, right after the first setup screens.
+- What you log is backed up with your account on our server in the European
+  Union, so you get it back on a new phone. You can turn backup off in
+  Settings; then new logs stay on your phone only.
 - There are no ads and no analytics, and we do not sell your data.
 
 ---
@@ -29,27 +30,35 @@ by **auratics**.
   any craving you beat, with the day and time.
 - The rule you chose (for example "no added sugar", or your own words) and
   your challenge length.
-- Whether you agreed to backup, and your settings, such as the theme and the
-  daily reminder.
+- Whether backup is on, and your settings, such as the theme and the daily
+  reminder.
 
 Uninstalling the app deletes this from the phone.
 
 ## 2. Your account
 
-When you first open the app, it creates a guest account for you with
-Supabase, our backend provider. The guest account is an account ID and the
-time it was created; it has no name and no email.
+While you go through the first setup screens, the app holds your answers in
+a temporary guest account with Supabase, our backend provider: an account ID
+and the time it was created, with no name and no email. Before you can use
+the app you turn it into your account in one of these ways:
 
-You can turn it into a full account by adding an email address and a password,
-so you can sign in on another phone. Then we also store that email address and
-a hash of the password (never the password itself), and Supabase emails you a
-code to confirm the address.
+- **Sign in with Apple:** we receive from Apple an account identifier and an
+  email address, which can be a private relay address if you choose to hide
+  yours.
+- **Sign in with Google:** we receive from Google an account identifier and
+  your email address.
+- **Email and password:** we store the email address and a hash of the
+  password (never the password itself), and email you a code to confirm the
+  address.
 
-## 3. Back up my logs (optional)
+We use these only to sign you in. We do not receive your Apple or Google
+password, contacts or anything else from those accounts.
 
-The app asks, before anything you log leaves the phone, whether you want your
-logs backed up. "Keep them on this phone only" is a choice of equal weight, and
-you can change your answer in Settings at any time.
+## 3. Backup of your logs
+
+The sign-in screen tells you, before your account is created, that your
+streak and logs are stored with it. Backup is then on, and you can turn it
+off in Settings at any time.
 
 **What we store with backup on, on Supabase in Frankfurt, Germany:** your
 answer to the daily question and any craving you beat, each with the calendar
@@ -62,9 +71,10 @@ every phone you sign in on. Every account can read only its own logs.
 **Turning backup off** stops new logs from being sent. Logs already backed up
 stay with your account until you delete them (section 10).
 
-## 4. Friend challenges (optional)
+## 4. Friend challenges (optional, currently switched off)
 
-You can start a challenge and invite friends with a code, or join one with a
+This feature is not available in the current version of the app. When it is,
+you can start a challenge and invite friends with a code, or join one with a
 friend's code. Only if you do, we store on Supabase in Frankfurt:
 
 - the challenge: its code, its length and the rule it is about;
@@ -82,9 +92,9 @@ same for every challenge you are in.
 ## 5. Your health
 
 What you eat can say something about your health, which the GDPR treats as a
-special category of data. Without backup your logs never leave your phone.
-With it, we store them only because you explicitly agreed, and we never share
-them with anyone else.
+special category of data. We store your logs only because you created your
+account after being told they are kept with it, and you can stop this by
+turning backup off. We never share them with anyone else.
 
 Sugar Free Streak is a habit tool. It gives no medical advice and is not a
 medical device. If you have diabetes, an eating disorder or another medical
@@ -103,7 +113,7 @@ You can turn it off in Settings or in your phone's settings.
 |---|---|---|---|
 | Supabase, Inc. | Your account; backup if you turn it on; friend challenges if you join one; checking whether a newer version of the app is needed | As described in sections 2, 3 and 4 | Germany (Frankfurt) |
 | Expo (650 Industries, Inc.) | Downloading app updates | Device type, app version and a random installation ID | United States |
-| Apple or Google | Installing the app and showing notifications | As described in their own policies | United States |
+| Apple or Google | Installing the app, showing notifications, and Sign in with Apple or Google if you choose it | As described in section 2 and in their own policies | United States |
 
 Like any request over the internet, each of these also reaches the provider
 with your IP address. None of them receives your logs except Supabase, and
@@ -111,7 +121,8 @@ only with backup on.
 
 ## 8. Legal bases (EEA and UK)
 
-- **Backup of your logs:** your explicit consent (GDPR Articles 6(1)(a) and
+- **Backup of your logs:** your explicit consent, given by creating your
+  account after the notice on the sign-in screen (GDPR Articles 6(1)(a) and
   9(2)(a)). You can withdraw it at any time by turning backup off and deleting
   your data.
 - **Friend challenges:** what is needed to provide the challenge you started or
@@ -131,10 +142,10 @@ only with backup on.
 ## 10. Deleting your data
 
 - **Today's answer:** tap **Change** on the home screen.
-- **Your place in a friend challenge:** Friends → **Leave**.
 - **Your account and everything stored with it:** Settings → **Delete
-  account** (for a guest, **Delete my data**). This deletes the account and
-  every log on our server and on the phone, right away.
+  account**. This deletes the account and every log on our server and on the
+  phone, right away. If you signed in with Apple, it also ends the app's
+  access to your Apple ID.
 - **Without the app:** write to **support@auratics.app** from the email
   address of your account, and we delete it within 30 days.
 

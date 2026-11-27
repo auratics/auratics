@@ -2,11 +2,21 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["8JCMB3FW6D.com.auratics.habitual"],
+        "appIDs": [
+          "8JCMB3FW6D.com.auratics.habitual"
+        ],
         "components": [
-          { "/": "/habuddy/invite*", "comment": "Habuddy invites open in the app" }
+          {
+            "/": "/habuddy/invite*",
+            "comment": "Habuddy invites open in the app"
+          }
         ]
       }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "8JCMB3FW6D.com.auratics.portfoytakip"
     ]
   }
 }

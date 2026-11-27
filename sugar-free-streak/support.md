@@ -12,8 +12,9 @@ the app's version, which is at the bottom of Settings.
 ## Frequently asked questions
 
 **Do I need an account?**
-No. The app starts with a guest account. Add an email in Settings if you want
-to keep your streak on another phone.
+Yes. After the first setup screens you sign in with Apple, Google or an email
+address. Your streak is kept with your account, so you get it back on a new
+phone.
 
 **How is my streak counted?**
 It is the number of days since you last logged sugar. A day with sugar starts

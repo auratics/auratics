@@ -11,13 +11,12 @@ Quit Sugar** (Sugar Free on the home screen), an app by **auratics**.
 ## In the app
 
 1. Open Sugar Free Streak and tap the gear at the top right.
-2. At the bottom of Settings, tap **Delete account**. As a guest, it is called
-   **Delete my data**.
-3. Confirm twice.
+2. At the bottom of Settings, tap **Delete account**.
+3. Confirm twice. If you signed in with Apple, Apple asks you to confirm once
+   more.
 
 Your account and every log stored with it are deleted from our server and
-from the phone right away. A guest then starts again with a new, empty guest
-account.
+from the phone right away.
 
 ## Without the app
 
